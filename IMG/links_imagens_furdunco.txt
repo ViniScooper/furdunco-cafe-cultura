@@ -1,0 +1,103 @@
+Furdunço Café e Cultura | https://fw.wifire.me/s3/images/BCzlqq8giFOn00I0QfwRbAA4ycT5b39XJAsPte8.jpg
+Imagem | https://cardapio.wifire.me/static/flags/pt.png
+Imagem | https://cardapio.wifire.me/static/flags/es.png
+Imagem | https://cardapio.wifire.me/static/flags/en.png
+Batata frita | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5e9e3846b0bb88a6b4c62bf8d2b122d9.jpg
+Brie no forno | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e8587cf6d0ba64bca31676b3cbed6741.jpg
+Carpaccio | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/20ee004cef3533314f2733b887877305.jpg
+Cestinha de pães com pastinhas | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/4c427e4cb68e4eff394286e7c27492a3.jpg
+Empada | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a41609e40e5d1d3b698b97c8c0cd3b65.jpg
+Iscas de frango empanadas | https://cardapio.wifire.me/static/acontece/images/produto.jpg
+Mini coxinha | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9de9466a512a03b160c11478d87b292d.jpg
+Mini croissant | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/895c348e97ffb90108460cbe741a99fd.jpg
+Pão de queijo tradicional | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a70d4938d33053a83c37bdfd4b88df09.jpg
+Pão fofinho na chapa | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7406ea7cade0f6f915bcfeb9ee0aa86a.jpg
+Pão fofinho recheado | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5d5824fc8b6cc74adfc865eb1ecc6be2.jpg
+Pastel de queijo | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9cb25ad91a30e1be52eeef4b181157b1.jpg
+Quiche | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c93668726ac3e87532084def5863cf3e.jpg
+Bolo do dia | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7a1ea81bb3799aa2371bbb7ecba75a06.jpg
+Brigadeiro no pote | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/854f9306a61be6db575bc61b56f82be2.jpg
+Brownie com Sorvete | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0075eb08f2b7f073793d3af5cd0be987.jpg
+Cartola | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9f2685355e2f46db0180b131f9d40cdb.jpg
+Cheesecake | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b83b9a344e97aa818615276cf52a01d4.jpg
+Cookie Vegano | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/4040c32cb3ac32118f8963206c105853.jpg
+Mini Bolo | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/55178f480e543969d5881b40058cbd77.jpg
+Salada de Frutas | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/537ff26f21be2b5da4c6b29618b130e7.jpg
+Taça de Banoffee | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/369e0fac0a024cfe0443c78fb166ea36.jpg
+Torta Alemã | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/972c3045c0e709cddddda71080487cdb.jpg
+Acompanhamentos e porções | /static/acontece/images/produto.jpg
+Torta de Limão | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/fa402e0d6ce827781885244c077658d0.jpg
+Torta de Morango | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/17a2949231da46eddcb13f0075deb724.jpg
+Torta Folhada de Maçã | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1099e1d65d809e676ea6997f16fcb34f.jpg
+Cuscuz temperado | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1edf6140bccc8c5e25f6af24d016307b.jpg
+Sopa do dia | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/29df0058c61458f0099f6e1a86e109b3.jpg
+Tapioca rendada | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/eae6b6e066639689c405b579664497f5.jpg
+Omelete | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e39baede5bb074c4ff5a7d2e0ad84e4c.jpg
+Ovos com bacon | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f31c47ee1119986302516a454323e9c7.jpg
+Ovos mexidos | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3a965fae5a28936d36caf4c0364268d9.jpg
+Ovos no Purgatório | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/51fe6bc92ef91997b2c1fc88ba1d7a7e.jpg
+Toast de Brie e Jamon | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e5a5444a6bedf4ceb8f5ba4a16d587cc.jpg
+Toast de frango cremoso | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/21a98bab8d362a8eed7d203698d987ee.jpg
+Toast de guacamole | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/cc18e94c9011ccd40428900850ba4e7f.jpg
+Toast Vegana | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b92146eab787eef819717529b1096a71.jpg
+Brie com Parma | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/22b9858ed67ac257fec11887be3d8308.jpg
+Costelinha de porco | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5218feed09d728ab3c97998bfecacda6.jpg
+Do Reino | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/028cc901bcc19185fae95d0144e127b9.jpg
+Muçarela crocante | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a334798c6e1ad92ea88f79e1b7c60dba.jpg
+Vegano no ciabatta | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/841cf9e05dc7a2349fe9826ebfcea51f.jpg
+Salada de camarão | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/69d29c717b451b931ccca657e5e374b3.jpg
+Salada de frango | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/uZdmRuH1iy5Cl96XX10GJ2ZFX09cVuMS5vYPI-o.jpg
+Salada Toast | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/XqSZrYpeRqGLymFi4ELjIOCuXpdSJ9bTYU7IqV4.jpg
+Frango tarê | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d3c5ef9545aa9ecc95a0dfaf4ccff3ce.jpg
+Parmê de frango | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/g6t-nuOgNXJkRUtKp8dA7KP4IQNQlTHxyiohl58.jpg
+Picadinho | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/jd1Z03YDJL3KtFu0QBTO7ntuyEDHFoUOwxPBwes.jpg
+Risoto de alho poró | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/yYk59_x_XCqaCgMliOZKYgndt4UiTEVdKmYRfaA.jpg
+Risoto de camarão | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/fEz8jq4ntS6eUxzPmGoYnDUnmHMZrXYa0bEwwGM.jpg
+Risoto de costelinha de porco | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/OmODHh5tKsRpgDmR0CxVl1ibC0Hi_hK63XZRrrQ.jpg
+Tilápia grelhada | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ZnCxceiQQqFjONyQdU2kuJXu3bopW4LKUe4baVM.jpg
+Cubinhos de frango com penne | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/82511e8fc8cef70038cb18b451707d62.jpg
+Picadinho | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/120cf5b80ff439c1b9380ab3923cd04d.jpg
+Manhã na Grama | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a8c90dff128e33c3b09b06871e6c1a29.jpg
+Aconchego | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d24d9282dd8f78d88f61fcc1402f3f7e.jpg
+Capuccino Brasileiro | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5e9138caaa64e12d449358a6d4073bbc.jpg
+Capuccino Italiano | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/16d4ff59ba9ffa357785f67580214738.jpg
+Doppio | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/065ef07d993313390bfae670b70a3296.jpg
+Espresso | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/795cad3bb8dcf3335f4a8fef6fa90760.jpg
+Espresso Carioca | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d2674fdf78cff2ea90a6f66903a478d6.jpg
+Flat White | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7610c808948277846f5b1c74afaff15e.jpg
+Furdunço | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9e591b5c2907ae48b81ddae705b0d600.jpg
+Latte | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e0349b13eef1c7cbbf870b03e530234d.jpg
+Macchiato | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ad45d051e6605b1aaedf884ad25fd5ff.jpg
+Mocha | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/423a87aef030197c5741cc60da8e04af.jpg
+Clever | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b8a08a691202f8bb1cef7063535c72d5.jpg
+Koar | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9805b936bbd9aacde09c68591c661718.jpg
+V60 | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/65027bd689aaa6878f5ede80a481c968.jpg
+Afogatto | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5c8f2e3abb1283a673692e1a9230a4a5.jpg
+Espresso Tônica | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/078f645ebe75347b3853fd41c69adba1.jpg
+Espresso Tônica Laranja | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0d380ec7cfb201322b94dce73d10c0e4.jpg
+Iced Latte | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f6d34a92a26d43025db8e2a477beeb00.jpg
+Iced Latte Furdunço | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/2c4fbed3a19bd857b56548cae5a2a595.jpg
+Iced Mocha | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1757c2a82b15c882ceeda48a028e8e8a.jpg
+Citrus | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c412cb1cdaed3422892e5fefaff97287.jpg
+Cold Brew | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/cc15813bd550010c7a7114f75e5f7371.jpg
+Tropical | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c5a936201c81e3642a18520057d7e5f2.jpg
+Frapê | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/2df30eac6341c7e0025e065b397b1b3a.jpg
+Chocolate Quente | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/89cd513837a45b00e54f2e25f680112a.jpg
+Hibisco Refrescante | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5cd4c9b178ed4b318e15447b5f2b6497.jpg
+Mate com Limão | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3546cff520b8b57dfa055a6f8ae4b4a9.jpg
+O Chá da Casa | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/013a101a7ec92229c7d8fac578675761.jpg
+Soda Italiana | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d2a27479d012201186e9b9cf3d244c98.jpg
+Suco de fruta | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/8b3ba61a96977f32a62c0f7232593d71.jpg
+Aperol Spritz | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f1fe4d9d9de2c8180de5bde291285b93.jpg
+Gin Tonic | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c13e211818ca43138d7a28c86d9a4ff4.jpg
+Mimosa | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/6f17e12c34adebf27e047114858f09f5.jpg
+Cerveja Heineken | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/8c9e3872fbaf1e6863a61aa3b793d522.jpg
+Cerveja Heineken Zero | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3afa085683a79b96538fa8575527962c.jpg
+Cerveja Stella Artois | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/47df67c293ebe6aebbb034c80d1349f8.jpg
+Coca cola lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0vrSyrEz-TUleFHEhvIJy-ZUBFpAj_sad-3v-vI.jpg
+Coca cola zero lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ouxsvyRDKyS4MfsCxVwC_i_c2BexUJr4Ginh8f0.jpg
+Fanta lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/dZMxOxh5d5ed2N-EFp-G1ZUUrxrUEGrEBabnX7E.jpg
+Guaraná Antarctica lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/dSazLTBoYO6-sg4-vD9DoLsra0QYretecudV8Sw.jpg
+Guaraná Antarctica zero lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/pjhuMiqRK9TBlVe226gb8ZSLjqvqh2eUoBnYVu0.jpg
+Sprite lata 350ml | https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/Tdmk8wKhcM2eBQHx4ZazA-EtEopDGuEdXX2QdCk.jpg
+ | https://wifireme.s3-sa-east-1.amazonaws.com/images/WJgDWu5Uuj6lzXyyuswVJt8g8fIssNd4yIEsN4M.jpg

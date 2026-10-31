@@ -1,0 +1,1589 @@
+// ============================================================
+// src/pages/Home.jsx — Cardápio com seções e Happy Hour (Responsivo)
+// ============================================================
+
+import { useState, useEffect, useRef } from "react";
+import api, { API_BASE_URL as API_URL } from "../services/api";
+import { getImagemUrl } from "../config/environment";
+import catalogoFurdunco from "../data/cardapio_furdunco.json";
+
+// Inicialização imediata com os 124 itens e 21 categorias extraídos com dados da planilha
+const pratosIniciais = catalogoFurdunco.flatMap((cat, catIdx) =>
+    cat.pratos.map((p, pIdx) => ({
+        id: `furdunco-${catIdx + 1}-${pIdx + 1}`,
+        nome: p.nome,
+        descricao: p.descricao,
+        preco: p.preco,
+        categoria: cat.categoria,
+        imagem: p.imagem_url,
+        observacoes: p.observacoes || "",
+        happy_hour: cat.categoria.toLowerCase().includes("happy hour") ? 1 : 0
+    }))
+);
+
+const categoriasIniciais = catalogoFurdunco.map((cat, idx) => ({
+    id: idx + 1,
+    nome: cat.categoria,
+    icone: cat.categoria.toLowerCase().includes("café") || cat.categoria.toLowerCase().includes("espresso") ? "☕" :
+           cat.categoria.toLowerCase().includes("doc") ? "🍰" :
+           cat.categoria.toLowerCase().includes("vinho") ? "🍷" :
+           cat.categoria.toLowerCase().includes("piquenique") ? "🧺" :
+           cat.categoria.toLowerCase().includes("salada") ? "🥗" :
+           cat.categoria.toLowerCase().includes("toast") ? "🍳" :
+           cat.categoria.toLowerCase().includes("sandu") ? "🥪" :
+           cat.categoria.toLowerCase().includes("vegan") ? "🌱" : "🍴",
+    ordem: idx + 1
+}));
+
+
+const getEmoji = (nome) => {
+    const n = nome.toLowerCase();
+    if (n.includes("pizza"))    return "🍕";
+    if (n.includes("hamburguer") || n.includes("burger")) return "🍔";
+    if (n.includes("macarrão") || n.includes("espaguete")) return "🍝";
+    if (n.includes("salada"))   return "🥗";
+    if (n.includes("sopa") || n.includes("caldo") || n.includes("caldinho")) return "🍲";
+    if (n.includes("frango") || n.includes("galinha") || n.includes("isca")) return "🍗";
+    if (n.includes("peixe") || n.includes("salmão") || n.includes("bacalhau")) return "🐟";
+    if (n.includes("camarão"))  return "🦐";
+    if (n.includes("carne") || n.includes("bife") || n.includes("churrasco")) return "🥩";
+    if (n.includes("torresmo")) return "🥓";
+    if (n.includes("queijo"))   return "🧀";
+    if (n.includes("macaxeira") || n.includes("mandioca")) return "🌿";
+    if (n.includes("sorvete"))  return "🍦";
+    if (n.includes("bolo") || n.includes("torta")) return "🎂";
+    if (n.includes("petisco"))  return "🍟";
+    if (n.includes("cerveja"))  return "🍺";
+    if (n.includes("caipirinha") || n.includes("cachaça")) return "🍹";
+    if (n.includes("café") || n.includes("cafe")) return "☕";
+    if (n.includes("combo") || n.includes("promoção")) return "🎉";
+    return "🍴";
+};
+
+const InstagramIcon = ({ size = 16, color = "currentColor", style = {} }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ display: "inline-block", verticalAlign: "middle", flexShrink: 0, ...style }}
+    >
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+);
+
+export default function Home() {
+    const [pratos,     setPratos]     = useState(pratosIniciais);
+    const [categorias, setCategorias] = useState(categoriasIniciais);
+    const [termoBusca, setTermoBusca] = useState("");
+    const [fotoAmpliada, setFotoAmpliada] = useState(null);
+    const [config,     setConfig]     = useState({
+        hh_ativo: 1,
+        hh_dias: "Segunda, Terça e Quarta",
+        hh_inicio: "19:00",
+        hh_fim: "22:00",
+        instagram_url: "https://www.instagram.com/furduncocafecultura/"
+    });
+    const [loading,       setLoading]       = useState(true);
+    const [erro,          setErro]          = useState("");
+    const [categoriaAtiva, setCategoriaAtiva] = useState("");
+    const categoriaBarraRef = useRef(null);
+
+    const moverCategorias = (direcao) => {
+        categoriaBarraRef.current?.scrollBy({ left: direcao * 280, behavior: "smooth" });
+    };
+
+    // ── ESTADO DO CARRINHO DE PEDIDOS VIA WHATSAPP ──
+    const [carrinho,      setCarrinho]      = useState(() => {
+        try {
+            const salvo = localStorage.getItem("carrinho_furdunco");
+            return salvo ? JSON.parse(salvo) : [];
+        } catch {
+            return [];
+        }
+    });
+    const [modalCarrinho, setModalCarrinho] = useState(false);
+    const [tipoEntrega,   setTipoEntrega]   = useState("mesa"); // "mesa" ou "delivery"
+    const [dadosCliente,  setDadosCliente]  = useState({
+        nome: "",
+        mesa: "",
+        cep: "",
+        logradouro: "",
+        numero: "",
+        complemento: "",
+        bairro: "",
+        cidade: "Recife",
+        endereco: "",
+        pagamento: "Cartão (na mesa / entrega)",
+        observacao: ""
+    });
+
+    // Estados de frete e bairros
+    const [bairrosDisponiveis, setBairrosDisponiveis] = useState([]);
+    const [freteInfo, setFreteInfo]                   = useState({ calculado: false, taxa: 0, tempo: "", atendido: true, erroMsg: "" });
+    const [buscandoCep, setBuscandoCep]               = useState(false);
+
+    useEffect(() => {
+        try {
+            localStorage.setItem("carrinho_furdunco", JSON.stringify(carrinho));
+        } catch (e) {}
+    }, [carrinho]);
+
+    const adicionarAoCarrinho = (prato) => {
+        setCarrinho(prev => {
+            const existe = prev.find(item => item.id === prato.id);
+            if (existe) {
+                return prev.map(item => item.id === prato.id ? { ...item, quantidade: item.quantidade + 1 } : item);
+            }
+            return [...prev, { ...prato, quantidade: 1 }];
+        });
+    };
+
+    const alterarQtd = (id, delta) => {
+        setCarrinho(prev => {
+            return prev.map(item => {
+                if (item.id === id) {
+                    const novaQtd = item.quantidade + delta;
+                    return novaQtd > 0 ? { ...item, quantidade: novaQtd } : null;
+                }
+                return item;
+            }).filter(Boolean);
+        });
+    };
+
+    const subtotalCarrinho = carrinho.reduce((acc, item) => acc + (parseFloat(item.preco) * item.quantidade), 0);
+    const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+
+    // Configurações de Embalagem Delivery
+    const valorEmbalagemConfig = parseFloat(config?.delivery_taxa_embalagem) || 0;
+    const tipoEmbalagemConfig  = config?.delivery_embalagem_tipo || "item";
+    
+    // Calcula embalagem item a item (respeitando taxa_embalagem individual do prato se houver) ou taxa única
+    let taxaEmbalagem = 0;
+    if (tipoEntrega === "delivery") {
+        if (tipoEmbalagemConfig === "item") {
+            taxaEmbalagem = carrinho.reduce((acc, item) => {
+                const taxaItem = (item.taxa_embalagem !== null && item.taxa_embalagem !== undefined && item.taxa_embalagem !== "")
+                    ? parseFloat(item.taxa_embalagem)
+                    : valorEmbalagemConfig;
+                return acc + (taxaItem * item.quantidade);
+            }, 0);
+        } else {
+            taxaEmbalagem = valorEmbalagemConfig;
+        }
+    }
+
+    const taxaEntrega = (tipoEntrega === "delivery" && freteInfo.calculado && freteInfo.atendido) ? freteInfo.taxa : 0;
+    const totalCarrinho = subtotalCarrinho + taxaEntrega + taxaEmbalagem;
+
+    // Coordenadas fixas do Furdunço - Café e Cultura (Rua Gildo Neto, 92 - Tamarineira, Recife)
+    const FURDUNCO_COORDS = { lat: -8.0338958, lng: -34.9035254 };
+
+    // Fórmula de Haversine com fator de correção de trânsito urbano de 1.25x
+    const calcularDistanciaKm = (lat1, lon1, lat2, lon2) => {
+        const R = 6371; // Raio da Terra em km
+        const dLat = (lat2 - lat1) * (Math.PI / 180);
+        const dLon = (lon2 - lon1) * (Math.PI / 180);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distanciaLinhaReta = R * c;
+        return parseFloat((distanciaLinhaReta * 1.25).toFixed(1)); // 1.25x fator de rota real de rua
+    };
+
+    // Consulta de frete no backend enviando o bairro e opcionalmente os KM
+    const calcularFreteBairro = async (nomeBairro, cepOrigem = "", kmCalculado = null) => {
+        try {
+            const res = await api.post("/config/delivery/calcular", {
+                bairro: nomeBairro,
+                cep: cepOrigem,
+                distancia_km: kmCalculado
+            });
+
+            if (res.data.atendido) {
+                setFreteInfo({
+                    calculado: true,
+                    taxa: parseFloat(res.data.taxa) || 0,
+                    tempo: res.data.tempo_estimado || "40 a 60 min",
+                    distancia: res.data.distancia_km || kmCalculado,
+                    atendido: true,
+                    aviso: res.data.aviso || "",
+                    erroMsg: ""
+                });
+            } else {
+                setFreteInfo({
+                    calculado: true,
+                    taxa: 0,
+                    tempo: "",
+                    distancia: kmCalculado,
+                    atendido: false,
+                    erroMsg: res.data.mensagem || `O endereço está fora da nossa área de entrega no momento.`
+                });
+            }
+        } catch (err) {
+            console.error("Erro ao calcular frete:", err);
+            // Fallback: taxa padrão
+            const taxaPadrao = parseFloat(config?.delivery_taxa_padrao) || 8.00;
+            setFreteInfo({
+                calculado: true,
+                taxa: taxaPadrao,
+                tempo: config?.delivery_tempo || "40 a 60 min",
+                atendido: true,
+                aviso: `Taxa de R$ ${taxaPadrao.toFixed(2).replace(".", ",")} aplicada (o motoboy confirmará no WhatsApp).`,
+                erroMsg: ""
+            });
+        }
+    };
+
+    // Consulta automática ao ViaCEP + Nominatim para obter KM real (com fallback instantâneo)
+    const consultarCep = async (cepDigitado) => {
+        const cepLimpo = cepDigitado.replace(/\D/g, "");
+        setDadosCliente(d => ({ ...d, cep: cepDigitado }));
+        
+        if (cepLimpo.length !== 8) return;
+
+        setBuscandoCep(true);
+        setFreteInfo({ calculado: false, taxa: 0, tempo: "", atendido: true, erroMsg: "" });
+
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+            const data = await response.json();
+
+            if (data.erro) {
+                setFreteInfo({
+                    calculado: true,
+                    taxa: 0,
+                    tempo: "",
+                    atendido: false,
+                    erroMsg: "CEP não encontrado. Selecione seu bairro abaixo para calcular o frete."
+                });
+            } else {
+                const bairroEncontrado = data.bairro || "";
+                setDadosCliente(d => ({
+                    ...d,
+                    logradouro: data.logradouro || d.logradouro,
+                    bairro: bairroEncontrado || d.bairro,
+                    cidade: data.localidade || d.cidade,
+                    endereco: `${data.logradouro || ""}, ${d.numero || ""}${bairroEncontrado ? " - " + bairroEncontrado : ""}`.trim()
+                }));
+
+                // Tenta calcular distância em KM real via Nominatim
+                let kmReal = null;
+                try {
+                    const queryGeo = encodeURIComponent(`${data.logradouro || bairroEncontrado}, Recife, PE, Brasil`);
+                    const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${queryGeo}&limit=1`, {
+                        headers: { "Accept-Language": "pt-BR" }
+                    });
+                    const geoData = await geoRes.json();
+                    if (geoData && geoData.length > 0) {
+                        const clienteLat = parseFloat(geoData[0].lat);
+                        const clienteLon = parseFloat(geoData[0].lon);
+                        kmReal = calcularDistanciaKm(FURDUNCO_COORDS.lat, FURDUNCO_COORDS.lng, clienteLat, clienteLon);
+                    }
+                } catch (geoErr) {
+                    console.log("Geocoding opcional indisponível, usando tabela de bairros/taxa padrão");
+                }
+
+                await calcularFreteBairro(bairroEncontrado, cepLimpo, kmReal);
+            }
+        } catch (err) {
+            console.error("Erro no ViaCEP:", err);
+            setFreteInfo({
+                calculado: true,
+                taxa: parseFloat(config?.delivery_taxa_padrao) || 8.00,
+                tempo: "40 a 60 min",
+                atendido: true,
+                aviso: "Não foi possível validar o CEP. Aplicada taxa padrão de entrega.",
+                erroMsg: ""
+            });
+        } finally {
+            setBuscandoCep(false);
+        }
+    };
+
+    const enviarPedidoWhatsApp = (e) => {
+        e.preventDefault();
+        if (carrinho.length === 0) return;
+
+        if (tipoEntrega === "delivery") {
+            const temItensHH = carrinho.some(i => i.happy_hour);
+            const bloquearHH = config.hh_apenas_local !== 0 && config.hh_apenas_local !== false;
+            if (temItensHH && bloquearHH) {
+                alert("⚠️ Os itens de Happy Hour são exclusivos para consumo presencial no Salão/Mesa e não podem ser pedidos via Delivery.\n\nPor favor, alterne para 'No Salão / Mesa' ou remova os itens promocionais de Happy Hour do carrinho.");
+                return;
+            }
+            if (freteInfo.calculado && !freteInfo.atendido) {
+                alert("Desculpe, o endereço informado está fora da nossa área de entrega.");
+                return;
+            }
+        }
+
+        const telRestaurante = "5581992977604"; // Telefone do Furdunço - Café e Cultura
+
+        let msg = `☕ *NOVO PEDIDO — FURDUNÇO CAFÉ E CULTURA*\n`;
+        msg += `----------------------------------------\n`;
+        if (dadosCliente.nome) msg += `👤 *Cliente:* ${dadosCliente.nome}\n`;
+        if (tipoEntrega === "mesa") {
+            msg += `📍 *Mesa no Salão:* ${dadosCliente.mesa || "Não informada"}\n`;
+        } else {
+            const endCompleto = `${dadosCliente.logradouro || dadosCliente.endereco || "Rua não informada"}, Nº ${dadosCliente.numero || "S/N"}${dadosCliente.complemento ? " (" + dadosCliente.complemento + ")" : ""}\n*Bairro:* ${dadosCliente.bairro || "Não informado"} — ${dadosCliente.cidade || "Recife"}${dadosCliente.cep ? ` (CEP: ${dadosCliente.cep})` : ""}`;
+            msg += `🛵 *Entrega Delivery:*\n${endCompleto}\n`;
+        }
+        msg += `💳 *Forma de Pagamento:* ${dadosCliente.pagamento}\n`;
+        if (dadosCliente.observacao) {
+            msg += `📝 *Observação:* ${dadosCliente.observacao}\n`;
+        }
+        msg += `----------------------------------------\n`;
+        msg += `📋 *ITENS DO PEDIDO:*\n`;
+
+        carrinho.forEach(item => {
+            const subtotal = (parseFloat(item.preco) * item.quantidade).toFixed(2).replace(".", ",");
+            msg += `• ${item.quantidade}x ${item.nome} — R$ ${subtotal}\n`;
+        });
+
+        msg += `----------------------------------------\n`;
+        if (tipoEntrega === "delivery") {
+            msg += `Subtotal dos Pratos: R$ ${subtotalCarrinho.toFixed(2).replace(".", ",")}\n`;
+            if (taxaEmbalagem > 0) {
+                msg += `📦 Taxa de Embalagem${tipoEmbalagemConfig === "item" ? ` (${totalItens} un.)` : ""}: R$ ${taxaEmbalagem.toFixed(2).replace(".", ",")}\n`;
+            }
+            msg += `🛵 Taxa de Entrega (${dadosCliente.bairro || "Bairro"}): R$ ${taxaEntrega.toFixed(2).replace(".", ",")}\n`;
+            if (freteInfo.tempo) msg += `⏱️ Previsão de Espera: ${freteInfo.tempo}\n`;
+            msg += `----------------------------------------\n`;
+            msg += `💰 *VALOR TOTAL (COM FRETE & EMBALAGEM):* R$ ${totalCarrinho.toFixed(2).replace(".", ",")}\n`;
+        } else {
+            msg += `💰 *VALOR TOTAL:* R$ ${totalCarrinho.toFixed(2).replace(".", ",")}\n`;
+        }
+        msg += `----------------------------------------\n`;
+        msg += `_Pedido gerado automaticamente pelo cardápio digital._`;
+
+        const linkUrl = `https://wa.me/${telRestaurante}?text=${encodeURIComponent(msg)}`;
+        window.open(linkUrl, "_blank");
+    };
+
+    useEffect(() => {
+        Promise.all([
+            api.get("/pratos"),
+            api.get("/categorias"),
+            api.get("/config"),
+            api.get("/config/delivery/bairros").catch(() => ({ data: [] }))
+        ])
+            .then(([rPratos, rCats, rConfig, rBairros]) => {
+                setPratos(rPratos.data);
+                setCategorias(rCats.data);
+                if (rConfig?.data) setConfig(rConfig.data);
+                if (rBairros?.data) setBairrosDisponiveis(rBairros.data);
+            })
+            .catch(() => setErro("Não foi possível carregar o cardápio."))
+            .finally(() => setLoading(false));
+    }, []);
+
+    // Ícone da categoria vindo do banco (com fallback)
+    const getIconeCategoria = (nomecat) => {
+        const cat = categorias.find(c => c.nome === nomecat);
+        return cat?.icone || "🍴";
+    };
+
+    // Separa happy hour dos outros e agrupa por categoria
+    const pratosFiltrados = termoBusca.trim()
+        ? pratos.filter(p => 
+            p.nome.toLowerCase().includes(termoBusca.toLowerCase()) ||
+            (p.descricao && p.descricao.toLowerCase().includes(termoBusca.toLowerCase())) ||
+            (p.observacoes && p.observacoes.toLowerCase().includes(termoBusca.toLowerCase())) ||
+            (p.categoria && p.categoria.toLowerCase().includes(termoBusca.toLowerCase()))
+        )
+        : pratos;
+
+    const happyHourPratos = pratosFiltrados.filter(p => p.happy_hour);
+
+    // Lista de nomes de categorias (ordenado pelo banco de dados)
+    const nomesCategoria = categorias.length > 0
+        ? categorias.map(c => c.nome)
+        : [...new Set(pratos.filter(p => !p.happy_hour).flatMap(p => [p.categoria, p.categoria_secundaria]).filter(Boolean))];
+
+    const criarIdCategoria = (nome) => `cat-${nome.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+
+    // Define a primeira categoria como padrão ao carregar
+    useEffect(() => {
+        if (!nomesCategoria.length) return;
+        if (!categoriaAtiva || !nomesCategoria.includes(categoriaAtiva)) {
+            setCategoriaAtiva(nomesCategoria[0]);
+        }
+    }, [nomesCategoria.join("|")]);
+
+    // Centraliza o botão da categoria ativa na barra horizontal
+    useEffect(() => {
+        const itemAtivo = document.querySelector(".cat-nav-item-active");
+        const barra = itemAtivo?.closest(".cat-nav-bar");
+        if (itemAtivo && barra) {
+            const alvo = itemAtivo.offsetLeft - (barra.clientWidth - itemAtivo.offsetWidth) / 2;
+            barra.scrollTo({ left: Math.max(0, alvo), behavior: "smooth" });
+        }
+    }, [categoriaAtiva]);
+
+    const selecionarCategoria = (catNome) => {
+        setCategoriaAtiva(catNome);
+        const cardapioEl = document.getElementById("cardapio");
+        if (cardapioEl) {
+            const topo = cardapioEl.getBoundingClientRect().top + window.scrollY - 130;
+            window.scrollTo({ top: Math.max(0, topo), behavior: "smooth" });
+        }
+    };
+
+    return (
+        <div>
+            {/* ── HERO ─────────────────────────────────────────── */}
+            <section className="hero-container" style={styles.hero}>
+                <div style={styles.heroOverlay} />
+                <div style={styles.heroContent}>
+                    <img src="/logo.png" alt="Logo" className="hero-logo" style={styles.heroLogo} />
+                    <p style={styles.heroLabel}>Comida Arretada & Cerveja Gelada</p>
+                    <h1 className="hero-title" style={styles.heroTitle}>Furdunço - Café e Cultura</h1>
+                    <div className="hero-tags" style={styles.heroTags}>
+                        <span className="hero-tag" style={styles.tag}>🍲 Refeições</span>
+                        <span className="hero-tag" style={styles.tag}>🍟 Petiscos</span>
+                        <span className="hero-tag" style={styles.tag}>🍕 Pizzas</span>
+                        <span className="hero-tag" style={styles.tag}>🍺 Cerveja Gelada</span>
+                        <span className="hero-tag" style={styles.tag}>🍹 Drinks</span>
+                    </div>
+                    <div className="hero-info" style={styles.heroInfo}>
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={styles.infoItem}
+                            title="Abrir localização no Google Maps"
+                        >
+                            <span>📍</span>
+                            <span style={{ ...styles.infoText, textDecoration: "underline" }}>Rua Larga da Feitosa, 138 — Encruzilhada</span>
+                        </a>
+                        <div className="hero-info-sep" style={styles.infoSep} />
+                        <div style={styles.infoItem}>
+                            <span>📱</span>
+                            <span style={styles.infoText}>(81) 98271-4421</span>
+                        </div>
+                        <div className="hero-info-sep" style={styles.infoSep} />
+                        <a
+                            href={config?.instagram_url || "https://www.instagram.com/furduncocafecultura/"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ ...styles.infoItem, textDecoration: "none", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                            title="Siga o Furdunço - Café e Cultura no Instagram"
+                        >
+                            <InstagramIcon size={16} color="#E1306C" />
+                            <span style={{ ...styles.infoText, textDecoration: "underline" }}>@furduncocafecultura</span>
+                        </a>
+                    </div>
+                    <div className="hero-btns" style={styles.heroBtns}>
+                        <a href="#cardapio" className="hero-btn" style={styles.heroBtn}>Ver Cardápio</a>
+                        {config.hh_ativo && happyHourPratos.length > 0 && (
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    selecionarCategoria("Happy Hour");
+                                    document.getElementById("cardapio")?.scrollIntoView({ behavior: "smooth" });
+                                }}
+                                className="hero-btn"
+                                style={styles.heroBtnHH}
+                            >
+                                🍺 Happy Hour
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            {loading && <div style={styles.center}><div style={styles.spinner} /></div>}
+            {erro    && <div style={styles.erroBox}>⚠️ {erro}</div>}
+
+            {!loading && !erro && (
+                <>
+                    {/* ── BARRA FIXA DE NAVEGAÇÃO RÁPIDA POR CATEGORIA (EXCLUSIVA MOBILE) ── */}
+                    <div className="cat-nav-shell">
+                        <button type="button" className="cat-nav-arrow cat-nav-arrow-left" onClick={() => moverCategorias(-1)} aria-label="Ver categorias anteriores">‹</button>
+                        <div ref={categoriaBarraRef} className="cat-nav-bar" style={styles.catNavBar}>
+                            <div style={styles.catNavContainer}>
+                            {nomesCategoria.map((cat) => {
+                                const isAtiva = categoriaAtiva === cat;
+                                const catObj = categorias.find(c => c.nome === cat);
+                                return (
+                                    <button
+                                        key={cat}
+                                        type="button"
+                                        onClick={() => selecionarCategoria(cat)}
+                                        className={`cat-nav-item ${isAtiva ? "cat-nav-item-active" : ""}`}
+                                        style={{ ...styles.catNavItem, cursor: "pointer", border: isAtiva ? "1px solid #111" : "1px solid #e0d9d0", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                                    >
+                                        {catObj?.imagem ? (
+                                            <img src={getImagemUrl(catObj.imagem)} alt={cat} style={{ width: "20px", height: "20px", borderRadius: "4px", objectFit: "cover" }} />
+                                        ) : (
+                                            <span style={{ fontSize: "1.1rem" }}>{getIconeCategoria(cat)}</span>
+                                        )}
+                                        <span>{cat}</span>
+                                    </button>
+                                );
+                            })}
+
+                            {config.hh_ativo && happyHourPratos.length > 0 && (
+                                <button
+                                    type="button"
+                                    onClick={() => selecionarCategoria("Happy Hour")}
+                                    className={`cat-nav-item ${categoriaAtiva === "Happy Hour" ? "cat-nav-item-active" : ""}`}
+                                    style={{
+                                        ...styles.catNavItem,
+                                        cursor: "pointer",
+                                        border: categoriaAtiva === "Happy Hour" ? "1.5px solid #C88A36" : "1px solid #C88A36",
+                                        background: categoriaAtiva === "Happy Hour" ? "#111" : "rgba(232,184,75,0.1)",
+                                        color: categoriaAtiva === "Happy Hour" ? "#C88A36" : "#b38210"
+                                    }}
+                                >
+                                    <span>⚡</span>
+                                    <span>Happy Hour</span>
+                                </button>
+                            )}
+
+                            <a
+                                href="#avaliacoes"
+                                className="cat-nav-item"
+                                style={{ ...styles.catNavItem, borderColor: "#fbbc04", color: "#8a6500" }}
+                            >
+                                <span>⭐</span>
+                                <span>Avaliações</span>
+                            </a>
+
+                            <button
+                                type="button"
+                                className="cat-nav-top"
+                                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                                title="Voltar ao topo do cardápio"
+                            >
+                                ↑ <span>Topo</span>
+                            </button>
+                            </div>
+                        </div>
+                        <button type="button" className="cat-nav-arrow cat-nav-arrow-right" onClick={() => moverCategorias(1)} aria-label="Ver próximas categorias">›</button>
+                    </div>
+
+                    <div id="cardapio">
+                        {/* ── EXIBIÇÃO DE UMA CATEGORIA POR VEZ (SEM SCROLL INFINITO) ── */}
+                        {(() => {
+                            const catExibida = categoriaAtiva || nomesCategoria[0];
+                            if (!catExibida) return null;
+
+                            // Se a categoria selecionada for o Happy Hour
+                            if (catExibida === "Happy Hour") {
+                                return (
+                                    <section id="happy-hour" className="hh-section" style={styles.happyHourSection}>
+                                        <div style={styles.hhOverlay} />
+                                        <div style={styles.hhContent}>
+                                            <div style={styles.hhHeader}>
+                                                <p style={styles.hhLabel}>⚡ Promoções Especiais</p>
+                                                <h2 style={styles.hhTitle}>Happy Hour</h2>
+                                                <div style={styles.hhBadgeHorario}>
+                                                    <span>📅 {config.hh_dias}</span>
+                                                    <span style={{ opacity: 0.5 }}>•</span>
+                                                    <span>⏰ Das {config.hh_inicio} às {config.hh_fim}</span>
+                                                </div>
+                                                <p style={styles.hhSub}>
+                                                    Preços e delícias especiais para curtir bons momentos no Furdunço!
+                                                </p>
+                                                {config.hh_apenas_local !== 0 && (
+                                                    <div style={{ marginTop: "0.5rem" }}>
+                                                        <span style={{
+                                                            display: "inline-block",
+                                                            background: "rgba(239, 68, 68, 0.2)",
+                                                            border: "1px solid rgba(248, 113, 113, 0.4)",
+                                                            color: "#fecaca",
+                                                            padding: "0.35rem 0.85rem",
+                                                            borderRadius: "20px",
+                                                            fontSize: "0.82rem",
+                                                            fontWeight: "700",
+                                                            letterSpacing: "0.3px"
+                                                        }}>
+                                                            🔒 Apenas no Salão / Mesa (Não disponível para Delivery)
+                                                        </span>
+                                                    </div>
+                                                )}
+                                                <div style={{ ...styles.sectionDivider, background: "linear-gradient(90deg, #f0c040, #C88A36)" }} />
+                                            </div>
+                                            <div className="hh-grid" style={styles.hhGrid}>
+                                                {happyHourPratos.map(p => {
+                                                    const itemNoCarrinho = carrinho.find(c => c.id === p.id);
+                                                    return (
+                                                        <PratoCard
+                                                            key={p.id}
+                                                            prato={p}
+                                                            happyHour
+                                                            onAdicionar={adicionarAoCarrinho}
+                                                            qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
+                                                        />
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    </section>
+                                );
+                            }
+
+                            const pratosDaCat = pratos
+                                .filter(p => (p.categoria === catExibida || p.categoria_secundaria === catExibida) && !p.happy_hour)
+                                .sort((a, b) => {
+                                    const oA = a.ordem_manual || 0;
+                                    const oB = b.ordem_manual || 0;
+                                    if (oA > 0 && oB > 0) return oA - oB;
+                                    if (oA > 0) return -1;
+                                    if (oB > 0) return 1;
+                                    return 0;
+                                });
+
+                            const catObj = categorias.find(c => c.nome === catExibida);
+
+                            return (
+                                <section key={catExibida} id={criarIdCategoria(catExibida)} className="menu-section" style={styles.section}>
+                                    <div style={styles.sectionHeader}>
+                                        <p className="section-label" style={styles.sectionLabel}>{getIconeCategoria(catExibida)} {catExibida}</p>
+                                        <h2 style={{ ...styles.sectionTitle, display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+                                            {catObj?.imagem ? (
+                                                <img src={getImagemUrl(catObj.imagem)} alt={catExibida} style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", border: "1px solid #e0d9d0" }} />
+                                            ) : null}
+                                            <span>{catExibida}</span>
+                                        </h2>
+                                        <p style={{ color: "#777", fontSize: "0.9rem", marginTop: "-0.5rem", marginBottom: "1rem" }}>
+                                            {pratosDaCat.length} {pratosDaCat.length === 1 ? "opção disponível" : "opções disponíveis"}
+                                        </p>
+                                        <div style={styles.sectionDivider} />
+                                    </div>
+                                    
+                                    {pratosDaCat.length === 0 ? (
+                                        <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "#faf8f5", borderRadius: "16px", border: "1px dashed #d8cfc4", maxWidth: "500px", margin: "1rem auto" }}>
+                                            <p style={{ fontSize: "2.5rem", margin: "0 0 0.5rem" }}>{catObj?.imagem ? "📸" : getIconeCategoria(catExibida)}</p>
+                                            <p style={{ fontWeight: "700", color: "#333", fontSize: "1.05rem", margin: "0 0 0.4rem" }}>{catExibida}</p>
+                                            <p style={{ color: "#777", fontSize: "0.88rem", margin: 0 }}>Em breve novos pratos e novidades irresistíveis cadastrados nesta seção!</p>
+                                        </div>
+                                    ) : (
+                                        <div className="menu-grid" style={styles.grid}>
+                                            {pratosDaCat.map(p => {
+                                                const itemNoCarrinho = carrinho.find(c => c.id === p.id);
+                                                return (
+                                                    <PratoCard
+                                                        key={p.id}
+                                                        prato={p}
+                                                        onAdicionar={adicionarAoCarrinho}
+                                                        qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
+                                                    />
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </section>
+                            );
+                        })()}
+                    </div>
+
+
+                    {/* ── BARRA FLUTUANTE DO CARRINHO (WHATSAPP) ── */}
+                    {totalItens > 0 && (
+                        <div
+                            className="cart-floating-bar"
+                            onClick={() => setModalCarrinho(true)}
+                            title="Ver pedido e enviar pelo WhatsApp"
+                        >
+                            <span className="cart-floating-badge">{totalItens}</span>
+                            <div style={{ display: "flex", flexDirection: "column", textAlign: "left", lineHeight: "1.1" }}>
+                                <span style={{ fontSize: "0.75rem", opacity: 0.9 }}>Ver Pedido</span>
+                                <strong style={{ fontSize: "0.95rem" }}>R$ {totalCarrinho.toFixed(2).replace(".", ",")}</strong>
+                            </div>
+                            <span style={{ fontSize: "1.3rem", marginLeft: "4px" }}>💬</span>
+                        </div>
+                    )}
+
+                    {/* ── MODAL DE FINALIZAÇÃO DE PEDIDO VIA WHATSAPP ── */}
+                    
+            {/* Modal Lightbox de Foto em Alta Resolução */}
+            {fotoAmpliada && (
+                <div 
+                    style={styles.modalFotoBackdrop} 
+                    onClick={() => setFotoAmpliada(null)}
+                >
+                    <div style={styles.modalFotoBox} onClick={e => e.stopPropagation()}>
+                        <button style={styles.modalFotoFechar} onClick={() => setFotoAmpliada(null)}>✕</button>
+                        <div style={styles.modalFotoImgWrapper}>
+                            <img src={getImagemUrl(fotoAmpliada.imagem)} alt={fotoAmpliada.nome} style={styles.modalFotoImg} />
+                        </div>
+                        <div style={styles.modalFotoInfo}>
+                            <span style={styles.modalFotoCat}>{fotoAmpliada.categoria}</span>
+                            <h3 style={styles.modalFotoTitulo}>{fotoAmpliada.nome}</h3>
+                            {fotoAmpliada.descricao && <p style={styles.modalFotoDesc}>{fotoAmpliada.descricao}</p>}
+                            {fotoAmpliada.observacoes && (
+                                <div style={styles.modalFotoObs}>
+                                    <strong>Opções / Variações:</strong> {fotoAmpliada.observacoes}
+                                </div>
+                            )}
+                            <div style={styles.modalFotoFooter}>
+                                <span style={styles.modalFotoPreco}>R$ {parseFloat(fotoAmpliada.preco).toFixed(2).replace(".", ",")}</span>
+                                <button 
+                                    style={styles.modalFotoBtnPedir}
+                                    onClick={() => {
+                                        adicionarAoCarrinho(fotoAmpliada);
+                                        setFotoAmpliada(null);
+                                    }}
+                                >
+                                    Adicionar ao Pedido ☕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+
+            {modalCarrinho && (
+                        <div className="cart-modal-overlay" onClick={() => setModalCarrinho(false)}>
+                            <div className="cart-modal-box" onClick={(e) => e.stopPropagation()}>
+                                <div className="cart-modal-header">
+                                    <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                                        <span style={{ fontSize: "1.5rem" }}>🛒</span>
+                                        <div>
+                                            <h3 style={{ margin: 0, fontSize: "1.2rem", fontFamily: "'Playfair Display', serif" }}>
+                                                Seu Pedido
+                                            </h3>
+                                            <p style={{ margin: 0, fontSize: "0.75rem", color: "#25d366" }}>
+                                                Enviar direto para o WhatsApp do Furdunço
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        style={{ background: "none", border: "none", color: "#aaa", fontSize: "1.3rem", cursor: "pointer" }}
+                                        onClick={() => setModalCarrinho(false)}
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+
+                                <div style={{ padding: "1.2rem 1.5rem", flex: 1, overflowY: "auto" }}>
+                                    {/* Lista de itens no carrinho */}
+                                    <div style={{ marginBottom: "1.5rem" }}>
+                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem", paddingBottom: "0.4rem", borderBottom: "1px solid #f0ebe3" }}>
+                                            <h4 style={{ fontSize: "0.9rem", color: "#666", textTransform: "uppercase", letterSpacing: "1px", margin: 0, fontWeight: "700" }}>
+                                                Itens Selecionados ({totalItens})
+                                            </h4>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    if (window.confirm("Deseja realmente esvaziar todos os itens do seu carrinho?")) {
+                                                        setCarrinho([]);
+                                                    }
+                                                }}
+                                                style={{
+                                                    background: "#fee2e2",
+                                                    color: "#b91c1c",
+                                                    border: "1px solid #fecaca",
+                                                    borderRadius: "6px",
+                                                    padding: "0.3rem 0.65rem",
+                                                    fontSize: "0.78rem",
+                                                    fontWeight: "700",
+                                                    cursor: "pointer",
+                                                    display: "inline-flex",
+                                                    alignItems: "center",
+                                                    gap: "4px"
+                                                }}
+                                                title="Remover todos os itens do carrinho"
+                                            >
+                                                <span>🗑️</span>
+                                                <span>Limpar Carrinho</span>
+                                            </button>
+                                        </div>
+                                        {carrinho.map(item => (
+                                            <div key={item.id} className="cart-item-row">
+                                                <div style={{ flex: 1, paddingRight: "0.8rem" }}>
+                                                    <p style={{ margin: 0, fontWeight: "600", fontSize: "0.92rem" }}>{item.nome}</p>
+                                                    <p style={{ margin: 0, fontSize: "0.8rem", color: "#888" }}>
+                                                        R$ {parseFloat(item.preco).toFixed(2).replace(".", ",")} un.
+                                                    </p>
+                                                </div>
+
+                                                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                                                    <button type="button" className="cart-qtd-btn" onClick={() => alterarQtd(item.id, -1)}>-</button>
+                                                    <span style={{ fontWeight: "700", minWidth: "18px", textAlign: "center" }}>{item.quantidade}</span>
+                                                    <button type="button" className="cart-qtd-btn" onClick={() => alterarQtd(item.id, 1)}>+</button>
+                                                </div>
+
+                                                <span style={{ fontWeight: "700", marginLeft: "1rem", minWidth: "75px", textAlign: "right" }}>
+                                                    R$ {(parseFloat(item.preco) * item.quantidade).toFixed(2).replace(".", ",")}
+                                                </span>
+                                            </div>
+                                        ))}
+
+                                        {/* Subtotal, Frete e Total */}
+                                        <div style={{ marginTop: "1rem", paddingTop: "0.8rem", borderTop: "2px dashed #eee" }}>
+                                            {tipoEntrega === "delivery" && (
+                                                <>
+                                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.3rem" }}>
+                                                        <span style={{ fontSize: "0.9rem", color: "#666" }}>Subtotal dos Pratos:</span>
+                                                        <span style={{ fontSize: "0.95rem", fontWeight: "600", color: "#333" }}>
+                                                            R$ {subtotalCarrinho.toFixed(2).replace(".", ",")}
+                                                        </span>
+                                                    </div>
+                                                    {taxaEmbalagem > 0 && (
+                                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.3rem", background: "rgba(245, 158, 11, 0.08)", padding: "0.35rem 0.6rem", borderRadius: "8px", border: "1px solid rgba(245, 158, 11, 0.2)" }}>
+                                                            <span style={{ fontSize: "0.86rem", color: "#92400e", display: "flex", alignItems: "center", gap: "5px", fontWeight: "600" }}>
+                                                                <span>📦</span>
+                                                                <span>Taxa de Embalagem {tipoEmbalagemConfig === "item" ? `(${totalItens} ${totalItens === 1 ? "prato" : "pratos"})` : "(Taxa única)"}:</span>
+                                                            </span>
+                                                            <span style={{ fontSize: "0.92rem", fontWeight: "700", color: "#b45309" }}>
+                                                                + R$ {taxaEmbalagem.toFixed(2).replace(".", ",")}
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                                                        <span style={{ fontSize: "0.9rem", color: "#666" }}>
+                                                            Taxa de Entrega {dadosCliente.bairro ? `(${dadosCliente.bairro})` : ""}:
+                                                        </span>
+                                                        <span style={{ fontSize: "0.95rem", fontWeight: "700", color: freteInfo.atendido && freteInfo.calculado ? "#166534" : "#e67e22" }}>
+                                                            {freteInfo.calculado
+                                                                ? (freteInfo.atendido ? `R$ ${taxaEntrega.toFixed(2).replace(".", ",")}` : "Não atendido")
+                                                                : "Informe o CEP"}
+                                                        </span>
+                                                    </div>
+                                                </>
+                                            )}
+
+                                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: tipoEntrega === "delivery" ? "1px solid #f0f0f0" : "none", paddingTop: tipoEntrega === "delivery" ? "0.5rem" : 0 }}>
+                                                <span style={{ fontSize: "1.1rem", fontWeight: "700" }}>Total:</span>
+                                                <span style={{ fontSize: "1.3rem", fontWeight: "800", color: "#128c7e" }}>
+                                                    R$ {totalCarrinho.toFixed(2).replace(".", ",")}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Formulário de Identificação do Cliente */}
+                                    <form onSubmit={enviarPedidoWhatsApp}>
+                                        <div style={{ marginBottom: "1rem" }}>
+                                            <label style={{ display: "block", fontSize: "0.82rem", fontWeight: "600", color: "#444", marginBottom: "0.4rem" }}>
+                                                Onde você está?
+                                            </label>
+                                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setTipoEntrega("mesa")}
+                                                    style={{
+                                                        padding: "0.6rem",
+                                                        borderRadius: "10px",
+                                                        border: tipoEntrega === "mesa" ? "2px solid #25d366" : "1px solid #ddd",
+                                                        background: tipoEntrega === "mesa" ? "#f0fdf4" : "#fafafa",
+                                                        fontWeight: "700",
+                                                        color: tipoEntrega === "mesa" ? "#166534" : "#666",
+                                                        cursor: "pointer",
+                                                        fontSize: "0.85rem"
+                                                    }}
+                                                >
+                                                    🍻 No Salão / Mesa
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setTipoEntrega("delivery");
+                                                        if (dadosCliente.bairro && !freteInfo.calculado) {
+                                                            calcularFreteBairro(dadosCliente.bairro, dadosCliente.cep);
+                                                        }
+                                                    }}
+                                                    style={{
+                                                        padding: "0.6rem",
+                                                        borderRadius: "10px",
+                                                        border: tipoEntrega === "delivery" ? "2px solid #25d366" : "1px solid #ddd",
+                                                        background: tipoEntrega === "delivery" ? "#f0fdf4" : "#fafafa",
+                                                        fontWeight: "700",
+                                                        color: tipoEntrega === "delivery" ? "#166534" : "#666",
+                                                        cursor: "pointer",
+                                                        fontSize: "0.85rem",
+                                                        display: "flex",
+                                                        flexDirection: "column",
+                                                        alignItems: "center",
+                                                        justifyContent: "center",
+                                                        gap: "2px"
+                                                    }}
+                                                >
+                                                    <span>🛵 Delivery / Entrega</span>
+                                                    {valorEmbalagemConfig > 0 && (
+                                                        <span style={{ fontSize: "0.7rem", fontWeight: "600", color: tipoEntrega === "delivery" ? "#15803d" : "#888" }}>
+                                                            (+ R$ {valorEmbalagemConfig.toFixed(2).replace(".", ",")} embalagem)
+                                                        </span>
+                                                    )}
+                                                </button>
+                                            </div>
+
+                                            {/* Alerta de bloqueio de Happy Hour no Delivery */}
+                                            {tipoEntrega === "delivery" && carrinho.some(i => i.happy_hour) && config.hh_apenas_local !== 0 && (
+                                                <div style={{
+                                                    marginTop: "0.8rem",
+                                                    background: "#fff1f2",
+                                                    border: "1px solid #fecdd3",
+                                                    borderRadius: "10px",
+                                                    padding: "0.8rem 1rem",
+                                                    fontSize: "0.82rem",
+                                                    color: "#9f1239"
+                                                }}>
+                                                    <p style={{ fontWeight: "700", margin: "0 0 0.3rem", display: "flex", alignItems: "center", gap: "6px" }}>
+                                                        ⚠️ Happy Hour Exclusivo no Salão / Mesa!
+                                                    </p>
+                                                    <p style={{ margin: "0 0 0.6rem", lineHeight: "1.4" }}>
+                                                        Os itens promocionais de Happy Hour são válidos <b>apenas para consumo presencial no Furdunço</b> e não podem ser entregues via Delivery.
+                                                    </p>
+                                                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setTipoEntrega("mesa")}
+                                                            style={{
+                                                                background: "#166534",
+                                                                color: "#fff",
+                                                                border: "none",
+                                                                borderRadius: "6px",
+                                                                padding: "0.4rem 0.75rem",
+                                                                fontSize: "0.78rem",
+                                                                fontWeight: "700",
+                                                                cursor: "pointer"
+                                                            }}
+                                                        >
+                                                            🍻 Mudar para No Salão / Mesa
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setCarrinho(c => c.filter(item => !item.happy_hour))}
+                                                            style={{
+                                                                background: "#fff",
+                                                                color: "#e11d48",
+                                                                border: "1px solid #fda4af",
+                                                                borderRadius: "6px",
+                                                                padding: "0.4rem 0.75rem",
+                                                                fontSize: "0.78rem",
+                                                                fontWeight: "600",
+                                                                cursor: "pointer"
+                                                            }}
+                                                        >
+                                                            🗑️ Remover itens de Happy Hour
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Nome e Mesa / Delivery */}
+                                        <div style={{ marginBottom: "0.8rem" }}>
+                                            <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", color: "#555", marginBottom: "0.3rem" }}>
+                                                Seu Nome *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                required
+                                                placeholder="Ex: Carlos Silva"
+                                                value={dadosCliente.nome}
+                                                onChange={(e) => setDadosCliente(d => ({ ...d, nome: e.target.value }))}
+                                                style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.88rem" }}
+                                            />
+                                        </div>
+
+                                        {tipoEntrega === "mesa" ? (
+                                            <div style={{ marginBottom: "0.8rem" }}>
+                                                <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", color: "#555", marginBottom: "0.3rem" }}>
+                                                    Nº da Mesa *
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    placeholder="Ex: Mesa 04"
+                                                    value={dadosCliente.mesa}
+                                                    onChange={(e) => setDadosCliente(d => ({ ...d, mesa: e.target.value }))}
+                                                    style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.88rem" }}
+                                                />
+                                            </div>
+                                        ) : (
+                                            /* Campos de Endereço Inteligente para Delivery */
+                                            <div style={{ background: "#fbf9f5", padding: "1rem", borderRadius: "12px", border: "1px solid #e8e0d5", marginBottom: "1rem" }}>
+                                                
+                                                {/* CEP com busca automática */}
+                                                <div style={{ marginBottom: "0.7rem" }}>
+                                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.3rem" }}>
+                                                        <label style={{ fontSize: "0.8rem", fontWeight: "700", color: "#444" }}>
+                                                            CEP de Entrega
+                                                        </label>
+                                                        {buscandoCep && (
+                                                            <span style={{ fontSize: "0.75rem", color: "#C88A36", fontWeight: "600" }}>
+                                                                ⏳ Buscando endereço...
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        maxLength="9"
+                                                        placeholder="Ex: 52041-310 (digite o CEP)"
+                                                        value={dadosCliente.cep}
+                                                        onChange={(e) => consultarCep(e.target.value)}
+                                                        style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1.5px solid #C88A36", fontSize: "0.9rem", background: "#fff", fontWeight: "600" }}
+                                                    />
+                                                </div>
+
+                                                {/* Seletor de Bairro (Fallback e Confirmação) */}
+                                                <div style={{ marginBottom: "0.7rem" }}>
+                                                    <label style={{ display: "block", fontSize: "0.78rem", fontWeight: "600", color: "#555", marginBottom: "0.25rem" }}>
+                                                        Bairro em Recife *
+                                                    </label>
+                                                    <select
+                                                        required
+                                                        value={dadosCliente.bairro}
+                                                        onChange={(e) => {
+                                                            const novoBairro = e.target.value;
+                                                            setDadosCliente(d => ({ ...d, bairro: novoBairro }));
+                                                            calcularFreteBairro(novoBairro, dadosCliente.cep);
+                                                        }}
+                                                        style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.88rem", background: "#fff" }}
+                                                    >
+                                                        <option value="">Selecione seu bairro...</option>
+                                                        {bairrosDisponiveis.map(b => (
+                                                            <option key={b.id} value={b.nome}>
+                                                                {b.nome} — R$ {parseFloat(b.taxa).toFixed(2).replace(".", ",")}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+
+                                                {/* Rua e Número */}
+                                                <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "0.6rem", marginBottom: "0.7rem" }}>
+                                                    <div>
+                                                        <label style={{ display: "block", fontSize: "0.78rem", fontWeight: "600", color: "#555", marginBottom: "0.25rem" }}>
+                                                            Rua / Avenida *
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                            placeholder="Nome da sua rua"
+                                                            value={dadosCliente.logradouro}
+                                                            onChange={(e) => setDadosCliente(d => ({ ...d, logradouro: e.target.value }))}
+                                                            style={{ width: "100%", padding: "0.55rem 0.7rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.85rem", background: "#fff" }}
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <label style={{ display: "block", fontSize: "0.78rem", fontWeight: "600", color: "#555", marginBottom: "0.25rem" }}>
+                                                            Número *
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                            placeholder="Ex: 138"
+                                                            value={dadosCliente.numero}
+                                                            onChange={(e) => setDadosCliente(d => ({ ...d, numero: e.target.value }))}
+                                                            style={{ width: "100%", padding: "0.55rem 0.7rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.85rem", background: "#fff" }}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                {/* Complemento */}
+                                                <div>
+                                                    <label style={{ display: "block", fontSize: "0.78rem", fontWeight: "600", color: "#555", marginBottom: "0.25rem" }}>
+                                                        Complemento / Ponto de Referência
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Ex: Apto 201, Bloco B / Próximo à padaria"
+                                                        value={dadosCliente.complemento}
+                                                        onChange={(e) => setDadosCliente(d => ({ ...d, complemento: e.target.value }))}
+                                                        style={{ width: "100%", padding: "0.55rem 0.7rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.85rem", background: "#fff" }}
+                                                    />
+                                                </div>
+
+                                                {/* Aviso de Status de Entrega */}
+                                                {freteInfo.calculado && (
+                                                    <div style={{
+                                                        marginTop: "0.8rem",
+                                                        padding: "0.7rem 0.9rem",
+                                                        borderRadius: "8px",
+                                                        fontSize: "0.82rem",
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        gap: "0.5rem",
+                                                        background: freteInfo.atendido ? "#f0fdf4" : "#fef2f2",
+                                                        border: `1px solid ${freteInfo.atendido ? "#bbf7d0" : "#fecaca"}`,
+                                                        color: freteInfo.atendido ? "#166534" : "#991b1b"
+                                                    }}>
+                                                        <span>{freteInfo.atendido ? "🛵" : "⚠️"}</span>
+                                                        <div>
+                                                            {freteInfo.atendido ? (
+                                                                <>
+                                                                    <strong>Entrega Disponível!</strong> Taxa: <strong>R$ {freteInfo.taxa.toFixed(2).replace(".", ",")}</strong> • Previsão: {freteInfo.tempo}
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <strong>Fora da área de entrega:</strong> {freteInfo.erroMsg}
+                                                                </>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+
+                                        <div style={{ marginBottom: "0.8rem" }}>
+                                            <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", color: "#555", marginBottom: "0.3rem" }}>
+                                                Forma de Pagamento
+                                            </label>
+                                            <select
+                                                value={dadosCliente.pagamento}
+                                                onChange={(e) => setDadosCliente(d => ({ ...d, pagamento: e.target.value }))}
+                                                style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.88rem", background: "#fff" }}
+                                            >
+                                                <option value="Cartão de Crédito / Débito (na entrega/mesa)">Cartão de Crédito / Débito</option>
+                                                <option value="PIX (chave direta)">PIX</option>
+                                                <option value="Dinheiro">Dinheiro</option>
+                                            </select>
+                                        </div>
+
+                                        <div style={{ marginBottom: "1.2rem" }}>
+                                            <label style={{ display: "block", fontSize: "0.8rem", fontWeight: "600", color: "#555", marginBottom: "0.3rem" }}>
+                                                Observações (sem cebola, gelo e limão, etc.)
+                                            </label>
+                                            <input
+                                                type="text"
+                                                placeholder="Opcional"
+                                                value={dadosCliente.observacao}
+                                                onChange={(e) => setDadosCliente(d => ({ ...d, observacao: e.target.value }))}
+                                                style={{ width: "100%", padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid #ccc", fontSize: "0.88rem" }}
+                                            />
+                                        </div>
+
+                                        {(() => {
+                                            const bloquearHH = tipoEntrega === "delivery" && carrinho.some(i => i.happy_hour) && config.hh_apenas_local !== 0;
+                                            const bloquearFrete = tipoEntrega === "delivery" && freteInfo.calculado && !freteInfo.atendido;
+                                            const desabilitado = bloquearHH || bloquearFrete;
+
+                                            return (
+                                                <button
+                                                    type="submit"
+                                                    disabled={desabilitado}
+                                                    style={{
+                                                        width: "100%",
+                                                        background: desabilitado ? "#9ca3af" : "#25d366",
+                                                        color: "#ffffff",
+                                                        border: "none",
+                                                        padding: "0.95rem",
+                                                        borderRadius: "50px",
+                                                        fontWeight: "800",
+                                                        fontSize: "1.02rem",
+                                                        cursor: desabilitado ? "not-allowed" : "pointer",
+                                                        display: "flex",
+                                                        alignItems: "center",
+                                                        justifyContent: "center",
+                                                        gap: "8px",
+                                                        boxShadow: desabilitado ? "none" : "0 6px 20px rgba(37, 211, 102, 0.4)"
+                                                    }}
+                                                >
+                                                    {bloquearHH ? (
+                                                        <span>⚠️ Remova itens de Happy Hour para pedir Delivery</span>
+                                                    ) : bloquearFrete ? (
+                                                        <span>Endereço Fora da Área de Entrega</span>
+                                                    ) : (
+                                                        <>
+                                                            <span>Enviar Pedido para WhatsApp</span>
+                                                            <span>💬</span>
+                                                        </>
+                                                    )}
+                                                </button>
+                                            );
+                                        })()}
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* ── SEÇÃO DE AVALIAÇÕES DO GOOGLE (PROVA SOCIAL) ── */}
+                    <section id="avaliacoes" className="avaliacoes-section" style={{ background: "#ffffff", padding: "4rem 1.5rem", borderTop: "1px solid #e8e0d5" }}>
+                        <div style={{ maxWidth: "1100px", margin: "0 auto", textAlign: "center" }}>
+                            {/* Selo Google */}
+                            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "#f8f9fa", padding: "0.5rem 1.2rem", borderRadius: "50px", border: "1px solid #e0e0e0", marginBottom: "1rem" }}>
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                                <span style={{ fontWeight: "700", color: "#333", fontSize: "0.85rem" }}>Avaliações do Google</span>
+                                <span style={{ color: "#fbbc04", fontSize: "1.1rem" }}>★★★★★</span>
+                                <strong style={{ color: "#111", fontSize: "0.9rem" }}>4.9 / 5.0</strong>
+                            </div>
+
+                            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: "700", color: "#1a1a1a", marginBottom: "0.6rem" }}>
+                                Quem prova, recomenda! 🍻
+                            </h2>
+                            <p style={{ color: "#666", fontSize: "0.95rem", maxWidth: "600px", margin: "0 auto 2.5rem" }}>
+                                Veja o que nossos clientes dizem sobre o Bode Guisado, a Maminha Argentina e a cerveja mais gelada da Encruzilhada.
+                            </p>
+
+                            {/* Cards de Depoimentos Reais */}
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginBottom: "2.5rem", textAlign: "left" }}>
+                                {[
+                                    {
+                                        nome: "Marcelo Albuquerque",
+                                        tempo: "há 2 semanas",
+                                        comentario: "Melhor maminha de Recife! Atendimento arretado, cerveja estupidamente gelada e preço justo. Já virei cliente fixo.",
+                                        foto: "👨"
+                                    },
+                                    {
+                                        nome: "Juliana Bezerra",
+                                        tempo: "há 1 mês",
+                                        comentario: "O Bode Guisado e o arrumadinho são sensacionais! Lugar aconchegante para reunir a família e os amigos no fim de semana.",
+                                        foto: "👩"
+                                    },
+                                    {
+                                        nome: "Rodrigo Cavalcanti",
+                                        tempo: "há 3 semanas",
+                                        comentario: "A pizza nordestina e os petiscos de boteco são nota 10. O Happy Hour tem preço imbatível na região da Encruzilhada.",
+                                        foto: "🧔"
+                                    }
+                                ].map((rev, i) => (
+                                    <div key={i} style={{ background: "#fbf9f5", padding: "1.5rem", borderRadius: "16px", border: "1px solid #f0ebe3", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
+                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
+                                            <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                                                <span style={{ fontSize: "1.8rem", background: "#fff", width: "42px", height: "42px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}>{rev.foto}</span>
+                                                <div>
+                                                    <h4 style={{ margin: 0, fontSize: "0.95rem", fontWeight: "700", color: "#222" }}>{rev.nome}</h4>
+                                                    <span style={{ fontSize: "0.75rem", color: "#999" }}>{rev.tempo}</span>
+                                                </div>
+                                            </div>
+                                            <span style={{ color: "#fbbc04", fontSize: "1rem" }}>★★★★★</span>
+                                        </div>
+                                        <p style={{ margin: 0, fontSize: "0.88rem", color: "#555", lineHeight: "1.5" }}>
+                                            "{rev.comentario}"
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Botão de Avaliar no Google */}
+                            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: "0.6rem",
+                                        background: "#1a73e8",
+                                        color: "#ffffff",
+                                        border: "2px solid #1a73e8",
+                                        padding: "0.85rem 1.8rem",
+                                        borderRadius: "50px",
+                                        fontWeight: "700",
+                                        fontSize: "0.95rem",
+                                        boxShadow: "0 4px 15px rgba(26, 115, 232, 0.35)",
+                                        transition: "all 0.2s"
+                                    }}
+                                >
+                                    <span>⭐ Deixar Avaliação no Google</span>
+                                </a>
+
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: "0.6rem",
+                                        background: "#ffffff",
+                                        color: "#333333",
+                                        border: "2px solid #e0e0e0",
+                                        padding: "0.85rem 1.8rem",
+                                        borderRadius: "50px",
+                                        fontWeight: "600",
+                                        fontSize: "0.95rem",
+                                        boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+                                        transition: "all 0.2s"
+                                    }}
+                                >
+                                    <span>📍 Como Chegar (Google Maps)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            )}
+
+            {/* ── RODAPÉ ─────────────────────────────────────── */}
+            <footer className="footer-container" style={styles.footer}>
+                <img src="/logo.png" alt="Logo" style={styles.footerLogo} />
+                <p style={styles.footerNome}>Furdunço - Café e Cultura</p>
+                <p style={styles.footerSlogan}>Comida Arretada & Cerveja Gelada</p>
+                <div className="footer-infos" style={styles.footerInfos}>
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "underline", color: "inherit" }}
+                        title="Ver no Google Maps"
+                    >
+                        📍 Rua Larga da Feitosa, 138 — Encruzilhada, Recife
+                    </a>
+                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
+                    <span>📱 WhatsApp: (81) 98271-4421</span>
+                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
+                    <a
+                        href={config?.instagram_url || "https://www.instagram.com/furduncocafecultura/"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "underline", color: "inherit", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "5px" }}
+                        title="Ver no Instagram"
+                    >
+                        <InstagramIcon size={14} color="#E1306C" />
+                        <span>@furduncocafecultura</span>
+                    </a>
+                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
+                    <span>🛵 Disponível no iFood</span>
+                </div>
+                <p style={styles.footerCopy}>© {new Date().getFullYear()} Furdunço - Café e Cultura — Todos os direitos reservados</p>
+            </footer>
+        </div>
+    );
+}
+
+function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
+    const [hovered, setHovered] = useState(false);
+
+    const handleClick = () => {
+        if (prato.id) {
+            api.post(`/pratos/${prato.id}/visualizacao`).catch(() => {});
+        }
+    };
+
+    const isEstrela = prato.classificacao === "estrela";
+    const isEnigma = prato.classificacao === "enigma";
+
+    return (
+        <div
+            style={{
+                ...styles.card,
+                ...(hovered ? styles.cardHover : {}),
+                ...(happyHour ? styles.cardHH : {}),
+                ...(isEstrela ? styles.cardEstrela : {}),
+            }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={handleClick}
+        >
+            {prato.imagem ? (
+                <div style={{ ...styles.cardImgBox, cursor: "zoom-in" }} onClick={(e) => { e.stopPropagation(); onVerFoto?.(prato); }}>
+                    <img src={getImagemUrl(prato.imagem)} alt={prato.nome} style={styles.cardImg} />
+                    {prato.selo ? (
+                        <div style={styles.seloBadge}>{prato.selo}</div>
+                    ) : isEstrela ? (
+                        <div style={styles.seloBadge}>🔥 Mais Pedido</div>
+                    ) : happyHour ? (
+                        <div style={styles.hhBadge}>🍺 Happy Hour</div>
+                    ) : null}
+                </div>
+            ) : (
+                <div style={{ ...styles.cardEmoji, ...(happyHour ? styles.cardEmojiHH : isEstrela ? styles.cardEmojiEstrela : {}) }}>
+                    {getEmoji(prato.nome)}
+                    {prato.selo ? (
+                        <div style={styles.seloBadgeEmoji}>{prato.selo}</div>
+                    ) : isEstrela ? (
+                        <div style={styles.seloBadgeEmoji}>🔥 Mais Pedido</div>
+                    ) : happyHour ? (
+                        <div style={styles.hhBadgeEmoji}>🍺 Happy Hour</div>
+                    ) : null}
+                </div>
+            )}
+
+            <div style={styles.cardBody}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem" }}>
+                    <h3 style={{ ...styles.cardNome, ...(happyHour ? styles.cardNomeHH : isEstrela ? styles.cardNomeEstrela : {}) }}>
+                        {prato.nome}
+                    </h3>
+                </div>
+                {prato.descricao && <p style={styles.cardDesc}>{prato.descricao}</p>}
+                {prato.observacoes && (
+                    <div style={styles.cardObsBadge}>
+                        <span style={styles.cardObsIcon}>💡</span>
+                        <span style={styles.cardObsText}>{prato.observacoes}</span>
+                    </div>
+                )}
+            </div>
+
+            <div style={{ ...styles.cardFooter, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ ...styles.cardPreco, ...(happyHour ? styles.cardPrecoHH : isEstrela ? styles.cardPrecoEstrela : {}) }}>
+                    R$ {parseFloat(prato.preco).toFixed(2).replace(".", ",")}
+                </span>
+
+                <button
+                    type="button"
+                    className="btn-adicionar-prato"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onAdicionar?.(prato);
+                    }}
+                    title="Adicionar ao pedido via WhatsApp"
+                >
+                    <span>+</span>
+                    <span>{qtdNoCarrinho > 0 ? `(${qtdNoCarrinho})` : "Pedir"}</span>
+                </button>
+            </div>
+        </div>
+    );
+}
+
+const styles = {
+    searchWrapper: { position: "relative", maxWidth: "480px", margin: "0 auto 1.5rem auto", width: "100%" },
+    searchInput: { width: "100%", padding: "0.85rem 1.4rem", borderRadius: "50px", border: "1.5px solid rgba(200, 138, 54, 0.4)", background: "rgba(255, 255, 255, 0.95)", color: "#2D1E18", fontSize: "0.92rem", outline: "none", boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)", transition: "all 0.2s ease" },
+    searchClearBtn: { position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", color: "#8D6E63", fontSize: "1rem", cursor: "pointer", padding: "4px" },
+
+    cardObsBadge: { display: "inline-flex", alignItems: "flex-start", gap: "0.35rem", marginTop: "0.55rem", padding: "0.35rem 0.65rem", background: "#FBF7F0", border: "1px solid #EFE4D3", borderRadius: "8px", fontSize: "0.76rem", color: "#6D4C41", lineHeight: "1.3" },
+    cardObsIcon: { fontSize: "0.85rem", flexShrink: 0 },
+    cardObsText: { fontWeight: "500" },
+
+    modalFotoBackdrop: { position: "fixed", inset: 0, zIndex: 9999, background: "rgba(20, 12, 8, 0.82)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" },
+    modalFotoBox: { position: "relative", background: "#FFFFFF", borderRadius: "20px", maxWidth: "560px", width: "100%", overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.4)", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+    modalFotoFechar: { position: "absolute", top: "12px", right: "12px", background: "rgba(0,0,0,0.6)", color: "#FFF", border: "none", width: "34px", height: "34px", borderRadius: "50%", cursor: "pointer", zIndex: 10, fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" },
+    modalFotoImgWrapper: { width: "100%", height: "280px", background: "#F5EFEB", position: "relative" },
+    modalFotoImg: { width: "100%", height: "100%", objectFit: "cover" },
+    modalFotoInfo: { padding: "1.5rem", overflowY: "auto" },
+    modalFotoCat: { display: "inline-block", background: "#F5EFEB", color: "#8D6E63", fontSize: "0.75rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", padding: "0.2rem 0.6rem", borderRadius: "50px", marginBottom: "0.5rem" },
+    modalFotoTitulo: { fontFamily: "'Playfair Display', serif", fontSize: "1.45rem", fontWeight: "700", color: "#2D1E18", marginBottom: "0.5rem" },
+    modalFotoDesc: { fontSize: "0.88rem", color: "#5D4037", lineHeight: "1.5", marginBottom: "0.8rem" },
+    modalFotoObs: { background: "#FDF8F0", border: "1px solid #EFE4D3", borderRadius: "10px", padding: "0.6rem 0.9rem", fontSize: "0.82rem", color: "#6D4C41", marginBottom: "1rem", lineHeight: "1.4" },
+    modalFotoFooter: { display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #F0EAE1", paddingTop: "1rem", marginTop: "0.5rem" },
+    modalFotoPreco: { fontSize: "1.35rem", fontWeight: "700", color: "#A26D3F", fontFamily: "'Poppins', sans-serif" },
+    modalFotoBtnPedir: { background: "#2D1E18", color: "#FAF6F0", border: "none", padding: "0.75rem 1.4rem", borderRadius: "50px", fontWeight: "600", fontSize: "0.9rem", cursor: "pointer", transition: "background 0.2s" },
+
+    hero: { position: "relative", minHeight: "560px", background: "linear-gradient(155deg, #1f120c 0%, #2e1a12 55%, #180c07 100%)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", padding: "3rem 1.5rem" },
+    heroOverlay: { position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 40%, rgba(232,184,75,0.07) 0%, transparent 65%)" },
+    heroContent: { textAlign: "center", zIndex: 1, maxWidth: "700px", width: "100%" },
+    heroLogo: { width: "90px", height: "90px", objectFit: "cover", borderRadius: "50%", border: "3px solid #C88A36", marginBottom: "1rem", boxShadow: "0 0 30px rgba(232,184,75,0.2)" },
+    heroLabel: { color: "#C88A36", fontSize: "0.75rem", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", marginBottom: "0.5rem" },
+    heroTitle: { fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.4rem, 5vw, 4.2rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.15", marginBottom: "1.5rem" },
+    heroTags: { display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.6rem", marginBottom: "1.8rem" },
+    tag: { background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "#ddd", padding: "0.4rem 0.9rem", borderRadius: "50px", fontSize: "0.82rem" },
+    heroInfo: { display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "0.8rem", marginBottom: "2rem" },
+    infoItem: { display: "flex", alignItems: "center", gap: "0.4rem" },
+    infoText: { color: "#aaa", fontSize: "0.85rem" },
+    infoSep: { width: "1px", height: "16px", background: "#444" },
+    heroBtns: { display: "flex", gap: "0.8rem", justifyContent: "center", flexWrap: "wrap" },
+    heroBtn: { display: "inline-block", background: "#C88A36", color: "#111", padding: "0.8rem 1.8rem", borderRadius: "50px", fontWeight: "700", fontSize: "0.9rem" },
+    heroBtnHH: { display: "inline-block", background: "transparent", border: "2px solid #C88A36", color: "#C88A36", padding: "0.8rem 1.8rem", borderRadius: "50px", fontWeight: "700", fontSize: "0.9rem" },
+
+    /* ── BARRA FIXA DE NAVEGAÇÃO DE CATEGORIAS (STICKY) ── */
+    catNavBar: {
+        position: "sticky",
+        top: "70px",
+        zIndex: 90,
+        background: "rgba(255, 255, 255, 0.95)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid #e8e0d5",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+        overflowX: "auto",
+        whiteSpace: "nowrap",
+        WebkitOverflowScrolling: "touch",
+    },
+    catNavContainer: {
+        maxWidth: "1100px",
+        margin: "0 auto",
+        padding: "0.75rem 1.2rem",
+        display: "flex",
+        gap: "0.6rem",
+        alignItems: "center"
+    },
+    catNavItem: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "0.4rem",
+        background: "#faf8f5",
+        border: "1px solid #e0d9d0",
+        color: "#333",
+        padding: "0.45rem 1rem",
+        borderRadius: "50px",
+        fontSize: "0.85rem",
+        fontWeight: "600",
+        transition: "all 0.2s ease",
+        textDecoration: "none",
+        flexShrink: 0
+    },
+
+    section: { maxWidth: "1100px", margin: "0 auto", padding: "4rem 1.5rem" },
+    sectionHeader: { textAlign: "center", marginBottom: "3rem" },
+    sectionLabel: { color: "#C88A36", fontSize: "0.78rem", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", marginBottom: "0.5rem" },
+    sectionTitle: { fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: "700", color: "#1a1a1a", marginBottom: "1rem" },
+    sectionDivider: { width: "60px", height: "3px", background: "linear-gradient(90deg, #C88A36, #c0392b)", margin: "0 auto", borderRadius: "2px" },
+
+    grid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.8rem" },
+
+    /* ── HAPPY HOUR SECTION ── */
+    happyHourSection: { position: "relative", background: "linear-gradient(135deg, #0d0903 0%, #1a1000 50%, #0d0903 100%)", padding: "5rem 1.5rem", overflow: "hidden" },
+    hhOverlay: { position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 50%, rgba(232,184,75,0.06) 0%, transparent 70%)" },
+    hhContent: { position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto" },
+    hhHeader: { textAlign: "center", marginBottom: "3rem" },
+    hhLabel: { color: "#C88A36", fontSize: "0.8rem", fontWeight: "700", letterSpacing: "5px", textTransform: "uppercase", marginBottom: "0.6rem" },
+    hhTitle: { fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: "700", color: "#ffffff", marginBottom: "0.8rem" },
+    hhBadgeHorario: {
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "0.8rem",
+        flexWrap: "wrap",
+        background: "rgba(232, 184, 75, 0.12)",
+        border: "1px solid #C88A36",
+        color: "#C88A36",
+        padding: "0.5rem 1.4rem",
+        borderRadius: "50px",
+        fontSize: "0.95rem",
+        fontWeight: "600",
+        marginBottom: "1rem"
+    },
+    hhSub: { color: "#888", fontSize: "1rem", marginBottom: "1rem" },
+    hhGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.5rem" },
+
+    /* ── CARD ── */
+    card: { background: "#ffffff", borderRadius: "16px", overflow: "hidden", boxShadow: "0 2px 16px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", transition: "transform 0.25s ease, box-shadow 0.25s ease", cursor: "pointer" },
+    cardHover: { transform: "translateY(-4px)", boxShadow: "0 10px 24px rgba(0,0,0,0.1)" },
+    cardHH: { background: "#1a1200", border: "1px solid rgba(232,184,75,0.2)" },
+    cardEstrela: { border: "2px solid #C88A36", boxShadow: "0 4px 20px rgba(232, 184, 75, 0.15)" },
+
+    cardImgBox: { width: "100%", height: "200px", overflow: "hidden", position: "relative" },
+    cardImg: { width: "100%", height: "100%", objectFit: "cover", display: "block" },
+    hhBadge: { position: "absolute", top: "10px", left: "10px", background: "#C88A36", color: "#111", padding: "0.25rem 0.7rem", borderRadius: "20px", fontSize: "0.75rem", fontWeight: "700" },
+    seloBadge: { position: "absolute", top: "10px", left: "10px", background: "linear-gradient(135deg, #C88A36, #d49b28)", color: "#111", padding: "0.3rem 0.8rem", borderRadius: "20px", fontSize: "0.78rem", fontWeight: "800", boxShadow: "0 2px 8px rgba(0,0,0,0.2)" },
+
+    cardEmoji: { background: "linear-gradient(135deg, #fff8e7, #fcefc7)", textAlign: "center", fontSize: "3rem", padding: "1.8rem 1rem 1.4rem", position: "relative" },
+    cardEmojiHH: { background: "linear-gradient(135deg, #1e1600, #2a1e00)" },
+    cardEmojiEstrela: { background: "linear-gradient(135deg, #fffcf5, #fef5dc)" },
+    hhBadgeEmoji: { position: "absolute", top: "10px", left: "10px", background: "#C88A36", color: "#111", padding: "0.25rem 0.7rem", borderRadius: "20px", fontSize: "0.75rem", fontWeight: "700" },
+    seloBadgeEmoji: { position: "absolute", top: "10px", left: "10px", background: "linear-gradient(135deg, #C88A36, #d49b28)", color: "#111", padding: "0.3rem 0.8rem", borderRadius: "20px", fontSize: "0.78rem", fontWeight: "800", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" },
+
+    cardBody: { padding: "1.2rem 1.4rem", flex: 1 },
+    cardNome: { fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: "700", color: "#1a1a1a", marginBottom: "0.4rem" },
+    cardNomeHH: { color: "#C88A36" },
+    cardNomeEstrela: { color: "#111" },
+    cardDesc: { fontSize: "0.84rem", color: "#999", lineHeight: "1.6" },
+    cardFooter: { padding: "0.9rem 1.4rem", borderTop: "1px solid #f0ebe3", display: "flex", justifyContent: "flex-end" },
+    cardPreco: { background: "linear-gradient(135deg, #c0392b, #96281b)", color: "#fff", padding: "0.4rem 1.1rem", borderRadius: "50px", fontSize: "0.95rem", fontWeight: "700" },
+    cardPrecoEstrela: { background: "linear-gradient(135deg, #C88A36, #c49020)", color: "#111" },
+    cardPrecoHH: { background: "linear-gradient(135deg, #C88A36, #c99a30)", color: "#111" },
+
+    center: { textAlign: "center", padding: "4rem 0" },
+    spinner: { width: "36px", height: "36px", border: "3px solid #f0ebe3", borderTop: "3px solid #C88A36", borderRadius: "50%", margin: "0 auto", animation: "spin 0.8s linear infinite" },
+    erroBox: { background: "#fdecea", color: "#c0392b", padding: "1rem 1.5rem", borderRadius: "10px", textAlign: "center", fontSize: "0.9rem", margin: "2rem auto", maxWidth: "600px" },
+
+    footer: { background: "#111111", textAlign: "center", padding: "3rem 1.5rem" },
+    footerLogo: { width: "52px", height: "52px", objectFit: "cover", borderRadius: "50%", border: "2px solid #C88A36", marginBottom: "0.8rem" },
+    footerNome: { fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", color: "#C88A36", fontWeight: "700" },
+    footerSlogan: { color: "#666", fontSize: "0.75rem", letterSpacing: "2px", textTransform: "uppercase", margin: "0.3rem 0 1.2rem" },
+    footerInfos: { display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "0.8rem", color: "#666", fontSize: "0.82rem", marginBottom: "1.5rem" },
+    footerCopy: { color: "#444", fontSize: "0.78rem" },
+};

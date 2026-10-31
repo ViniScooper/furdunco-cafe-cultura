@@ -1,0 +1,1063 @@
+{
+  "estabelecimento": "Furdunço - Café e Cultura",
+  "whatsapp": "(81) 99297-7604",
+  "url_origem": "https://cardapio.wifire.me/v/furdunco-cafe-e-cultura#!",
+  "logo": "https://fw.wifire.me/s3/images/BCzlqq8giFOn00I0QfwRbAA4ycT5b39XJAsPte8.jpg",
+  "banner": "https://wifireme.s3-sa-east-1.amazonaws.com/images/WJgDWu5Uuj6lzXyyuswVJt8g8fIssNd4yIEsN4M.jpg",
+  "total_itens": 117,
+  "cardapio": [
+    {
+      "categoria": "Geral",
+      "nome": "Batata frita",
+      "descricao": "",
+      "preco_formatado": "R$ 22,00",
+      "preco_num": 22,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5e9e3846b0bb88a6b4c62bf8d2b122d9.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5e9e3846b0bb88a6b4c62bf8d2b122d9.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Brie no forno",
+      "descricao": "Queijo brie derretido no forno com jamon e geleia de frutas amarelas. Acompanha porção de torradas.",
+      "preco_formatado": "R$ 59,00",
+      "preco_num": 59,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e8587cf6d0ba64bca31676b3cbed6741.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e8587cf6d0ba64bca31676b3cbed6741.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Carpaccio",
+      "descricao": "Ao molho de mostarda doce com alcaparras, rúcula, tomatinho confit e parmesão. Acompanha porção de torradas.",
+      "preco_formatado": "R$ 52,00",
+      "preco_num": 52,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/20ee004cef3533314f2733b887877305.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/20ee004cef3533314f2733b887877305.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cestinha de pães com pastinhas",
+      "descricao": "Porção de mix de pães (pão fofinho, torradas e pão italiano) com homus, tomatinho confit e guacamole.",
+      "preco_formatado": "R$ 42,00",
+      "preco_num": 42,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/4c427e4cb68e4eff394286e7c27492a3.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4c427e4cb68e4eff394286e7c27492a3.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Empada",
+      "descricao": "Sabores: frango, camarão e queijo do reino",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a41609e40e5d1d3b698b97c8c0cd3b65.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a41609e40e5d1d3b698b97c8c0cd3b65.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Iscas de frango empanadas",
+      "descricao": "Iscas de frango empanadas. Acompanha molho barbecue de goiabada.",
+      "preco_formatado": "R$ 25,00",
+      "preco_num": 25,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mini coxinha",
+      "descricao": "Porção com 8 unidades.",
+      "preco_formatado": "R$ 22,00",
+      "preco_num": 22,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9de9466a512a03b160c11478d87b292d.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9de9466a512a03b160c11478d87b292d.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mini croissant",
+      "descricao": "Porção com 5 unidades. Acompanha requeijão e geleia de frutas amarelas.",
+      "preco_formatado": "R$ 24,00",
+      "preco_num": 24,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/895c348e97ffb90108460cbe741a99fd.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/895c348e97ffb90108460cbe741a99fd.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Pão de queijo tradicional",
+      "descricao": "Pão de queijo feito artesanalmente na casa. Porção com 5 unidades.",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a70d4938d33053a83c37bdfd4b88df09.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a70d4938d33053a83c37bdfd4b88df09.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Pão fofinho na chapa",
+      "descricao": "Porção com 3 unidades. Acompanha requeijão e geleia a sua escolha.",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7406ea7cade0f6f915bcfeb9ee0aa86a.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7406ea7cade0f6f915bcfeb9ee0aa86a.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Pão fofinho recheado",
+      "descricao": "porção com 4 unidades. Sabores: frango, queijo do reino ou camarão.",
+      "preco_formatado": "R$ 27,00",
+      "preco_num": 27,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5d5824fc8b6cc74adfc865eb1ecc6be2.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5d5824fc8b6cc74adfc865eb1ecc6be2.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Pastel de queijo",
+      "descricao": "Porção com 6 unidades.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9cb25ad91a30e1be52eeef4b181157b1.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9cb25ad91a30e1be52eeef4b181157b1.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Quiche",
+      "descricao": "Sabores: muçarela com tomate confit, gorgonzola com geleia de maçã, brie com geleia de frutas amarelas, alho poró.",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c93668726ac3e87532084def5863cf3e.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c93668726ac3e87532084def5863cf3e.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Bolo do dia",
+      "descricao": "Fatia de bolo. Consultar o sabor do dia.",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7a1ea81bb3799aa2371bbb7ecba75a06.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7a1ea81bb3799aa2371bbb7ecba75a06.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Brigadeiro no pote",
+      "descricao": "Brigadeiro ou bem casado no pote com granulado para comer de colher.",
+      "preco_formatado": "R$ 14,00",
+      "preco_num": 14,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/854f9306a61be6db575bc61b56f82be2.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/854f9306a61be6db575bc61b56f82be2.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Brownie com Sorvete",
+      "descricao": "Brownie de chocolate com sorvete de creme e calda de chocolate.",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0075eb08f2b7f073793d3af5cd0be987.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0075eb08f2b7f073793d3af5cd0be987.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cartola",
+      "descricao": "Banana grelhada com queijo coalho assado, canela e açúcar.",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9f2685355e2f46db0180b131f9d40cdb.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9f2685355e2f46db0180b131f9d40cdb.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cheesecake",
+      "descricao": "Cheesecake com calda de frutas vermelhas ou maracujá.",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b83b9a344e97aa818615276cf52a01d4.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b83b9a344e97aa818615276cf52a01d4.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cookie Vegano",
+      "descricao": "Cookie vegano sem glúten. Sabores tradicional e chocolate.",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/4040c32cb3ac32118f8963206c105853.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4040c32cb3ac32118f8963206c105853.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mini Bolo",
+      "descricao": "Mini bolo com calda. Massa: chocolate, cenoura ou laranja. Calda: chocolate ou caramelo salgado.",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/55178f480e543969d5881b40058cbd77.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/55178f480e543969d5881b40058cbd77.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Salada de Frutas",
+      "descricao": "Salada de frutas com mel, granola e iogurte.",
+      "preco_formatado": "R$ 22,00",
+      "preco_num": 22,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/537ff26f21be2b5da4c6b29618b130e7.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/537ff26f21be2b5da4c6b29618b130e7.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Taça de Banoffee",
+      "descricao": "Taça gelada de banoffee com sorvete de creme.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/369e0fac0a024cfe0443c78fb166ea36.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/369e0fac0a024cfe0443c78fb166ea36.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Torta Alemã",
+      "descricao": "Fatia de torta alemã.",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/972c3045c0e709cddddda71080487cdb.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/972c3045c0e709cddddda71080487cdb.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Torta Cookie",
+      "descricao": "Torta cookie vegana e sem glúten.",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Torta de Limão",
+      "descricao": "Fatia de torta de limão",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/fa402e0d6ce827781885244c077658d0.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/fa402e0d6ce827781885244c077658d0.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Torta de Morango",
+      "descricao": "Torta de morango com massa de pão de ló. A calda pode ser de chocolate ou chantilly.",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/17a2949231da46eddcb13f0075deb724.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/17a2949231da46eddcb13f0075deb724.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Torta Folhada de Maçã",
+      "descricao": "Torta folhada de maçã com creme de amêndoas, caramelo salgado e sorvete de creme.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1099e1d65d809e676ea6997f16fcb34f.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1099e1d65d809e676ea6997f16fcb34f.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cuscuz temperado",
+      "descricao": "REGIONAIS Pratos regionais Cuscuz temperadinho com um acompanhamento: carne louca (carne desfiada com pimentões coloridos e cebola), queijo coalho ou ovo frito. Versão vegana com cogumelos Sopa do dia Acompanha porção de torradas. Consultar sabor do dia. Tapioca rendada Sabores: carne louca (carne desfiada com pimentões coloridos e cebola) ou coco e queijo coalho ou frango.",
+      "preco_formatado": "R$ 26,00",
+      "preco_num": 26,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1edf6140bccc8c5e25f6af24d016307b.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1edf6140bccc8c5e25f6af24d016307b.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Sopa do dia",
+      "descricao": "Acompanha porção de torradas. Consultar sabor do dia.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/29df0058c61458f0099f6e1a86e109b3.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/29df0058c61458f0099f6e1a86e109b3.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Tapioca rendada",
+      "descricao": "Sabores: carne louca (carne desfiada com pimentões coloridos e cebola) ou coco e queijo coalho ou frango.",
+      "preco_formatado": "R$ 27,00",
+      "preco_num": 27,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/eae6b6e066639689c405b579664497f5.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/eae6b6e066639689c405b579664497f5.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Omelete",
+      "descricao": "Acompanha saladinha de folhas.",
+      "preco_formatado": "R$ 30,00",
+      "preco_num": 30,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e39baede5bb074c4ff5a7d2e0ad84e4c.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e39baede5bb074c4ff5a7d2e0ad84e4c.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Ovos com bacon",
+      "descricao": "Pão de fermentação natural, ovos com gema mole e fatias de bacon",
+      "preco_formatado": "R$ 23,00",
+      "preco_num": 23,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f31c47ee1119986302516a454323e9c7.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f31c47ee1119986302516a454323e9c7.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Ovos mexidos",
+      "descricao": "Dois ovos mexidos com pão de fermentação natural.",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3a965fae5a28936d36caf4c0364268d9.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3a965fae5a28936d36caf4c0364268d9.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Ovos no Purgatório",
+      "descricao": "Ovos moles cozidos no molho de tomate com calabresa. Acompanha pão de fermentação natural.",
+      "preco_formatado": "R$ 26,00",
+      "preco_num": 26,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/51fe6bc92ef91997b2c1fc88ba1d7a7e.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/51fe6bc92ef91997b2c1fc88ba1d7a7e.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Pão na chapa",
+      "descricao": "Pão de fermentação natural na chapa",
+      "preco_formatado": "R$ 12,00",
+      "preco_num": 12,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Toast de Brie e Jamon",
+      "descricao": "Pão de fermentação natural, queijo brie, jamon, tomatinho confit e molho pesto",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e5a5444a6bedf4ceb8f5ba4a16d587cc.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e5a5444a6bedf4ceb8f5ba4a16d587cc.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Toast de frango cremoso",
+      "descricao": "Pão de fermentação natural, frango cremoso, rúcula, geleia de maçã e nozes",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/21a98bab8d362a8eed7d203698d987ee.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/21a98bab8d362a8eed7d203698d987ee.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Toast de guacamole",
+      "descricao": "Pão de fermentação natural, guacamole, ovos moles e jamon serrano.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/cc18e94c9011ccd40428900850ba4e7f.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/cc18e94c9011ccd40428900850ba4e7f.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Toast Vegana",
+      "descricao": "Pão de fermentação natural, homus, queijo de castanha, tomate confit e cogumelos.",
+      "preco_formatado": "R$ 30,00",
+      "preco_num": 30,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b92146eab787eef819717529b1096a71.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b92146eab787eef819717529b1096a71.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Brie com Parma",
+      "descricao": "Sanduíche de brie com parma e geleia de damasco. O pão pode ser ciabatta ou croissant.",
+      "preco_formatado": "R$ 34,00",
+      "preco_num": 34,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/22b9858ed67ac257fec11887be3d8308.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/22b9858ed67ac257fec11887be3d8308.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "carne louca com queijo e maionese verde",
+      "descricao": "sanduíche de carne louca (carne desfiada com pimentões coloridos e cebola), queijo muçarela e maionese verde. Pode ser no ciabatta ou croissant.",
+      "preco_formatado": "R$ 35,00",
+      "preco_num": 35,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Costelinha de porco",
+      "descricao": "Sanduíche de costelinha de porco com requeijão e cebola caramelizada. Acompanha barbecue de goiabada da casa. O pão pode ser ciabatta ou croissant.",
+      "preco_formatado": "R$ 35,00",
+      "preco_num": 35,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5218feed09d728ab3c97998bfecacda6.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5218feed09d728ab3c97998bfecacda6.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Do Reino",
+      "descricao": "Sanduíche de queijo do reino. O pão pode ser ciabatta ou croissant.",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/028cc901bcc19185fae95d0144e127b9.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/028cc901bcc19185fae95d0144e127b9.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Frango cremoso com bacon",
+      "descricao": "Sanduíche de frango cremoso com bacon, rúcula e geleia de tomate. Pode ser no pão ciabatta ou croissant.",
+      "preco_formatado": "R$ 32,00",
+      "preco_num": 32,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Muçarela crocante",
+      "descricao": "Sanduíche de queijo muçarela crocante com requeijão e geleia de tomate. O pão pode ser ciabatta ou croissant.",
+      "preco_formatado": "R$ 29,00",
+      "preco_num": 29,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a334798c6e1ad92ea88f79e1b7c60dba.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a334798c6e1ad92ea88f79e1b7c60dba.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Vegano no ciabatta",
+      "descricao": "Pão ciabatta com homus, cogumelos, alface, rúcula, tomate confit e queijo de castanha.",
+      "preco_formatado": "R$ 31,00",
+      "preco_num": 31,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/841cf9e05dc7a2349fe9826ebfcea51f.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/841cf9e05dc7a2349fe9826ebfcea51f.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Salada de camarão",
+      "descricao": "SALADAS Mix de folhas, camarão grelhado, manga, cenoura ralada, queijo coalho, tomate cereja e nozes. Salada de frango Mix de folhas com frango desfiado, amêndoas tostadas, tomate confit, frutas secas, molho de mostarda doce. Acompanha torradas. Salada Toast Mix de folhas com tomatinho confit, nozes e toast de homus com geleia de maçã.",
+      "preco_formatado": "R$ 49,00",
+      "preco_num": 49,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/69d29c717b451b931ccca657e5e374b3.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/69d29c717b451b931ccca657e5e374b3.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Salada de frango",
+      "descricao": "Mix de folhas com frango desfiado, amêndoas tostadas, tomate confit, frutas secas, molho de mostarda doce. Acompanha torradas.",
+      "preco_formatado": "R$ 42,00",
+      "preco_num": 42,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/uZdmRuH1iy5Cl96XX10GJ2ZFX09cVuMS5vYPI-o.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/uZdmRuH1iy5Cl96XX10GJ2ZFX09cVuMS5vYPI-o.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Salada Toast",
+      "descricao": "Mix de folhas com tomatinho confit, nozes e toast de homus com geleia de maçã.",
+      "preco_formatado": "R$ 40,00",
+      "preco_num": 40,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/XqSZrYpeRqGLymFi4ELjIOCuXpdSJ9bTYU7IqV4.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/XqSZrYpeRqGLymFi4ELjIOCuXpdSJ9bTYU7IqV4.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Camarão ao molho de tomate",
+      "descricao": "Camarão com penne ao molho de tomate, molho pesto e parmesão.",
+      "preco_formatado": "R$ 54,00",
+      "preco_num": 54,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Frango tarê",
+      "descricao": "Filé de peito de frango no molho tarê, com purê de batata doce e espaguete de legumes (cenoura e abobrinha)",
+      "preco_formatado": "R$ 37,00",
+      "preco_num": 37,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d3c5ef9545aa9ecc95a0dfaf4ccff3ce.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d3c5ef9545aa9ecc95a0dfaf4ccff3ce.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Parmê de frango",
+      "descricao": "Parmegiana de frango com espaguete ao molho de tomate e queijo parmesão",
+      "preco_formatado": "R$ 37,00",
+      "preco_num": 37,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/g6t-nuOgNXJkRUtKp8dA7KP4IQNQlTHxyiohl58.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/g6t-nuOgNXJkRUtKp8dA7KP4IQNQlTHxyiohl58.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Picadinho",
+      "descricao": "Picadinho de coxão mole, arroz alho e óleo, farofa panko temperada, banana grelhada e ovo frito",
+      "preco_formatado": "R$ 42,00",
+      "preco_num": 42,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/jd1Z03YDJL3KtFu0QBTO7ntuyEDHFoUOwxPBwes.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/jd1Z03YDJL3KtFu0QBTO7ntuyEDHFoUOwxPBwes.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Risoto de alho poró",
+      "descricao": "Risoto cremoso com mix de arroz arbóreo e 7 grãos com cogumelos, alho poró, queijo parmesão e amêndoas laminadas. Possibilidade de versão vegana com queijo de castanha.",
+      "preco_formatado": "R$ 49,00",
+      "preco_num": 49,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/yYk59_x_XCqaCgMliOZKYgndt4UiTEVdKmYRfaA.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/yYk59_x_XCqaCgMliOZKYgndt4UiTEVdKmYRfaA.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Risoto de camarão",
+      "descricao": "Risoto de camarão com arroz arbóreo, arroz sete grãos, tomatinhos confit, espaguete de legumes e chips de batata doce",
+      "preco_formatado": "R$ 55,00",
+      "preco_num": 55,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/fEz8jq4ntS6eUxzPmGoYnDUnmHMZrXYa0bEwwGM.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/fEz8jq4ntS6eUxzPmGoYnDUnmHMZrXYa0bEwwGM.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Risoto de costelinha de porco",
+      "descricao": "Risoto de costelinha de porco com arroz arbóreo, tomatinho confit, molho roti e parmesão",
+      "preco_formatado": "R$ 50,00",
+      "preco_num": 50,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/OmODHh5tKsRpgDmR0CxVl1ibC0Hi_hK63XZRrrQ.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/OmODHh5tKsRpgDmR0CxVl1ibC0Hi_hK63XZRrrQ.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Tilápia grelhada",
+      "descricao": "File de tilápia grelhada com cebola e alcaparras, espaguete de legumes (cenoura e abobrinha) e arroz de brócolis.",
+      "preco_formatado": "R$ 41,00",
+      "preco_num": 41,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ZnCxceiQQqFjONyQdU2kuJXu3bopW4LKUe4baVM.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ZnCxceiQQqFjONyQdU2kuJXu3bopW4LKUe4baVM.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cubinhos de frango com penne",
+      "descricao": "MENU KIDS Opções para crianças Cubinhos de frango salteado com penne, molho de tomate e parmesão. Picadinho Picadinho de carne com arroz e purê de batata.",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/82511e8fc8cef70038cb18b451707d62.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/82511e8fc8cef70038cb18b451707d62.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Manhã na Grama",
+      "descricao": "PIQUENIQUE Cestinha de piquenique com várias delícias. Temos toalha de piquenique. Mini bolo, sanduíche frio, torradas, geleia, quiche de muçarela com tomate confit, pão de queijo, salada de fruta e suco de fruta.",
+      "preco_formatado": "R$ 99,00",
+      "preco_num": 99,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/a8c90dff128e33c3b09b06871e6c1a29.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a8c90dff128e33c3b09b06871e6c1a29.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cuscuz com cogumelos",
+      "descricao": "cuscuz temperado com cogumelos shitake e shimeji refogados",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Aconchego",
+      "descricao": "Café espresso, creme de chocolate branco, canela, leite vaporizado cremoso e chantilly - 150ml",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d24d9282dd8f78d88f61fcc1402f3f7e.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d24d9282dd8f78d88f61fcc1402f3f7e.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Capuccino Brasileiro",
+      "descricao": "Café espresso, creme de chocolate, canela e leite vaporizado cremoso - 150ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5e9138caaa64e12d449358a6d4073bbc.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5e9138caaa64e12d449358a6d4073bbc.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Capuccino Italiano",
+      "descricao": "Café espresso, cacau e leite vaporizado cremoso - 150ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/16d4ff59ba9ffa357785f67580214738.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/16d4ff59ba9ffa357785f67580214738.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Doppio",
+      "descricao": "Café espresso duplo - 80ml",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/065ef07d993313390bfae670b70a3296.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/065ef07d993313390bfae670b70a3296.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Espresso",
+      "descricao": "Café espresso - 50ml",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/795cad3bb8dcf3335f4a8fef6fa90760.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/795cad3bb8dcf3335f4a8fef6fa90760.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Espresso Carioca",
+      "descricao": "Café espresso carioca - 80ml",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d2674fdf78cff2ea90a6f66903a478d6.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d2674fdf78cff2ea90a6f66903a478d6.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Flat White",
+      "descricao": "Café espresso duplo com leite vaporizado cremoso - 180ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7610c808948277846f5b1c74afaff15e.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7610c808948277846f5b1c74afaff15e.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Furdunço",
+      "descricao": "Café espresso, creme toffee e leite vaporizado cremoso - 180ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9e591b5c2907ae48b81ddae705b0d600.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9e591b5c2907ae48b81ddae705b0d600.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Latte",
+      "descricao": "Café espresso com leite vaporizado cremoso - 180ml",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/e0349b13eef1c7cbbf870b03e530234d.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e0349b13eef1c7cbbf870b03e530234d.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Macchiato",
+      "descricao": "Café espresso com pingado de leite vaporizado cremoso - 80ml",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ad45d051e6605b1aaedf884ad25fd5ff.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ad45d051e6605b1aaedf884ad25fd5ff.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mocha",
+      "descricao": "Café espresso, chocolate cremoso e leite vaporizado cremoso - 180ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/423a87aef030197c5741cc60da8e04af.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/423a87aef030197c5741cc60da8e04af.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Veg Latte",
+      "descricao": "Café espresso e leite de aveia vaporizado cremoso - 180ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Clever",
+      "descricao": "O preparo na clever permite escolher a intensidade do café por ter uma válvula que só libera o fluxo da bebida quando for colocado na xícara - 180ml Temos opção de café descafeinado",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b8a08a691202f8bb1cef7063535c72d5.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b8a08a691202f8bb1cef7063535c72d5.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Koar",
+      "descricao": "Filtro criado em Pernambuco, que ressalta a doçura e suaviza a acidez, evidenciando o corpo do café, resultando em uma bebida agradável e equilibrada -180ml Temos opção de café descafeinado",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9805b936bbd9aacde09c68591c661718.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9805b936bbd9aacde09c68591c661718.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "V60",
+      "descricao": "Destaca as características naturais do grão com uma filtragem que realça a acidez e a doçura natural do café, resultando em uma bebida leve - 180ml Temos opção de café descafeinado",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/65027bd689aaa6878f5ede80a481c968.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/65027bd689aaa6878f5ede80a481c968.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Afogatto",
+      "descricao": "Sorvete de creme, café espresso e creme toffee - 230ml",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5c8f2e3abb1283a673692e1a9230a4a5.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5c8f2e3abb1283a673692e1a9230a4a5.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Espresso Tônica",
+      "descricao": "Café espresso, água tônica e gelo",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/078f645ebe75347b3853fd41c69adba1.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/078f645ebe75347b3853fd41c69adba1.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Espresso Tônica Laranja",
+      "descricao": "Café espresso, água tônica, xarope de laranja da casa e gelo - 330ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0d380ec7cfb201322b94dce73d10c0e4.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0d380ec7cfb201322b94dce73d10c0e4.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Iced Latte",
+      "descricao": "café espresso, leite gelado cremoso e gelo - 330ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f6d34a92a26d43025db8e2a477beeb00.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f6d34a92a26d43025db8e2a477beeb00.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Iced Latte Furdunço",
+      "descricao": "Café espresso, toffee, leite gelado cremoso e gelo - 330ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/2c4fbed3a19bd857b56548cae5a2a595.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/2c4fbed3a19bd857b56548cae5a2a595.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Iced Mocha",
+      "descricao": "Café espresso, creme de chocolate, leite gelado cremoso e gelo - 330ml",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1757c2a82b15c882ceeda48a028e8e8a.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1757c2a82b15c882ceeda48a028e8e8a.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Veg Latte Iced",
+      "descricao": "Café espresso, leite de aveia gelado cremoso e gelo - 330ml",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Citrus",
+      "descricao": "COLD BREW Opções feitas com café extraído a frio Café extraído a frio, água com gás, xarope de laranja e espuma de limão - 330ml Cold Brew Café extraído a frio, servido com gelo e limão siciliano - 230ml Tropical Café extraído a frio, água com gás, xarope de abacaxi e espuma de limão - 330ml",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c412cb1cdaed3422892e5fefaff97287.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c412cb1cdaed3422892e5fefaff97287.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cold Brew",
+      "descricao": "Café extraído a frio, servido com gelo e limão siciliano - 230ml",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/cc15813bd550010c7a7114f75e5f7371.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/cc15813bd550010c7a7114f75e5f7371.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Tropical",
+      "descricao": "Café extraído a frio, água com gás, xarope de abacaxi e espuma de limão - 330ml",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c5a936201c81e3642a18520057d7e5f2.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c5a936201c81e3642a18520057d7e5f2.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Frapê",
+      "descricao": "FRAPÊS Nossa versão do milk-shake Batido com sorvete e leite. Finalizado com chantilly. Sabores: café, doce de leite ou morango.",
+      "preco_formatado": "R$ 22,00",
+      "preco_num": 22,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/2df30eac6341c7e0025e065b397b1b3a.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/2df30eac6341c7e0025e065b397b1b3a.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Chocolate Quente",
+      "descricao": "Chocolate quente - 150ml",
+      "preco_formatado": "R$ 16,00",
+      "preco_num": 16,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/89cd513837a45b00e54f2e25f680112a.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/89cd513837a45b00e54f2e25f680112a.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Hibisco Refrescante",
+      "descricao": "Chá de hibisco, xarope de abacaxi da casa e gelo - 330ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/5cd4c9b178ed4b318e15447b5f2b6497.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5cd4c9b178ed4b318e15447b5f2b6497.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mate com Limão",
+      "descricao": "Chá mate com limão, açúcar e gelo - 330ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3546cff520b8b57dfa055a6f8ae4b4a9.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3546cff520b8b57dfa055a6f8ae4b4a9.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "O Chá da Casa",
+      "descricao": "Equilíbrio - blend de chá preto com especiarias Calma - blend de camomila, tangerina e cravo Vibração - capim limão, limão siciliano, maçã e funcho Leveza - hibisco, cranberry, mate verde, uva e maçã 180ml",
+      "preco_formatado": "R$ 16,00",
+      "preco_num": 16,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/013a101a7ec92229c7d8fac578675761.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/013a101a7ec92229c7d8fac578675761.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Soda Italiana",
+      "descricao": "Xarope da casa com aguá com gás e gelo. Sabores xarope: frutas vermelhas, laranja ou maracujá - 330ml",
+      "preco_formatado": "R$ 17,00",
+      "preco_num": 17,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/d2a27479d012201186e9b9cf3d244c98.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d2a27479d012201186e9b9cf3d244c98.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Suco de fruta",
+      "descricao": "Sabores: laranja, morango, limão, acerola, abacaxi, maracujá",
+      "preco_formatado": "R$ 13,00",
+      "preco_num": 13,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/8b3ba61a96977f32a62c0f7232593d71.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/8b3ba61a96977f32a62c0f7232593d71.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Aperol Spritz",
+      "descricao": "DRINKS Opções de bebidinhas com álcool Aperol, água com gás, espumante, gelo e uma rodela de laranja Gin Tonic Gin, água tônica, gelo e xarope da casa (laranja, maracujá ou frutas vermelhas) Mimosa Espumante, suco de laranja e morangos amassados",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/f1fe4d9d9de2c8180de5bde291285b93.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f1fe4d9d9de2c8180de5bde291285b93.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Gin Tonic",
+      "descricao": "Gin, água tônica, gelo e xarope da casa (laranja, maracujá ou frutas vermelhas)",
+      "preco_formatado": "R$ 28,00",
+      "preco_num": 28,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/c13e211818ca43138d7a28c86d9a4ff4.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c13e211818ca43138d7a28c86d9a4ff4.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Mimosa",
+      "descricao": "Espumante, suco de laranja e morangos amassados",
+      "preco_formatado": "R$ 25,00",
+      "preco_num": 25,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/6f17e12c34adebf27e047114858f09f5.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/6f17e12c34adebf27e047114858f09f5.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Água com gás",
+      "descricao": "Água com gás 330ml",
+      "preco_formatado": "R$ 8,00",
+      "preco_num": 8,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Água sem gás",
+      "descricao": "Água sem gás 330ml",
+      "preco_formatado": "R$ 7,00",
+      "preco_num": 7,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cerveja Heineken",
+      "descricao": "Longneck",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/8c9e3872fbaf1e6863a61aa3b793d522.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/8c9e3872fbaf1e6863a61aa3b793d522.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cerveja Heineken Zero",
+      "descricao": "Longneck",
+      "preco_formatado": "R$ 15,00",
+      "preco_num": 15,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/3afa085683a79b96538fa8575527962c.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3afa085683a79b96538fa8575527962c.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Cerveja Stella Artois",
+      "descricao": "600ml",
+      "preco_formatado": "R$ 18,00",
+      "preco_num": 18,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/47df67c293ebe6aebbb034c80d1349f8.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/47df67c293ebe6aebbb034c80d1349f8.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Coca cola lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0vrSyrEz-TUleFHEhvIJy-ZUBFpAj_sad-3v-vI.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0vrSyrEz-TUleFHEhvIJy-ZUBFpAj_sad-3v-vI.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Coca cola zero lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/ouxsvyRDKyS4MfsCxVwC_i_c2BexUJr4Ginh8f0.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ouxsvyRDKyS4MfsCxVwC_i_c2BexUJr4Ginh8f0.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Fanta lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/dZMxOxh5d5ed2N-EFp-G1ZUUrxrUEGrEBabnX7E.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/dZMxOxh5d5ed2N-EFp-G1ZUUrxrUEGrEBabnX7E.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Guaraná Antarctica lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/dSazLTBoYO6-sg4-vD9DoLsra0QYretecudV8Sw.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/dSazLTBoYO6-sg4-vD9DoLsra0QYretecudV8Sw.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Guaraná Antarctica zero lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/pjhuMiqRK9TBlVe226gb8ZSLjqvqh2eUoBnYVu0.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/pjhuMiqRK9TBlVe226gb8ZSLjqvqh2eUoBnYVu0.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Licor",
+      "descricao": "Licor - consultar sabor disponível",
+      "preco_formatado": "R$ 20,00",
+      "preco_num": 20,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Sprite lata 350ml",
+      "descricao": "",
+      "preco_formatado": "R$ 9,00",
+      "preco_num": 9,
+      "foto_thumb": "https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/Tdmk8wKhcM2eBQHx4ZazA-EtEopDGuEdXX2QdCk.jpg",
+      "foto_hd": "https://wifireme.s3-sa-east-1.amazonaws.com/images/Tdmk8wKhcM2eBQHx4ZazA-EtEopDGuEdXX2QdCk.jpg"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Alto Tierruca Reserva Carmenere",
+      "descricao": "Colchagua - Chile Alto Tierruca Reserva Sauvignon Blanc Curicó - Chile Amayan Belhara Reserva Chardonnay Mendoza - Argentina Amayan Belhara Reserva Malbec Mendoza - Argentina Casa de Cambres Doc Douro Reserva Branco Douro - Portugal Espumante Virtus Monte Paschoal Brut Vale dos Vinhedos - Brasil Perez Cruz Reserva Cabernet Sauvignon Maipo - Chile Taça vinho branco Taça vinho tinto",
+      "preco_formatado": "R$ 99,00",
+      "preco_num": 99,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Alto Tierruca Reserva Sauvignon Blanc",
+      "descricao": "Curicó - Chile",
+      "preco_formatado": "R$ 99,00",
+      "preco_num": 99,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Amayan Belhara Reserva Chardonnay",
+      "descricao": "Mendoza - Argentina",
+      "preco_formatado": "R$ 99,00",
+      "preco_num": 99,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Amayan Belhara Reserva Malbec",
+      "descricao": "Mendoza - Argentina",
+      "preco_formatado": "R$ 99,00",
+      "preco_num": 99,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Casa de Cambres Doc Douro Reserva Branco",
+      "descricao": "Douro - Portugal",
+      "preco_formatado": "R$ 105,00",
+      "preco_num": 105,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Espumante Virtus Monte Paschoal Brut",
+      "descricao": "Vale dos Vinhedos - Brasil",
+      "preco_formatado": "R$ 95,00",
+      "preco_num": 95,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Perez Cruz Reserva Cabernet Sauvignon",
+      "descricao": "Maipo - Chile",
+      "preco_formatado": "R$ 109,00",
+      "preco_num": 109,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Taça vinho branco",
+      "descricao": "",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Taça vinho tinto",
+      "descricao": "",
+      "preco_formatado": "R$ 19,00",
+      "preco_num": 19,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    },
+    {
+      "categoria": "Geral",
+      "nome": "Acompanhamentos e porções",
+      "descricao": "ACOMPANHAMENTOS E PORÇÕES (carne louca, frango desfiado, costelinha de porco desfiada) (salada de folhas, arroz, purê de batata ou batata doce, espaguete de legumes, farofa) (queijo parmesão, requeijão, geleia, granola, mel de abelha, molho pesto, mostarda doce) (ovos, bacon, queijo coalho)",
+      "preco_formatado": "R$14,00",
+      "preco_num": 14,
+      "foto_thumb": "Sem foto",
+      "foto_hd": "Sem foto"
+    }
+  ]
+}
