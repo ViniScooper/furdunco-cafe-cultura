@@ -46,7 +46,8 @@ api.interceptors.response.use(
             const msg = error.response?.data?.erro || error.message || "Erro desconhecido";
 
             // Envia para o CloudOps Hub em background (não bloqueia a UI do cliente)
-            fetch("http://localhost:3005/api/telemetry/log", {
+            if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+                fetch("http://localhost:3005/api/telemetry/log", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -60,6 +61,7 @@ api.interceptors.response.use(
                     userAgent: navigator.userAgent
                 })
             }).catch(() => {});
+            }
         } catch (e) {}
 
         return Promise.reject(error);

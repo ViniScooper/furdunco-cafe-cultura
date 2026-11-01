@@ -90,7 +90,7 @@ export default function Home() {
         hh_fim: "22:00",
         instagram_url: "https://www.instagram.com/furduncocafecultura/"
     });
-    const [loading,       setLoading]       = useState(true);
+    const [loading,       setLoading]       = useState(false);
     const [erro,          setErro]          = useState("");
     const [categoriaAtiva, setCategoriaAtiva] = useState("");
     const categoriaBarraRef = useRef(null);
@@ -377,12 +377,14 @@ export default function Home() {
             api.get("/config/delivery/bairros").catch(() => ({ data: [] }))
         ])
             .then(([rPratos, rCats, rConfig, rBairros]) => {
-                setPratos(rPratos.data);
-                setCategorias(rCats.data);
+                if (rPratos?.data && Array.isArray(rPratos.data) && rPratos.data.length > 0) setPratos(rPratos.data);
+                if (rCats?.data && Array.isArray(rCats.data) && rCats.data.length > 0) setCategorias(rCats.data);
                 if (rConfig?.data) setConfig(rConfig.data);
                 if (rBairros?.data) setBairrosDisponiveis(rBairros.data);
             })
-            .catch(() => setErro("Não foi possível carregar o cardápio."))
+            .catch((err) => {
+                console.warn("[Cardápio Furdunço] API remota em segundo plano não respondeu, utilizando catálogo integrado:", err);
+            })
             .finally(() => setLoading(false));
     }, []);
 
@@ -501,10 +503,10 @@ export default function Home() {
                 </div>
             </section>
 
-            {loading && <div style={styles.center}><div style={styles.spinner} /></div>}
-            {erro    && <div style={styles.erroBox}>⚠️ {erro}</div>}
+            {loading && pratos.length === 0 && <div style={styles.center}><div style={styles.spinner} /></div>}
+            {erro && pratos.length === 0 && <div style={styles.erroBox}>⚠️ {erro}</div>}
 
-            {!loading && !erro && (
+            {pratos.length > 0 && (
                 <>
                     {/* ── BARRA FIXA DE NAVEGAÇÃO RÁPIDA POR CATEGORIA (EXCLUSIVA MOBILE) ── */}
                     <div className="cat-nav-shell">
