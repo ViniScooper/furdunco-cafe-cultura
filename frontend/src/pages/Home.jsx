@@ -461,27 +461,7 @@ export default function Home() {
                         <span className="hero-tag" style={styles.tag}>🍷 Vinhos & Queijos</span>
                     </div>
 
-                    {/* Barra de Pesquisa Rápida em tempo real */}
-                    <div style={styles.searchWrapper}>
-                        <span style={styles.searchIcon}>🔍</span>
-                        <input
-                            type="text"
-                            value={termoBusca}
-                            onChange={(e) => setTermoBusca(e.target.value)}
-                            placeholder="Buscar no cardápio (ex: cappuccino, toast, quiche, vinho)..."
-                            style={styles.searchInput}
-                        />
-                        {termoBusca && (
-                            <button
-                                type="button"
-                                onClick={() => setTermoBusca("")}
-                                style={styles.searchClearBtn}
-                                title="Limpar busca"
-                            >
-                                ✕
-                            </button>
-                        )}
-                    </div>
+
 
                     <div className="hero-info" style={styles.heroInfo}>
                         <a
@@ -618,51 +598,8 @@ export default function Home() {
                     </div>
 
                     <div id="cardapio">
-                        {/* ── MODO 1: RESULTADOS DA BUSCA EM TEMPO REAL ── */}
-                        {termoBusca.trim() ? (
-                            <section className="menu-section" style={styles.section}>
-                                <div style={styles.sectionHeader}>
-                                    <p className="section-label" style={styles.sectionLabel}>🔍 Busca no Cardápio</p>
-                                    <h2 style={styles.sectionTitle}>Resultados para "{termoBusca}"</h2>
-                                    <p style={{ color: "#777", fontSize: "0.95rem", marginTop: "-0.5rem", marginBottom: "1.2rem" }}>
-                                        {pratosFiltrados.length} {pratosFiltrados.length === 1 ? "delícia artesanal encontrada" : "delícias artesanais encontradas"}
-                                    </p>
-                                    <button
-                                        type="button"
-                                        onClick={() => setTermoBusca("")}
-                                        style={{ background: "#2D1E18", color: "#C88A36", border: "1px solid #C88A36", padding: "0.5rem 1.4rem", borderRadius: "50px", cursor: "pointer", fontWeight: "600", fontSize: "0.85rem", transition: "all 0.2s" }}
-                                    >
-                                        ✕ Limpar busca e navegar por categorias
-                                    </button>
-                                    <div style={{ ...styles.sectionDivider, marginTop: "1.5rem" }} />
-                                </div>
-
-                                {pratosFiltrados.length === 0 ? (
-                                    <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "#FAF7F2", borderRadius: "16px", border: "1px dashed #d8cfc4", maxWidth: "520px", margin: "1rem auto" }}>
-                                        <p style={{ fontSize: "2.5rem", margin: "0 0 0.5rem" }}>☕</p>
-                                        <p style={{ fontWeight: "700", color: "#2D1E18", fontSize: "1.1rem", margin: "0 0 0.4rem" }}>Nenhuma delícia encontrada</p>
-                                        <p style={{ color: "#777", fontSize: "0.88rem", margin: "0 0 1rem" }}>Tente pesquisar por café, quiche, toast, empada, bolo ou vinho.</p>
-                                    </div>
-                                ) : (
-                                    <div className="menu-grid" style={styles.grid}>
-                                        {pratosFiltrados.map(p => {
-                                            const itemNoCarrinho = carrinho.find(c => c.id === p.id);
-                                            return (
-                                                <PratoCard
-                                                    key={p.id}
-                                                    prato={p}
-                                                    onAdicionar={adicionarAoCarrinho}
-                                                    qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
-                                                    onVerFoto={setFotoAmpliada}
-                                                />
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </section>
-                        ) : (
-                            /* ── MODO 2: EXIBIÇÃO DE UMA CATEGORIA POR VEZ ── */
-                            (() => {
+                        {/* ── EXIBIÇÃO DE UMA CATEGORIA POR VEZ (SEM SCROLL INFINITO) ── */}
+                        {(() => {
                                 const catExibida = categoriaAtiva || nomesCategoria[0];
                                 if (!catExibida) return null;
 
@@ -776,7 +713,7 @@ export default function Home() {
                                     </section>
                                 );
                             })()
-                        )}
+                        }
                     </div>
                     {/* ── BARRA FLUTUANTE DO CARRINHO (WHATSAPP) ── */}
                     {totalItens > 0 && (
