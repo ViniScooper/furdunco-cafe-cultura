@@ -442,50 +442,84 @@ export default function Home() {
 
     return (
         <div>
-            {/* ── HERO ─────────────────────────────────────────── */}
+            {/* ── HERO DA CAFETERIA ARTESANAL & ESPAÇO CULTURAL ────────────────── */}
             <section className="hero-container" style={styles.hero}>
                 <div style={styles.heroOverlay} />
                 <div style={styles.heroContent}>
-                    <img src="/logo.png" alt="Logo" className="hero-logo" style={styles.heroLogo} />
-                    <p style={styles.heroLabel}>Comida Arretada & Cerveja Gelada</p>
-                    <h1 className="hero-title" style={styles.heroTitle}>Furdunço - Café e Cultura</h1>
+                    <img src="/logo.png" alt="Logo Furdunço - Café e Cultura" className="hero-logo" style={styles.heroLogo} />
+                    <p style={styles.heroLabel}>Cafés Especiais • Brunch • Encontros Culturais</p>
+                    <h1 className="hero-title" style={styles.heroTitle}>Furdunço — Café e Cultura</h1>
+                    <p style={styles.heroSloganSub}>
+                        Um refúgio acolhedor na Tamarineira para desacelerar, saborear cafés de torra fresca, toasts artesanais, confeitaria afetiva e vinhos selecionados.
+                    </p>
+
                     <div className="hero-tags" style={styles.heroTags}>
-                        <span className="hero-tag" style={styles.tag}>🍲 Refeições</span>
-                        <span className="hero-tag" style={styles.tag}>🍟 Petiscos</span>
-                        <span className="hero-tag" style={styles.tag}>🍕 Pizzas</span>
-                        <span className="hero-tag" style={styles.tag}>🍺 Cerveja Gelada</span>
-                        <span className="hero-tag" style={styles.tag}>🍹 Drinks</span>
+                        <span className="hero-tag" style={styles.tag}>☕ Cafés Especiais & Filtrados</span>
+                        <span className="hero-tag" style={styles.tag}>🥐 Brunch & Toasts</span>
+                        <span className="hero-tag" style={styles.tag}>🍰 Confeitaria Afetiva</span>
+                        <span className="hero-tag" style={styles.tag}>🧺 Cestas de Piquenique</span>
+                        <span className="hero-tag" style={styles.tag}>🍷 Vinhos & Queijos</span>
                     </div>
+
+                    {/* Barra de Pesquisa Rápida em tempo real */}
+                    <div style={styles.searchWrapper}>
+                        <span style={styles.searchIcon}>🔍</span>
+                        <input
+                            type="text"
+                            value={termoBusca}
+                            onChange={(e) => setTermoBusca(e.target.value)}
+                            placeholder="Buscar no cardápio (ex: cappuccino, toast, quiche, vinho)..."
+                            style={styles.searchInput}
+                        />
+                        {termoBusca && (
+                            <button
+                                type="button"
+                                onClick={() => setTermoBusca("")}
+                                style={styles.searchClearBtn}
+                                title="Limpar busca"
+                            >
+                                ✕
+                            </button>
+                        )}
+                    </div>
+
                     <div className="hero-info" style={styles.heroInfo}>
                         <a
                             href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={styles.infoItem}
-                            title="Abrir localização no Google Maps"
+                            title="Ver localização na Tamarineira no Google Maps"
                         >
                             <span>📍</span>
-                            <span style={{ ...styles.infoText, textDecoration: "underline" }}>Rua Larga da Feitosa, 138 — Encruzilhada</span>
+                            <span style={{ ...styles.infoText, textDecoration: "underline" }}>Rua Gildo Neto, 92 — Tamarineira, Recife</span>
                         </a>
                         <div className="hero-info-sep" style={styles.infoSep} />
-                        <div style={styles.infoItem}>
+                        <a
+                            href="https://wa.me/5581992977604"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={styles.infoItem}
+                            title="Fale conosco no WhatsApp"
+                        >
                             <span>📱</span>
-                            <span style={styles.infoText}>(81) 98271-4421</span>
-                        </div>
+                            <span style={{ ...styles.infoText, textDecoration: "underline" }}>(81) 99297-7604</span>
+                        </a>
                         <div className="hero-info-sep" style={styles.infoSep} />
                         <a
                             href={config?.instagram_url || "https://www.instagram.com/furduncocafecultura/"}
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ ...styles.infoItem, textDecoration: "none", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "6px" }}
-                            title="Siga o Furdunço - Café e Cultura no Instagram"
+                            title="Siga o Furdunço no Instagram"
                         >
                             <InstagramIcon size={16} color="#E1306C" />
                             <span style={{ ...styles.infoText, textDecoration: "underline" }}>@furduncocafecultura</span>
                         </a>
                     </div>
+
                     <div className="hero-btns" style={styles.heroBtns}>
-                        <a href="#cardapio" className="hero-btn" style={styles.heroBtn}>Ver Cardápio</a>
+                        <a href="#cardapio" className="hero-btn" style={styles.heroBtn}>📖 Explorar Cardápio</a>
                         {config.hh_ativo && happyHourPratos.length > 0 && (
                             <button
                                 type="button"
@@ -496,9 +530,18 @@ export default function Home() {
                                 className="hero-btn"
                                 style={styles.heroBtnHH}
                             >
-                                🍺 Happy Hour
+                                ✨ Noite & Vinhos
                             </button>
                         )}
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hero-btn"
+                            style={styles.heroBtnMaps}
+                        >
+                            📍 Como Chegar
+                        </a>
                     </div>
                 </div>
             </section>
@@ -575,122 +618,166 @@ export default function Home() {
                     </div>
 
                     <div id="cardapio">
-                        {/* ── EXIBIÇÃO DE UMA CATEGORIA POR VEZ (SEM SCROLL INFINITO) ── */}
-                        {(() => {
-                            const catExibida = categoriaAtiva || nomesCategoria[0];
-                            if (!catExibida) return null;
+                        {/* ── MODO 1: RESULTADOS DA BUSCA EM TEMPO REAL ── */}
+                        {termoBusca.trim() ? (
+                            <section className="menu-section" style={styles.section}>
+                                <div style={styles.sectionHeader}>
+                                    <p className="section-label" style={styles.sectionLabel}>🔍 Busca no Cardápio</p>
+                                    <h2 style={styles.sectionTitle}>Resultados para "{termoBusca}"</h2>
+                                    <p style={{ color: "#777", fontSize: "0.95rem", marginTop: "-0.5rem", marginBottom: "1.2rem" }}>
+                                        {pratosFiltrados.length} {pratosFiltrados.length === 1 ? "delícia artesanal encontrada" : "delícias artesanais encontradas"}
+                                    </p>
+                                    <button
+                                        type="button"
+                                        onClick={() => setTermoBusca("")}
+                                        style={{ background: "#2D1E18", color: "#C88A36", border: "1px solid #C88A36", padding: "0.5rem 1.4rem", borderRadius: "50px", cursor: "pointer", fontWeight: "600", fontSize: "0.85rem", transition: "all 0.2s" }}
+                                    >
+                                        ✕ Limpar busca e navegar por categorias
+                                    </button>
+                                    <div style={{ ...styles.sectionDivider, marginTop: "1.5rem" }} />
+                                </div>
 
-                            // Se a categoria selecionada for o Happy Hour
-                            if (catExibida === "Happy Hour") {
-                                return (
-                                    <section id="happy-hour" className="hh-section" style={styles.happyHourSection}>
-                                        <div style={styles.hhOverlay} />
-                                        <div style={styles.hhContent}>
-                                            <div style={styles.hhHeader}>
-                                                <p style={styles.hhLabel}>⚡ Promoções Especiais</p>
-                                                <h2 style={styles.hhTitle}>Happy Hour</h2>
-                                                <div style={styles.hhBadgeHorario}>
-                                                    <span>📅 {config.hh_dias}</span>
-                                                    <span style={{ opacity: 0.5 }}>•</span>
-                                                    <span>⏰ Das {config.hh_inicio} às {config.hh_fim}</span>
-                                                </div>
-                                                <p style={styles.hhSub}>
-                                                    Preços e delícias especiais para curtir bons momentos no Furdunço!
-                                                </p>
-                                                {config.hh_apenas_local !== 0 && (
-                                                    <div style={{ marginTop: "0.5rem" }}>
-                                                        <span style={{
-                                                            display: "inline-block",
-                                                            background: "rgba(239, 68, 68, 0.2)",
-                                                            border: "1px solid rgba(248, 113, 113, 0.4)",
-                                                            color: "#fecaca",
-                                                            padding: "0.35rem 0.85rem",
-                                                            borderRadius: "20px",
-                                                            fontSize: "0.82rem",
-                                                            fontWeight: "700",
-                                                            letterSpacing: "0.3px"
-                                                        }}>
-                                                            🔒 Apenas no Salão / Mesa (Não disponível para Delivery)
-                                                        </span>
+                                {pratosFiltrados.length === 0 ? (
+                                    <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "#FAF7F2", borderRadius: "16px", border: "1px dashed #d8cfc4", maxWidth: "520px", margin: "1rem auto" }}>
+                                        <p style={{ fontSize: "2.5rem", margin: "0 0 0.5rem" }}>☕</p>
+                                        <p style={{ fontWeight: "700", color: "#2D1E18", fontSize: "1.1rem", margin: "0 0 0.4rem" }}>Nenhuma delícia encontrada</p>
+                                        <p style={{ color: "#777", fontSize: "0.88rem", margin: "0 0 1rem" }}>Tente pesquisar por café, quiche, toast, empada, bolo ou vinho.</p>
+                                    </div>
+                                ) : (
+                                    <div className="menu-grid" style={styles.grid}>
+                                        {pratosFiltrados.map(p => {
+                                            const itemNoCarrinho = carrinho.find(c => c.id === p.id);
+                                            return (
+                                                <PratoCard
+                                                    key={p.id}
+                                                    prato={p}
+                                                    onAdicionar={adicionarAoCarrinho}
+                                                    qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
+                                                    onVerFoto={setFotoAmpliada}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </section>
+                        ) : (
+                            /* ── MODO 2: EXIBIÇÃO DE UMA CATEGORIA POR VEZ ── */
+                            (() => {
+                                const catExibida = categoriaAtiva || nomesCategoria[0];
+                                if (!catExibida) return null;
+
+                                // Se a categoria selecionada for o Happy Hour
+                                if (catExibida === "Happy Hour") {
+                                    return (
+                                        <section id="happy-hour" className="hh-section" style={styles.happyHourSection}>
+                                            <div style={styles.hhOverlay} />
+                                            <div style={styles.hhContent}>
+                                                <div style={styles.hhHeader}>
+                                                    <p style={styles.hhLabel}>✨ Encontros & Vinhos</p>
+                                                    <h2 style={styles.hhTitle}>Noite & Vinhos no Furdunço</h2>
+                                                    <div style={styles.hhBadgeHorario}>
+                                                        <span>📅 {config.hh_dias}</span>
+                                                        <span style={{ opacity: 0.5 }}>•</span>
+                                                        <span>⏰ Das {config.hh_inicio} às {config.hh_fim}</span>
                                                     </div>
-                                                )}
-                                                <div style={{ ...styles.sectionDivider, background: "linear-gradient(90deg, #f0c040, #C88A36)" }} />
+                                                    <p style={styles.hhSub}>
+                                                        Vinhos selecionados, quiches, tábuas e delícias artesanais para curtir bons momentos no Furdunço.
+                                                    </p>
+                                                    {config.hh_apenas_local !== 0 && (
+                                                        <div style={{ marginTop: "0.5rem" }}>
+                                                            <span style={{
+                                                                display: "inline-block",
+                                                                background: "rgba(200, 138, 54, 0.2)",
+                                                                border: "1px solid rgba(200, 138, 54, 0.4)",
+                                                                color: "#fcefc7",
+                                                                padding: "0.35rem 0.85rem",
+                                                                borderRadius: "20px",
+                                                                fontSize: "0.82rem",
+                                                                fontWeight: "700",
+                                                                letterSpacing: "0.3px"
+                                                            }}>
+                                                                📍 Especial para consumo no espaço cultural
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                    <div style={{ ...styles.sectionDivider, background: "linear-gradient(90deg, #f0c040, #C88A36)" }} />
+                                                </div>
+                                                <div className="hh-grid" style={styles.hhGrid}>
+                                                    {happyHourPratos.map(p => {
+                                                        const itemNoCarrinho = carrinho.find(c => c.id === p.id);
+                                                        return (
+                                                            <PratoCard
+                                                                key={p.id}
+                                                                prato={p}
+                                                                happyHour
+                                                                onAdicionar={adicionarAoCarrinho}
+                                                                qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
+                                                                onVerFoto={setFotoAmpliada}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
                                             </div>
-                                            <div className="hh-grid" style={styles.hhGrid}>
-                                                {happyHourPratos.map(p => {
+                                        </section>
+                                    );
+                                }
+
+                                const pratosDaCat = pratos
+                                    .filter(p => (p.categoria === catExibida || p.categoria_secundaria === catExibida) && !p.happy_hour)
+                                    .sort((a, b) => {
+                                        const oA = a.ordem_manual || 0;
+                                        const oB = b.ordem_manual || 0;
+                                        if (oA > 0 && oB > 0) return oA - oB;
+                                        if (oA > 0) return -1;
+                                        if (oB > 0) return 1;
+                                        return 0;
+                                    });
+
+                                const catObj = categorias.find(c => c.nome === catExibida);
+
+                                return (
+                                    <section key={catExibida} id={criarIdCategoria(catExibida)} className="menu-section" style={styles.section}>
+                                        <div style={styles.sectionHeader}>
+                                            <p className="section-label" style={styles.sectionLabel}>{getIconeCategoria(catExibida)} {catExibida}</p>
+                                            <h2 style={{ ...styles.sectionTitle, display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+                                                {catObj?.imagem ? (
+                                                    <img src={getImagemUrl(catObj.imagem)} alt={catExibida} style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", border: "1px solid #e0d9d0" }} />
+                                                ) : null}
+                                                <span>{catExibida}</span>
+                                            </h2>
+                                            <p style={{ color: "#777", fontSize: "0.9rem", marginTop: "-0.5rem", marginBottom: "1rem" }}>
+                                                {pratosDaCat.length} {pratosDaCat.length === 1 ? "opção artesanal disponível" : "opções artesanais disponíveis"}
+                                            </p>
+                                            <div style={styles.sectionDivider} />
+                                        </div>
+                                        
+                                        {pratosDaCat.length === 0 ? (
+                                            <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "#FAF7F2", borderRadius: "16px", border: "1px dashed #d8cfc4", maxWidth: "500px", margin: "1rem auto" }}>
+                                                <p style={{ fontSize: "2.5rem", margin: "0 0 0.5rem" }}>{catObj?.imagem ? "📸" : getIconeCategoria(catExibida)}</p>
+                                                <p style={{ fontWeight: "700", color: "#2D1E18", fontSize: "1.05rem", margin: "0 0 0.4rem" }}>{catExibida}</p>
+                                                <p style={{ color: "#777", fontSize: "0.88rem", margin: 0 }}>Em breve novos sabores e receitas afetivas cadastradas nesta seção!</p>
+                                            </div>
+                                        ) : (
+                                            <div className="menu-grid" style={styles.grid}>
+                                                {pratosDaCat.map(p => {
                                                     const itemNoCarrinho = carrinho.find(c => c.id === p.id);
                                                     return (
                                                         <PratoCard
                                                             key={p.id}
                                                             prato={p}
-                                                            happyHour
                                                             onAdicionar={adicionarAoCarrinho}
                                                             qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
+                                                            onVerFoto={setFotoAmpliada}
                                                         />
                                                     );
                                                 })}
                                             </div>
-                                        </div>
+                                        )}
                                     </section>
                                 );
-                            }
-
-                            const pratosDaCat = pratos
-                                .filter(p => (p.categoria === catExibida || p.categoria_secundaria === catExibida) && !p.happy_hour)
-                                .sort((a, b) => {
-                                    const oA = a.ordem_manual || 0;
-                                    const oB = b.ordem_manual || 0;
-                                    if (oA > 0 && oB > 0) return oA - oB;
-                                    if (oA > 0) return -1;
-                                    if (oB > 0) return 1;
-                                    return 0;
-                                });
-
-                            const catObj = categorias.find(c => c.nome === catExibida);
-
-                            return (
-                                <section key={catExibida} id={criarIdCategoria(catExibida)} className="menu-section" style={styles.section}>
-                                    <div style={styles.sectionHeader}>
-                                        <p className="section-label" style={styles.sectionLabel}>{getIconeCategoria(catExibida)} {catExibida}</p>
-                                        <h2 style={{ ...styles.sectionTitle, display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
-                                            {catObj?.imagem ? (
-                                                <img src={getImagemUrl(catObj.imagem)} alt={catExibida} style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", border: "1px solid #e0d9d0" }} />
-                                            ) : null}
-                                            <span>{catExibida}</span>
-                                        </h2>
-                                        <p style={{ color: "#777", fontSize: "0.9rem", marginTop: "-0.5rem", marginBottom: "1rem" }}>
-                                            {pratosDaCat.length} {pratosDaCat.length === 1 ? "opção disponível" : "opções disponíveis"}
-                                        </p>
-                                        <div style={styles.sectionDivider} />
-                                    </div>
-                                    
-                                    {pratosDaCat.length === 0 ? (
-                                        <div style={{ textAlign: "center", padding: "3rem 1.5rem", background: "#faf8f5", borderRadius: "16px", border: "1px dashed #d8cfc4", maxWidth: "500px", margin: "1rem auto" }}>
-                                            <p style={{ fontSize: "2.5rem", margin: "0 0 0.5rem" }}>{catObj?.imagem ? "📸" : getIconeCategoria(catExibida)}</p>
-                                            <p style={{ fontWeight: "700", color: "#333", fontSize: "1.05rem", margin: "0 0 0.4rem" }}>{catExibida}</p>
-                                            <p style={{ color: "#777", fontSize: "0.88rem", margin: 0 }}>Em breve novos pratos e novidades irresistíveis cadastrados nesta seção!</p>
-                                        </div>
-                                    ) : (
-                                        <div className="menu-grid" style={styles.grid}>
-                                            {pratosDaCat.map(p => {
-                                                const itemNoCarrinho = carrinho.find(c => c.id === p.id);
-                                                return (
-                                                    <PratoCard
-                                                        key={p.id}
-                                                        prato={p}
-                                                        onAdicionar={adicionarAoCarrinho}
-                                                        qtdNoCarrinho={itemNoCarrinho?.quantidade || 0}
-                                                    />
-                                                );
-                                            })}
-                                        </div>
-                                    )}
-                                </section>
-                            );
-                        })()}
+                            })()
+                        )}
                     </div>
-
-
                     {/* ── BARRA FLUTUANTE DO CARRINHO (WHATSAPP) ── */}
                     {totalItens > 0 && (
                         <div
@@ -1223,32 +1310,32 @@ export default function Home() {
                             </div>
 
                             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: "700", color: "#1a1a1a", marginBottom: "0.6rem" }}>
-                                Quem prova, recomenda! 🍻
+                                Afeto, Café & Cultura — Quem frequenta, se apaixona! ☕
                             </h2>
-                            <p style={{ color: "#666", fontSize: "0.95rem", maxWidth: "600px", margin: "0 auto 2.5rem" }}>
-                                Veja o que nossos clientes dizem sobre o Bode Guisado, a Maminha Argentina e a cerveja mais gelada da Encruzilhada.
+                            <p style={{ color: "#666", fontSize: "0.95rem", maxWidth: "620px", margin: "0 auto 2.5rem" }}>
+                                Veja o que nossos clientes dizem sobre nossos cafés especiais, toasts artesanais, doces afetivos e o ambiente acolhedor na Tamarineira.
                             </p>
 
                             {/* Cards de Depoimentos Reais */}
                             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginBottom: "2.5rem", textAlign: "left" }}>
                                 {[
                                     {
-                                        nome: "Marcelo Albuquerque",
-                                        tempo: "há 2 semanas",
-                                        comentario: "Melhor maminha de Recife! Atendimento arretado, cerveja estupidamente gelada e preço justo. Já virei cliente fixo.",
-                                        foto: "👨"
-                                    },
-                                    {
-                                        nome: "Juliana Bezerra",
-                                        tempo: "há 1 mês",
-                                        comentario: "O Bode Guisado e o arrumadinho são sensacionais! Lugar aconchegante para reunir a família e os amigos no fim de semana.",
+                                        nome: "Camila Albuquerque",
+                                        tempo: "há 1 semana",
+                                        comentario: "Melhor cappuccino e toast de queijo do reino com geleia da Zona Norte! Ambiente super calmo, arborizado e aconchegante, perfeito para trabalhar ou tomar um café sem pressa.",
                                         foto: "👩"
                                     },
                                     {
-                                        nome: "Rodrigo Cavalcanti",
+                                        nome: "Rafael Guimarães",
+                                        tempo: "há 2 semanas",
+                                        comentario: "A cesta de piquenique é uma experiência maravilhosa para o fim de semana! Bolos caseiros frescos, quiches crocantes e o café especial coado na mesa é nota dez.",
+                                        foto: "👨"
+                                    },
+                                    {
+                                        nome: "Mariana Vasconcelos",
                                         tempo: "há 3 semanas",
-                                        comentario: "A pizza nordestina e os petiscos de boteco são nota 10. O Happy Hour tem preço imbatível na região da Encruzilhada.",
-                                        foto: "🧔"
+                                        comentario: "Espaço cultural único no Recife! À tarde o café e a banoffe são impecáveis; ao anoitecer a carta de vinhos e tábuas tornam o lugar ainda mais charmoso.",
+                                        foto: "👩‍🦰"
                                     }
                                 ].map((rev, i) => (
                                     <div key={i} style={{ background: "#fbf9f5", padding: "1.5rem", borderRadius: "16px", border: "1px solid #f0ebe3", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
@@ -1320,11 +1407,11 @@ export default function Home() {
                 </>
             )}
 
-            {/* ── RODAPÉ ─────────────────────────────────────── */}
+            {/* ── RODAPÉ DA CAFETERIA ARTESANAL ─────────────────── */}
             <footer className="footer-container" style={styles.footer}>
-                <img src="/logo.png" alt="Logo" style={styles.footerLogo} />
-                <p style={styles.footerNome}>Furdunço - Café e Cultura</p>
-                <p style={styles.footerSlogan}>Comida Arretada & Cerveja Gelada</p>
+                <img src="/logo.png" alt="Logo Furdunço - Café e Cultura" style={styles.footerLogo} />
+                <p style={styles.footerNome}>Furdunço — Café e Cultura</p>
+                <p style={styles.footerSlogan}>Cafés Especiais • Brunch • Confeitaria Afetiva • Vinhos & Cultura</p>
                 <div className="footer-infos" style={styles.footerInfos}>
                     <a
                         href="https://www.google.com/maps/search/?api=1&query=Rua+Gildo+Neto+92+Tamarineira+Recife"
@@ -1333,11 +1420,18 @@ export default function Home() {
                         style={{ textDecoration: "underline", color: "inherit" }}
                         title="Ver no Google Maps"
                     >
-                        📍 Rua Larga da Feitosa, 138 — Encruzilhada, Recife
+                        📍 Rua Gildo Neto, 92 — Tamarineira, Recife - PE
                     </a>
-                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
-                    <span>📱 WhatsApp: (81) 98271-4421</span>
-                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
+                    <span className="footer-sep" style={{ color: "#444" }}>|</span>
+                    <a
+                        href="https://wa.me/5581992977604"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "underline", color: "inherit" }}
+                    >
+                        📱 WhatsApp: (81) 99297-7604
+                    </a>
+                    <span className="footer-sep" style={{ color: "#444" }}>|</span>
                     <a
                         href={config?.instagram_url || "https://www.instagram.com/furduncocafecultura/"}
                         target="_blank"
@@ -1348,8 +1442,8 @@ export default function Home() {
                         <InstagramIcon size={14} color="#E1306C" />
                         <span>@furduncocafecultura</span>
                     </a>
-                    <span className="footer-sep" style={{ color: "#333" }}>|</span>
-                    <span>🛵 Disponível no iFood</span>
+                    <span className="footer-sep" style={{ color: "#444" }}>|</span>
+                    <span>🧺 Cestas de Piquenique & Eventos</span>
                 </div>
                 <p style={styles.footerCopy}>© {new Date().getFullYear()} Furdunço - Café e Cultura — Todos os direitos reservados</p>
             </footer>
@@ -1357,7 +1451,7 @@ export default function Home() {
     );
 }
 
-function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
+function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho, onVerFoto }) {
     const [hovered, setHovered] = useState(false);
 
     const handleClick = () => {
@@ -1367,7 +1461,9 @@ function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
     };
 
     const isEstrela = prato.classificacao === "estrela";
-    const isEnigma = prato.classificacao === "enigma";
+    const isVegano = (prato.categoria && prato.categoria.toLowerCase().includes("vegan")) ||
+                     (prato.nome && prato.nome.toLowerCase().includes("vegano")) ||
+                     (prato.descricao && prato.descricao.toLowerCase().includes("vegano"));
 
     return (
         <div
@@ -1384,24 +1480,34 @@ function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
             {prato.imagem ? (
                 <div style={{ ...styles.cardImgBox, cursor: "zoom-in" }} onClick={(e) => { e.stopPropagation(); onVerFoto?.(prato); }}>
                     <img src={getImagemUrl(prato.imagem)} alt={prato.nome} style={styles.cardImg} />
-                    {prato.selo ? (
-                        <div style={styles.seloBadge}>{prato.selo}</div>
-                    ) : isEstrela ? (
-                        <div style={styles.seloBadge}>🔥 Mais Pedido</div>
-                    ) : happyHour ? (
-                        <div style={styles.hhBadge}>🍺 Happy Hour</div>
-                    ) : null}
+                    <div style={{ position: "absolute", top: "10px", left: "10px", display: "flex", flexDirection: "column", gap: "5px" }}>
+                        {prato.selo ? (
+                            <div style={styles.seloBadge}>{prato.selo}</div>
+                        ) : isEstrela ? (
+                            <div style={styles.seloBadge}>⭐ Destaque</div>
+                        ) : happyHour ? (
+                            <div style={styles.hhBadge}>🍷 Noite & Vinhos</div>
+                        ) : null}
+                        {isVegano && (
+                            <div style={styles.veganoBadge}>🌱 Vegano</div>
+                        )}
+                    </div>
                 </div>
             ) : (
                 <div style={{ ...styles.cardEmoji, ...(happyHour ? styles.cardEmojiHH : isEstrela ? styles.cardEmojiEstrela : {}) }}>
                     {getEmoji(prato.nome)}
-                    {prato.selo ? (
-                        <div style={styles.seloBadgeEmoji}>{prato.selo}</div>
-                    ) : isEstrela ? (
-                        <div style={styles.seloBadgeEmoji}>🔥 Mais Pedido</div>
-                    ) : happyHour ? (
-                        <div style={styles.hhBadgeEmoji}>🍺 Happy Hour</div>
-                    ) : null}
+                    <div style={{ position: "absolute", top: "10px", left: "10px", display: "flex", flexDirection: "column", gap: "5px" }}>
+                        {prato.selo ? (
+                            <div style={styles.seloBadgeEmoji}>{prato.selo}</div>
+                        ) : isEstrela ? (
+                            <div style={styles.seloBadgeEmoji}>⭐ Destaque</div>
+                        ) : happyHour ? (
+                            <div style={styles.hhBadgeEmoji}>🍷 Noite & Vinhos</div>
+                        ) : null}
+                        {isVegano && (
+                            <div style={styles.veganoBadge}>🌱 Vegano</div>
+                        )}
+                    </div>
                 </div>
             )}
 
@@ -1414,8 +1520,8 @@ function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
                 {prato.descricao && <p style={styles.cardDesc}>{prato.descricao}</p>}
                 {prato.observacoes && (
                     <div style={styles.cardObsBadge}>
-                        <span style={styles.cardObsIcon}>💡</span>
-                        <span style={styles.cardObsText}>{prato.observacoes}</span>
+                        <span style={styles.cardObsIcon}>☕</span>
+                        <span style={styles.cardObsText}><strong>Opções:</strong> {prato.observacoes}</span>
                     </div>
                 )}
             </div>
@@ -1443,9 +1549,13 @@ function PratoCard({ prato, happyHour, onAdicionar, qtdNoCarrinho }) {
 }
 
 const styles = {
-    searchWrapper: { position: "relative", maxWidth: "480px", margin: "0 auto 1.5rem auto", width: "100%" },
-    searchInput: { width: "100%", padding: "0.85rem 1.4rem", borderRadius: "50px", border: "1.5px solid rgba(200, 138, 54, 0.4)", background: "rgba(255, 255, 255, 0.95)", color: "#2D1E18", fontSize: "0.92rem", outline: "none", boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)", transition: "all 0.2s ease" },
-    searchClearBtn: { position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", color: "#8D6E63", fontSize: "1rem", cursor: "pointer", padding: "4px" },
+    searchWrapper: { position: "relative", maxWidth: "520px", margin: "0 auto 1.8rem auto", width: "100%" },
+    searchIcon: { position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", fontSize: "1rem", opacity: 0.7, pointerEvents: "none" },
+    searchInput: { width: "100%", padding: "0.9rem 2.8rem 0.9rem 2.8rem", borderRadius: "50px", border: "1.5px solid rgba(200, 138, 54, 0.5)", background: "rgba(255, 255, 255, 0.97)", color: "#2D1E18", fontSize: "0.92rem", outline: "none", boxShadow: "0 8px 24px rgba(0, 0, 0, 0.18)", transition: "all 0.2s ease" },
+    searchClearBtn: { position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", color: "#8D6E63", fontSize: "1.1rem", cursor: "pointer", padding: "4px" },
+    veganoBadge: { background: "#E8F5E9", color: "#2E7D32", border: "1px solid #A5D6A7", padding: "0.2rem 0.6rem", borderRadius: "20px", fontSize: "0.72rem", fontWeight: "700" },
+    heroSloganSub: { color: "#E8DED1", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", maxWidth: "580px", margin: "0 auto 1.6rem", lineHeight: "1.6", fontWeight: "300" },
+    heroBtnMaps: { display: "inline-block", background: "rgba(255, 255, 255, 0.12)", border: "1px solid rgba(255, 255, 255, 0.25)", color: "#FFFFFF", padding: "0.8rem 1.6rem", borderRadius: "50px", fontWeight: "600", fontSize: "0.9rem", transition: "all 0.2s ease" },
 
     cardObsBadge: { display: "inline-flex", alignItems: "flex-start", gap: "0.35rem", marginTop: "0.55rem", padding: "0.35rem 0.65rem", background: "#FBF7F0", border: "1px solid #EFE4D3", borderRadius: "8px", fontSize: "0.76rem", color: "#6D4C41", lineHeight: "1.3" },
     cardObsIcon: { fontSize: "0.85rem", flexShrink: 0 },
@@ -1465,7 +1575,7 @@ const styles = {
     modalFotoPreco: { fontSize: "1.35rem", fontWeight: "700", color: "#A26D3F", fontFamily: "'Poppins', sans-serif" },
     modalFotoBtnPedir: { background: "#2D1E18", color: "#FAF6F0", border: "none", padding: "0.75rem 1.4rem", borderRadius: "50px", fontWeight: "600", fontSize: "0.9rem", cursor: "pointer", transition: "background 0.2s" },
 
-    hero: { position: "relative", minHeight: "560px", background: "linear-gradient(155deg, #1f120c 0%, #2e1a12 55%, #180c07 100%)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", padding: "3rem 1.5rem" },
+    hero: { position: "relative", minHeight: "580px", background: "linear-gradient(160deg, rgba(31, 18, 12, 0.88) 0%, rgba(46, 26, 18, 0.92) 55%, rgba(24, 12, 7, 0.96) 100%), url('/cover.jpg') center/cover no-repeat", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", padding: "3.5rem 1.5rem" },
     heroOverlay: { position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 40%, rgba(232,184,75,0.07) 0%, transparent 65%)" },
     heroContent: { textAlign: "center", zIndex: 1, maxWidth: "700px", width: "100%" },
     heroLogo: { width: "90px", height: "90px", objectFit: "cover", borderRadius: "50%", border: "3px solid #C88A36", marginBottom: "1rem", boxShadow: "0 0 30px rgba(232,184,75,0.2)" },
@@ -1574,7 +1684,7 @@ const styles = {
     cardNomeEstrela: { color: "#111" },
     cardDesc: { fontSize: "0.84rem", color: "#999", lineHeight: "1.6" },
     cardFooter: { padding: "0.9rem 1.4rem", borderTop: "1px solid #f0ebe3", display: "flex", justifyContent: "flex-end" },
-    cardPreco: { background: "linear-gradient(135deg, #c0392b, #96281b)", color: "#fff", padding: "0.4rem 1.1rem", borderRadius: "50px", fontSize: "0.95rem", fontWeight: "700" },
+    cardPreco: { background: "#2D1E18", color: "#F7ECE1", border: "1px solid #C88A36", padding: "0.42rem 1.15rem", borderRadius: "50px", fontSize: "0.95rem", fontWeight: "700", letterSpacing: "0.3px", boxShadow: "0 2px 8px rgba(45, 30, 24, 0.15)" },
     cardPrecoEstrela: { background: "linear-gradient(135deg, #C88A36, #c49020)", color: "#111" },
     cardPrecoHH: { background: "linear-gradient(135deg, #C88A36, #c99a30)", color: "#111" },
 
