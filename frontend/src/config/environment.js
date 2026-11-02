@@ -30,7 +30,7 @@ const AMBIENTES = {
 
 // 🎯 DETECÇÃO INTELIGENTE DE AMBIENTE:
 let rawUrl = ENV_API_URL;
-if (!rawUrl) {
+if (!rawUrl || isVercel) {
     if (isVercel) {
         rawUrl = AMBIENTES.vercel;
     } else if (isLocalhost) {
@@ -38,6 +38,13 @@ if (!rawUrl) {
     } else {
         rawUrl = AMBIENTES.oracle_vm;
     }
+}
+
+// Proteção absoluta contra Mixed Content:
+// Se o navegador estiver em HTTPS e a URL for HTTP não-segura, usa o proxy serverless /api
+if (isBrowser && window.location.protocol === "https:" && rawUrl && rawUrl.startsWith("http://")) {
+    console.warn("[Cardápio Furdunço] HTTPS detectado. Redirecionando requisições para o proxy seguro /api.");
+    rawUrl = "/api";
 }
 
 // Exportação final da URL da API utilizada por todo o frontend (sem barra final)
