@@ -76,7 +76,7 @@ export default function Login() {
                             <input
                                 style={styles.input}
                                 type="email"
-                                placeholder="admin@furdunco.com"
+                                placeholder="seu.email@exemplo.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -97,35 +97,11 @@ export default function Login() {
                             <input
                                 style={styles.input}
                                 type={mostrarSenha ? "text" : "password"}
-                                placeholder="admin123"
+                                placeholder="••••••••"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                                 required
                             />
-                        </div>
-
-                        {/* Botão de Preenchimento Rápido com 1 clique */}
-                        <div style={{ textAlign: "right", marginTop: "-0.4rem", marginBottom: "0.6rem" }}>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setEmail("admin@furdunco.com");
-                                    setSenha("admin123");
-                                    setErro("");
-                                }}
-                                style={{
-                                    background: "#F5EFEB",
-                                    border: "1px dashed #C88A36",
-                                    color: "#5D4037",
-                                    padding: "0.35rem 0.8rem",
-                                    borderRadius: "20px",
-                                    fontSize: "0.78rem",
-                                    fontWeight: "600",
-                                    cursor: "pointer"
-                                }}
-                            >
-                                ⚡ Preencher dados oficiais
-                            </button>
                         </div>
 
                         {erro     && <div style={styles.alertaErro}>⚠️ {erro}</div>}
