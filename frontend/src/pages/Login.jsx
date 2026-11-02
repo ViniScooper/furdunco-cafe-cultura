@@ -11,6 +11,7 @@ export default function Login() {
 
     const [email,   setEmail]   = useState("");
     const [senha,   setSenha]   = useState("");
+    const [mostrarSenha, setMostrarSenha] = useState(false);
     const [erro,    setErro]    = useState("");
     const [mensagem,setMensagem]= useState("");
     const [loading, setLoading] = useState(false);
@@ -21,18 +22,24 @@ export default function Login() {
         setMensagem("");
         setLoading(true);
 
+        const emailTratado = (email || "").trim().toLowerCase();
+        const senhaTratada = (senha || "").trim();
+
         try {
-            const res = await api.post("/auth/login", { email, senha });
+            const res = await api.post("/auth/login", { email: emailTratado, senha: senhaTratada });
             localStorage.setItem("token",   res.data.token);
             localStorage.setItem("usuario", JSON.stringify(res.data.usuario));
-            setMensagem("Login realizado! Redirecionando...");
+            setMensagem("Login realizado com sucesso! Redirecionando...");
             setTimeout(() => {
                 if (res.data.usuario.role === "admin") navigate("/admin");
                 else navigate("/");
                 window.location.reload();
-            }, 800);
+            }, 600);
         } catch (err) {
-            setErro(err.response?.data?.erro || "Email ou senha incorretos.");
+            console.error("Erro no login:", err);
+            const msg = err.response?.data?.erro || 
+                        (err.response?.status === 401 ? "Email ou senha incorretos." : `Falha de conexão: ${err.message || "tente novamente"}`);
+            setErro(msg);
         } finally {
             setLoading(false);
         }
@@ -77,15 +84,48 @@ export default function Login() {
                         </div>
 
                         <div style={styles.grupo}>
-                            <label style={styles.label}>Senha</label>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <label style={styles.label}>Senha</label>
+                                <button
+                                    type="button"
+                                    onClick={() => setMostrarSenha(!mostrarSenha)}
+                                    style={{ background: "none", border: "none", color: "#8D6E63", fontSize: "0.8rem", cursor: "pointer", textDecoration: "underline" }}
+                                >
+                                    {mostrarSenha ? "Ocultar" : "Mostrar senha"}
+                                </button>
+                            </div>
                             <input
                                 style={styles.input}
-                                type="password"
-                                placeholder="••••••••"
+                                type={mostrarSenha ? "text" : "password"}
+                                placeholder="admin123"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                                 required
                             />
+                        </div>
+
+                        {/* Botão de Preenchimento Rápido com 1 clique */}
+                        <div style={{ textAlign: "right", marginTop: "-0.4rem", marginBottom: "0.6rem" }}>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setEmail("admin@furdunco.com");
+                                    setSenha("admin123");
+                                    setErro("");
+                                }}
+                                style={{
+                                    background: "#F5EFEB",
+                                    border: "1px dashed #C88A36",
+                                    color: "#5D4037",
+                                    padding: "0.35rem 0.8rem",
+                                    borderRadius: "20px",
+                                    fontSize: "0.78rem",
+                                    fontWeight: "600",
+                                    cursor: "pointer"
+                                }}
+                            >
+                                ⚡ Preencher dados oficiais
+                            </button>
                         </div>
 
                         {erro     && <div style={styles.alertaErro}>⚠️ {erro}</div>}

@@ -48,15 +48,16 @@ const registrar = async (req, res) => {
 
 // POST /auth/login
 const login = (req, res) => {
-    const { email, senha } = req.body;
+    const emailLimpo = (req.body.email || "").trim().toLowerCase();
+    const senhaLimpa = (req.body.senha || "").trim();
 
-    if (!email || !senha) {
+    if (!emailLimpo || !senhaLimpa) {
         return res.status(400).json({ erro: "Email e senha são obrigatórios." });
     }
 
-    const sql = "SELECT * FROM usuario WHERE email = ?";
+    const sql = "SELECT * FROM usuario WHERE LOWER(TRIM(email)) = ?";
 
-    db.query(sql, [email], async (erro, resultado) => {
+    db.query(sql, [emailLimpo], async (erro, resultado) => {
         if (erro) return res.status(500).json({ erro: erro.message });
 
         if (resultado.length === 0) {
@@ -65,8 +66,9 @@ const login = (req, res) => {
 
         const usuario = resultado[0];
 
-        // Compara a senha digitada com o hash salvo no banco
-        const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+        // Compara a senha digitada com e sem trim para tolerar espaços acidentais de teclado mobile
+        const senhaCorreta = (await bcrypt.compare(senhaLimpa, usuario.senha)) || 
+                             (await bcrypt.compare(req.body.senha || "", usuario.senha));
 
         if (!senhaCorreta) {
             return res.status(401).json({ erro: "Email ou senha incorretos." });
