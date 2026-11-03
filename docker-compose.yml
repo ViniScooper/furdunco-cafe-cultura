@@ -32,8 +32,13 @@ services:
       - ./backend/uploads:/app/uploads
     networks:
       - default
+      - nginx_proxy
 
 networks:
   default:
     external: true
     name: cardapio_digital_default
+  nginx_proxy:
+    # Rede do nginx-manager (proxy reverso /furdunco-api/ usado pela Vercel)
+    external: true
+    name: nginx-manager_default
