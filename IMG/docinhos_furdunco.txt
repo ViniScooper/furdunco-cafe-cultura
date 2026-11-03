@@ -1,0 +1,72 @@
+=== DOCINHOS (Doces e sobremesas) ===
+
+Produto: Bolo do dia
+Descrição: Fatia de bolo. Consultar o sabor do dia.
+Preço: R$ 18,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/7a1ea81bb3799aa2371bbb7ecba75a06.jpg
+--------------------------------------------------
+Produto: Brigadeiro no pote
+Descrição: Brigadeiro ou bem casado no pote com granulado para comer de colher.
+Preço: R$ 14,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/854f9306a61be6db575bc61b56f82be2.jpg
+--------------------------------------------------
+Produto: Brownie com Sorvete
+Descrição: Brownie de chocolate com sorvete de creme e calda de chocolate.
+Preço: R$ 28,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/0075eb08f2b7f073793d3af5cd0be987.jpg
+--------------------------------------------------
+Produto: Cartola
+Descrição: Banana grelhada com queijo coalho assado, canela e açúcar.
+Preço: R$ 28,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/9f2685355e2f46db0180b131f9d40cdb.jpg
+--------------------------------------------------
+Produto: Cheesecake
+Descrição: Cheesecake com calda de frutas vermelhas ou maracujá.
+Preço: R$ 28,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/b83b9a344e97aa818615276cf52a01d4.jpg
+--------------------------------------------------
+Produto: Cookie Vegano
+Descrição: Cookie vegano sem glúten. Sabores tradicional e chocolate.
+Preço: R$ 15,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/4040c32cb3ac32118f8963206c105853.jpg
+--------------------------------------------------
+Produto: Mini Bolo
+Descrição: Mini bolo com calda. Massa: chocolate, cenoura ou laranja. Calda: chocolate ou caramelo salgado.
+Preço: R$ 18,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/55178f480e543969d5881b40058cbd77.jpg
+--------------------------------------------------
+Produto: Salada de Frutas
+Descrição: Salada de frutas com mel, granola e iogurte.
+Preço: R$ 22,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/537ff26f21be2b5da4c6b29618b130e7.jpg
+--------------------------------------------------
+Produto: Taça de Banoffee
+Descrição: Taça gelada de banoffee com sorvete de creme.
+Preço: R$ 29,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/369e0fac0a024cfe0443c78fb166ea36.jpg
+--------------------------------------------------
+Produto: Torta Alemã
+Descrição: Fatia de torta alemã.
+Preço: R$ 20,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/972c3045c0e709cddddda71080487cdb.jpg
+--------------------------------------------------
+Produto: Torta Cookie
+Descrição: Torta cookie vegana e sem glúten.
+Preço: R$ 20,00
+Foto: https://cardapio.wifire.me/static/acontece/images/produto.jpg
+--------------------------------------------------
+Produto: Torta de Limão
+Descrição: Fatia de torta de limão
+Preço: R$ 20,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/fa402e0d6ce827781885244c077658d0.jpg
+--------------------------------------------------
+Produto: Torta de Morango
+Descrição: Torta de morango com massa de pão de ló. A calda pode ser de chocolate ou chantilly.
+Preço: R$ 20,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/17a2949231da46eddcb13f0075deb724.jpg
+--------------------------------------------------
+Produto: Torta Folhada de Maçã
+Descrição: Torta folhada de maçã com creme de amêndoas, caramelo salgado e sorvete de creme.
+Preço: R$ 29,00
+Foto: https://wifireme.s3-sa-east-1.amazonaws.com/images/thumb/1099e1d65d809e676ea6997f16fcb34f.jpg
+--------------------------------------------------

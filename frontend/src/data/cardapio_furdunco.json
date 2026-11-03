@@ -48,7 +48,7 @@
         "descricao": "Acompanha molho barbecue de goiabada.",
         "preco": 25.0,
         "preco_formatado": "R$ 25,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/iscas_de_frango_empanadas.jpg",
         "observacoes": ""
       },
       {
@@ -123,7 +123,7 @@
       },
       {
         "nome": "Brigadeiro no pote",
-        "descricao": "Brigadeiro ou bem-casado no pote com granulado para comer de colher.",
+        "descricao": "Brigadeiro ou bem casado no pote com granulado para comer de colher.",
         "preco": 14.0,
         "preco_formatado": "R$ 14,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/854f9306a61be6db575bc61b56f82be2.jpg",
@@ -155,7 +155,7 @@
       },
       {
         "nome": "Cookie Vegano",
-        "descricao": "Cookie vegano sem glúten.",
+        "descricao": "Cookie vegano sem glúten. Sabores tradicional e chocolate.",
         "preco": 15.0,
         "preco_formatado": "R$ 15,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4040c32cb3ac32118f8963206c105853.jpg",
@@ -163,7 +163,7 @@
       },
       {
         "nome": "Mini Bolo",
-        "descricao": "Mini bolo com calda.",
+        "descricao": "Mini bolo com calda. Massa: chocolate, cenoura ou laranja. Calda: chocolate ou caramelo salgado.",
         "preco": 18.0,
         "preco_formatado": "R$ 18,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/55178f480e543969d5881b40058cbd77.jpg",
@@ -198,12 +198,12 @@
         "descricao": "Torta cookie vegana e sem glúten.",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/torta_cookie.jpg",
         "observacoes": ""
       },
       {
         "nome": "Torta de Limão",
-        "descricao": "Fatia de torta de limão.",
+        "descricao": "Fatia de torta de limão",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/fa402e0d6ce827781885244c077658d0.jpg",
@@ -211,7 +211,7 @@
       },
       {
         "nome": "Torta de Morango",
-        "descricao": "Torta de morango com massa de pão de ló.",
+        "descricao": "Torta de morango com massa de pão de ló. A calda pode ser de chocolate ou chantilly.",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/17a2949231da46eddcb13f0075deb724.jpg",
@@ -298,7 +298,7 @@
         "descricao": "Pão de fermentação natural na chapa.",
         "preco": 12.0,
         "preco_formatado": "R$ 12,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/pao_na_chapa.jpg",
         "observacoes": ""
       },
       {
@@ -352,7 +352,7 @@
         "descricao": "Sanduíche de carne louca, queijo muçarela e maionese verde.",
         "preco": 35.0,
         "preco_formatado": "R$ 35,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/carne_louca_com_queijo_e_maionese_verde.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
@@ -376,7 +376,7 @@
         "descricao": "Sanduíche de frango cremoso com bacon, rúcula e geleia de tomate.",
         "preco": 32.0,
         "preco_formatado": "R$ 32,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/frango_cremoso_com_bacon.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
@@ -436,7 +436,7 @@
         "descricao": "Camarão com penne ao molho de tomate, molho pesto e parmesão.",
         "preco": 54.0,
         "preco_formatado": "R$ 54,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/camarao_ao_molho_de_tomate.jpg",
         "observacoes": ""
       },
       {
@@ -539,7 +539,7 @@
     "pratos": [
       {
         "nome": "Cookie Vegano",
-        "descricao": "Cookie vegano sem glúten.",
+        "descricao": "Cookie vegano sem glúten. Sabores tradicional e chocolate.",
         "preco": 15.0,
         "preco_formatado": "R$ 15,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4040c32cb3ac32118f8963206c105853.jpg",
@@ -550,7 +550,7 @@
         "descricao": "Cuscuz temperado com cogumelos shitake e shimeji refogados.",
         "preco": 28.0,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/cuscuz_com_cogumelos.jpg",
         "observacoes": ""
       },
       {
@@ -582,7 +582,7 @@
         "descricao": "Torta cookie vegana e sem glúten.",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/torta_cookie.jpg",
         "observacoes": ""
       },
       {
@@ -692,7 +692,7 @@
         "descricao": "Café espresso e leite de aveia vaporizado cremoso - 180ml.",
         "preco": 19.0,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/veg_latte.jpg",
         "observacoes": ""
       }
     ]
@@ -784,7 +784,7 @@
         "descricao": "Café espresso, leite de aveia gelado cremoso e gelo - 330ml.",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/veg_latte_iced.jpg",
         "observacoes": ""
       }
     ]
@@ -926,7 +926,7 @@
         "descricao": "Água com gás 330ml.",
         "preco": 8.0,
         "preco_formatado": "R$ 8,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/agua_com_gas.jpg",
         "observacoes": ""
       },
       {
@@ -934,7 +934,7 @@
         "descricao": "Água sem gás 330ml.",
         "preco": 7.0,
         "preco_formatado": "R$ 7,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/agua_sem_gas.jpg",
         "observacoes": ""
       },
       {
@@ -1006,7 +1006,7 @@
         "descricao": "Licor - consultar sabor disponível.",
         "preco": 20.0,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/licor.jpg",
         "observacoes": ""
       },
       {
@@ -1028,7 +1028,7 @@
         "descricao": "Colchagua - Chile.",
         "preco": 99.0,
         "preco_formatado": "R$ 99,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/alto_tierruca_reserva_carmenere.jpg",
         "observacoes": ""
       },
       {
@@ -1036,7 +1036,7 @@
         "descricao": "Curicó - Chile.",
         "preco": 99.0,
         "preco_formatado": "R$ 99,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/alto_tierruca_reserva_sauvignon_blanc.jpg",
         "observacoes": ""
       },
       {
@@ -1044,7 +1044,7 @@
         "descricao": "Mendoza - Argentina.",
         "preco": 99.0,
         "preco_formatado": "R$ 99,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/amayan_belhara_reserva_chardonnay.jpg",
         "observacoes": ""
       },
       {
@@ -1052,7 +1052,7 @@
         "descricao": "Mendoza - Argentina.",
         "preco": 99.0,
         "preco_formatado": "R$ 99,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/amayan_belhara_reserva_malbec.jpg",
         "observacoes": ""
       },
       {
@@ -1060,7 +1060,7 @@
         "descricao": "Douro - Portugal.",
         "preco": 105.0,
         "preco_formatado": "R$ 105,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/casa_de_cambres_doc_douro_reserva_branco.jpg",
         "observacoes": ""
       },
       {
@@ -1068,7 +1068,7 @@
         "descricao": "Vale dos Vinhedos - Brasil.",
         "preco": 95.0,
         "preco_formatado": "R$ 95,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/espumante_virtus_monte_paschoal_brut.jpg",
         "observacoes": ""
       },
       {
@@ -1076,7 +1076,7 @@
         "descricao": "Maipo - Chile.",
         "preco": 109.0,
         "preco_formatado": "R$ 109,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/perez_cruz_reserva_cabernet_sauvignon.jpg",
         "observacoes": ""
       },
       {
@@ -1084,7 +1084,7 @@
         "descricao": "",
         "preco": 19.0,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/taca_vinho_branco.jpg",
         "observacoes": ""
       },
       {
@@ -1092,7 +1092,7 @@
         "descricao": "",
         "preco": 19.0,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/taca_vinho_tinto.jpg",
         "observacoes": ""
       }
     ]
@@ -1106,7 +1106,7 @@
         "descricao": "PROTEÍNAS - R$14,00(carne louca, frango desfiado, costelinha de porco desfiada)ACOMPANHAMENTOS - R$ 12,00(salada de folhas, arroz, purê de batata ou batata doce, espaguete de legumes, farofa)PORÇÕES - R$ 7,00(queijo parmesão, requeijão, geleia, granola, mel de abelha, molho pesto, mostarda doce)EXTRAS - R$ 10,00(ovos, bacon, queijo coalho)",
         "preco": 14.0,
         "preco_formatado": "R$ 14,00",
-        "imagem_url": "Sem foto",
+        "imagem_url": "/pratos/acompanhamentos_e_porcoes.jpg",
         "observacoes": ""
       }
     ]
