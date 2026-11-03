@@ -66,10 +66,7 @@ INSERT INTO configuracao (id, hh_ativo, hh_dias, hh_inicio, hh_fim, instagram_ur
 VALUES (1, 1, 'Quinta a Sábado', '17:00', '20:00', 'https://www.instagram.com/furduncocafecultura/')
 ON DUPLICATE KEY UPDATE id=1;
 
--- Inserção do Usuário Admin padrão (Senha: admin123)
-INSERT INTO usuario (nome, email, senha, role) VALUES
-    ('Administrador Furdunço', 'admin@furdunco.com', '$2a$10$vI8aWBnW3fID.ZQ4/ZOIj.qU5vY3K5x1hT.0aY844hXq9E3l9Geq6', 'admin')
-ON DUPLICATE KEY UPDATE email = VALUES(email);
+-- Crie o primeiro administrador com `npm run bootstrap-admin` no backend.
 
 -- 5. Inserção das Categorias do Furdunço
 INSERT INTO categoria (nome, icone, ordem) VALUES

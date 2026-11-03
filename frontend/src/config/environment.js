@@ -55,6 +55,8 @@ export const getImagemUrl = (caminho) => {
     if (!caminho) return null;
     if (caminho.startsWith("http://") || caminho.startsWith("https://")) return caminho;
     const cleanPath = caminho.startsWith("/") ? caminho : `/${caminho}`;
+    // Imagens do catálogo são servidas pelo frontend (public/pratos), não pela API.
+    if (cleanPath.startsWith("/pratos/")) return cleanPath;
     return `${BASE_API_URL}${cleanPath}`;
 };
 

@@ -7,7 +7,8 @@
 const jwt = require('jsonwebtoken');
 
 const API_URL = process.env.API_URL || 'http://localhost:3001';
-const JWT_SECRET = process.env.JWT_SECRET || 'restaurante_jwt_secret_2024';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) throw new Error('Defina JWT_SECRET no ambiente antes de executar o QA.');
 
 // Gera token de Admin válido para os testes
 const adminToken = jwt.sign(

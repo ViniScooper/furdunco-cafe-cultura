@@ -4,8 +4,9 @@
 // ============================================================
 
 const jwt = require("jsonwebtoken");
+const { requiredSecret } = require("../config/secrets");
 
-const JWT_SECRET = process.env.JWT_SECRET || "restaurante_jwt_secret_2024";
+const JWT_SECRET = requiredSecret("JWT_SECRET", 24);
 
 // Middleware 1 — verifica se o token JWT é válido
 const verificarToken = (req, res, next) => {

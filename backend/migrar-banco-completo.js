@@ -7,8 +7,8 @@ const mysql = require("mysql2");
 const db = mysql.createConnection({
     host:     process.env.DB_HOST     || "localhost",
     user:     process.env.DB_USER     || "root",
-    password: process.env.DB_PASSWORD || "viniZIKA3103",
-    database: process.env.DB_NAME     || "restaurante",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME     || "furdunco_db",
     port:     Number(process.env.DB_PORT) || 3306
 });
 
@@ -80,14 +80,6 @@ db.connect(async (err) => {
                 atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )
         `);
-
-        // Inserir ou atualizar Admin com senha válida 'admin123'
-        const senhaAdminHash = "$2a$10$QJVjL0MMpxDBLTkd21wRbO66bwfBokxJ2diWRrqhBnNvQnyLCN5dG";
-        await query(`
-            INSERT INTO usuario (id, nome, email, senha, role) 
-            VALUES (1, 'Administrador', 'admin@boteco.com', ?, 'admin')
-            ON DUPLICATE KEY UPDATE senha = VALUES(senha), role = 'admin'
-        `, [senhaAdminHash]);
 
         // Inserir Configuração se não existir
         await query(`

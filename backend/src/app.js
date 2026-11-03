@@ -14,21 +14,29 @@ const seloRoutes      = require("./routes/seloRoutes");
 
 const app = express();
 
-// Configuração flexível de CORS: aceita localhost, redes locais, Vercel e Hostinger
-const origensPermitidas = [
+// Origens padrão permitidas para o Furdunço - Café e Cultura
+const origensPadrao = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://boteco-do-sivirino.vercel.app",
+    "https://furdunco-cafe-cultura.vercel.app",
+    "https://furdunco-cafe-cultura-viniscoopers-projects.vercel.app"
 ];
+
+// Em produção, permite origens configuradas via variável de ambiente ou os padrões oficiais
+const origensPermitidas = (process.env.APP_ALLOWED_ORIGINS
+    ? process.env.APP_ALLOWED_ORIGINS.split(",")
+    : origensPadrao)
+    .map((origem) => origem.trim())
+    .filter(Boolean);
 
 app.use(cors({
     origin: (origin, callback) => {
-        // Permite requisições sem origin (como mobile apps, Postman ou curl)
-        // e qualquer subdomínio da Vercel ou IP da rede local
-        if (!origin || origensPermitidas.includes(origin) || origin.endsWith(".vercel.app") || origin.includes("192.168.") || origin.includes("10.0.")) {
+        // Permite requisições sem origin (como mobile apps, Postman ou curl),
+        // origens explicitamente permitidas ou deploys da Vercel
+        if (!origin || origensPermitidas.includes(origin) || origin.endsWith(".vercel.app")) {
             return callback(null, true);
         }
-        return callback(null, true); // No modo teste/produção liberado para evitar bloqueios inesperados
+        return callback(new Error("Origem não autorizada pelo CORS."));
     },
     credentials: true
 }));

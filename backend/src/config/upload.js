@@ -4,27 +4,26 @@
 
 const multer = require("multer");
 const path   = require("path");
-const fs     = require("fs");
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 // Credenciais do Bucket OCI (Always Free Oracle Cloud)
 const OCI_ENDPOINT   = process.env.OCI_ENDPOINT   || "https://gr88wz9mdro0.compat.objectstorage.sa-saopaulo-1.oraclecloud.com";
 const OCI_REGION     = process.env.OCI_REGION     || "sa-saopaulo-1";
 const OCI_BUCKET     = process.env.OCI_BUCKET     || "furdunco-fotos";
-const OCI_ACCESS_KEY = process.env.OCI_ACCESS_KEY || "7f0368e0766684b28d9031d0caaa56c542aaee3a";
-const OCI_SECRET_KEY = process.env.OCI_SECRET_KEY || "yQ+YqrRLhMhJrpsx0zruFxQ+QYvDZIOO9AZA1PZKPf8=";
+const OCI_ACCESS_KEY = process.env.OCI_ACCESS_KEY;
+const OCI_SECRET_KEY = process.env.OCI_SECRET_KEY;
 const OCI_PUBLIC_URL = process.env.OCI_PUBLIC_URL || "https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/gr88wz9mdro0/b/furdunco-fotos/o";
 
 // Cliente S3 configurado para Oracle Cloud Object Storage
-const s3Client = new S3Client({
+const s3Config = {
     region: OCI_REGION,
     endpoint: OCI_ENDPOINT,
-    credentials: {
-        accessKeyId: OCI_ACCESS_KEY,
-        secretAccessKey: OCI_SECRET_KEY
-    },
     forcePathStyle: true // Necessário para a API compatível S3 da Oracle
-});
+};
+if (OCI_ACCESS_KEY && OCI_SECRET_KEY) {
+    s3Config.credentials = { accessKeyId: OCI_ACCESS_KEY, secretAccessKey: OCI_SECRET_KEY };
+}
+const s3Client = new S3Client(s3Config);
 
 // Multer armazena na memória RAM para fazer streaming direto pro Bucket
 const storage = multer.memoryStorage();
@@ -50,6 +49,9 @@ const upload = multer({
  */
 const uploadParaBucket = async (file) => {
     if (!file) return null;
+    if (!OCI_ACCESS_KEY || !OCI_SECRET_KEY) {
+        throw new Error("Configure OCI_ACCESS_KEY e OCI_SECRET_KEY no ambiente para habilitar uploads.");
+    }
 
     const ext = path.extname(file.originalname).toLowerCase();
     const nomeUnico = `prato-${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;

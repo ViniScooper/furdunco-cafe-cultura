@@ -14,10 +14,16 @@ services:
       PORT: 3001
       DB_HOST: boteco_db
       DB_USER: root
-      DB_PASSWORD: viniZIKA3103
+      DB_PASSWORD: ${DB_PASSWORD:?Configure DB_PASSWORD no ambiente}
       DB_NAME: furdunco_db
       DB_PORT: 3306
-      JWT_SECRET: furdunco_jwt_secret_2026
+      JWT_SECRET: ${JWT_SECRET:?Configure JWT_SECRET no ambiente}
+      OCI_ENDPOINT: ${OCI_ENDPOINT:-https://gr88wz9mdro0.compat.objectstorage.sa-saopaulo-1.oraclecloud.com}
+      OCI_REGION: ${OCI_REGION:-sa-saopaulo-1}
+      OCI_ACCESS_KEY: ${OCI_ACCESS_KEY:-}
+      OCI_SECRET_KEY: ${OCI_SECRET_KEY:-}
+      OCI_PUBLIC_URL: ${OCI_PUBLIC_URL:-https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/gr88wz9mdro0/b/furdunco-fotos/o}
+      APP_ALLOWED_ORIGINS: ${APP_ALLOWED_ORIGINS:?Configure APP_ALLOWED_ORIGINS no ambiente}
       OCI_BUCKET: furdunco-fotos
       NODE_ENV: production
     ports:

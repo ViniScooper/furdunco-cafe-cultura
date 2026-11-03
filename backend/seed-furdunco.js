@@ -65,15 +65,7 @@ async function rodarSeed() {
         `);
         console.log("✅ Configuração padrão atualizada.");
 
-        // 2. Usuário Administrador (admin@furdunco.com / admin123)
-        await query(`
-            INSERT INTO usuario (nome, email, senha, role)
-            VALUES ('Administrador Furdunço', 'admin@furdunco.com', '$2a$10$vI8aWBnW3fID.ZQ4/ZOIj.qU5vY3K5x1hT.0aY844hXq9E3l9Geq6', 'admin')
-            ON DUPLICATE KEY UPDATE nome = VALUES(nome)
-        `);
-        console.log("✅ Usuário Admin padrão garantido (admin@furdunco.com / admin123).");
-
-        // 3. Inserir Categorias
+        // 2. Inserir Categorias. Administradores são criados separadamente pelo bootstrap-admin.
         let ordem = 1;
         for (const cat of catalog) {
             const icone = iconMap[cat.categoria.toLowerCase()] || "🍴";
@@ -85,7 +77,12 @@ async function rodarSeed() {
         }
         console.log(`✅ ${catalog.length} categorias cadastradas com sucesso.`);
 
-        // 4. Inserir Pratos
+        // 4. Inserir Pratos (somente se a tabela estiver vazia, evitando duplicacao)
+        const existentes = await query("SELECT COUNT(*) AS total FROM prato");
+        if (existentes[0].total > 0) {
+            console.log(`Tabela prato ja possui ${existentes[0].total} itens; seed de pratos ignorado.`);
+            process.exit(0);
+        }
         let totalInseridos = 0;
         for (const cat of catalog) {
             const isHH = cat.categoria.toLowerCase().includes("happy hour") ? 1 : 0;

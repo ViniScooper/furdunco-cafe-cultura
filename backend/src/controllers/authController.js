@@ -6,8 +6,9 @@
 const db      = require("../config/database");
 const bcrypt  = require("bcryptjs");
 const jwt     = require("jsonwebtoken");
+const { requiredSecret } = require("../config/secrets");
 
-const JWT_SECRET = process.env.JWT_SECRET || "restaurante_jwt_secret_2024";
+const JWT_SECRET = requiredSecret("JWT_SECRET", 24);
 
 // POST /auth/registrar
 const registrar = async (req, res) => {
