@@ -6,7 +6,7 @@
       {
         "nome": "Batata frita",
         "descricao": "",
-        "preco": 22.0,
+        "preco": 22,
         "preco_formatado": "R$ 22,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5e9e3846b0bb88a6b4c62bf8d2b122d9.jpg",
         "observacoes": ""
@@ -14,7 +14,7 @@
       {
         "nome": "Brie no forno",
         "descricao": "Queijo brie derretido no forno com jamon e geleia de frutas amarelas. Acompanha porção de torradas.",
-        "preco": 59.0,
+        "preco": 59,
         "preco_formatado": "R$ 59,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e8587cf6d0ba64bca31676b3cbed6741.jpg",
         "observacoes": ""
@@ -22,7 +22,7 @@
       {
         "nome": "Carpaccio",
         "descricao": "Ao molho de mostarda doce com alcaparras, rúcula, tomatinho confit e parmesão. Acompanha porção de torradas.",
-        "preco": 52.0,
+        "preco": 52,
         "preco_formatado": "R$ 52,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/20ee004cef3533314f2733b887877305.jpg",
         "observacoes": ""
@@ -30,7 +30,7 @@
       {
         "nome": "Cestinha de pães com pastinhas",
         "descricao": "Mix de pães (pão fofinho, torradas e pão italiano) com homus, tomatinho confit e guacamole.",
-        "preco": 42.0,
+        "preco": 42,
         "preco_formatado": "R$ 42,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4c427e4cb68e4eff394286e7c27492a3.jpg",
         "observacoes": ""
@@ -38,7 +38,7 @@
       {
         "nome": "Empada",
         "descricao": "Sabores: frango, camarão e queijo do reino",
-        "preco": 15.0,
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a41609e40e5d1d3b698b97c8c0cd3b65.jpg",
         "observacoes": "Sabores: frango, camarão e queijo do reino."
@@ -46,15 +46,15 @@
       {
         "nome": "Iscas de frango empanadas",
         "descricao": "Acompanha molho barbecue de goiabada.",
-        "preco": 25.0,
+        "preco": 25,
         "preco_formatado": "R$ 25,00",
-        "imagem_url": "/static/acontece/images/produto.jpg",
+        "imagem_url": "",
         "observacoes": ""
       },
       {
         "nome": "Mini coxinha",
         "descricao": "Porção com 8 unidades.",
-        "preco": 22.0,
+        "preco": 22,
         "preco_formatado": "R$ 22,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9de9466a512a03b160c11478d87b292d.jpg",
         "observacoes": ""
@@ -62,7 +62,7 @@
       {
         "nome": "Mini croissant",
         "descricao": "Porção com 5 unidades. Acompanha requeijão e geleia de frutas amarelas.",
-        "preco": 24.0,
+        "preco": 24,
         "preco_formatado": "R$ 24,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/895c348e97ffb90108460cbe741a99fd.jpg",
         "observacoes": ""
@@ -70,7 +70,7 @@
       {
         "nome": "Pão de queijo tradicional",
         "descricao": "Pão de queijo feito artesanalmente na casa. Porção com 5 unidades.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a70d4938d33053a83c37bdfd4b88df09.jpg",
         "observacoes": ""
@@ -78,7 +78,7 @@
       {
         "nome": "Pão fofinho na chapa",
         "descricao": "Porção com 3 unidades. Acompanha requeijão e geleia à sua escolha.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7406ea7cade0f6f915bcfeb9ee0aa86a.jpg",
         "observacoes": ""
@@ -86,7 +86,7 @@
       {
         "nome": "Pão fofinho recheado",
         "descricao": "Porção com 4 unidades.",
-        "preco": 27.0,
+        "preco": 27,
         "preco_formatado": "R$ 27,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5d5824fc8b6cc74adfc865eb1ecc6be2.jpg",
         "observacoes": "Sabores: frango, queijo do reino ou camarão."
@@ -94,7 +94,7 @@
       {
         "nome": "Pastel de queijo",
         "descricao": "Porção com 6 unidades.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9cb25ad91a30e1be52eeef4b181157b1.jpg",
         "observacoes": ""
@@ -102,7 +102,7 @@
       {
         "nome": "Quiche",
         "descricao": "Sabores: muçarela com tomate confit, gorgonzola com geleia de maçã, brie com geleia de frutas amarelas, alho poró.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c93668726ac3e87532084def5863cf3e.jpg",
         "observacoes": "Sabores: muçarela com tomate confit; gorgonzola com geleia de maçã; brie com geleia de frutas amarelas; alho-poró."
@@ -116,15 +116,15 @@
       {
         "nome": "Bolo do dia",
         "descricao": "Fatia de bolo. Consultar o sabor do dia.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7a1ea81bb3799aa2371bbb7ecba75a06.jpg",
         "observacoes": ""
       },
       {
         "nome": "Brigadeiro no pote",
-        "descricao": "Brigadeiro ou bem-casado no pote com granulado para comer de colher.",
-        "preco": 14.0,
+        "descricao": "Brigadeiro ou bem casado no pote com granulado para comer de colher.",
+        "preco": 14,
         "preco_formatado": "R$ 14,00",
         "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/854f9306a61be6db575bc61b56f82be2.jpg",
         "observacoes": ""
@@ -132,97 +132,97 @@
       {
         "nome": "Brownie com Sorvete",
         "descricao": "Brownie de chocolate com sorvete de creme e calda de chocolate.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0075eb08f2b7f073793d3af5cd0be987.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cartola",
         "descricao": "Banana grelhada com queijo coalho assado, canela e açúcar.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9f2685355e2f46db0180b131f9d40cdb.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cheesecake",
         "descricao": "Cheesecake com calda de frutas vermelhas ou maracujá.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b83b9a344e97aa818615276cf52a01d4.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cookie Vegano",
-        "descricao": "Cookie vegano sem glúten.",
-        "preco": 15.0,
+        "descricao": "Cookie vegano sem glúten. Sabores tradicional e chocolate.",
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4040c32cb3ac32118f8963206c105853.jpg",
         "observacoes": "Sabores: tradicional e chocolate."
       },
       {
         "nome": "Mini Bolo",
-        "descricao": "Mini bolo com calda.",
-        "preco": 18.0,
+        "descricao": "Mini bolo com calda. Massa: chocolate, cenoura ou laranja. Calda: chocolate ou caramelo salgado.",
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/55178f480e543969d5881b40058cbd77.jpg",
         "observacoes": "Massas: chocolate, cenoura ou laranja. Caldas: chocolate ou caramelo salgado."
       },
       {
         "nome": "Salada de Frutas",
         "descricao": "Salada de frutas com mel, granola e iogurte.",
-        "preco": 22.0,
+        "preco": 22,
         "preco_formatado": "R$ 22,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/537ff26f21be2b5da4c6b29618b130e7.jpg",
         "observacoes": ""
       },
       {
         "nome": "Taça de Banoffee",
         "descricao": "Taça gelada de banoffee com sorvete de creme.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/369e0fac0a024cfe0443c78fb166ea36.jpg",
         "observacoes": ""
       },
       {
         "nome": "Torta Alemã",
         "descricao": "Fatia de torta alemã.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/972c3045c0e709cddddda71080487cdb.jpg",
         "observacoes": ""
       },
       {
         "nome": "Torta Cookie",
         "descricao": "Torta cookie vegana e sem glúten.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "",
         "observacoes": ""
       },
       {
         "nome": "Torta de Limão",
-        "descricao": "Fatia de torta de limão.",
-        "preco": 20.0,
+        "descricao": "Fatia de torta de limão",
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/fa402e0d6ce827781885244c077658d0.jpg",
         "observacoes": ""
       },
       {
         "nome": "Torta de Morango",
-        "descricao": "Torta de morango com massa de pão de ló.",
-        "preco": 20.0,
+        "descricao": "Torta de morango com massa de pão de ló. A calda pode ser de chocolate ou chantilly.",
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/17a2949231da46eddcb13f0075deb724.jpg",
         "observacoes": "Calda: chocolate ou chantilly."
       },
       {
         "nome": "Torta Folhada de Maçã",
         "descricao": "Torta folhada de maçã com creme de amêndoas, caramelo salgado e sorvete de creme.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1099e1d65d809e676ea6997f16fcb34f.jpg",
         "observacoes": ""
       }
     ]
@@ -234,25 +234,25 @@
       {
         "nome": "Cuscuz temperado",
         "descricao": "Cuscuz temperadinho com um acompanhamento.",
-        "preco": 26.0,
+        "preco": 26,
         "preco_formatado": "R$ 26,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1edf6140bccc8c5e25f6af24d016307b.jpg",
         "observacoes": "Opções: carne louca, queijo coalho ou ovo frito. Versão vegana com cogumelos."
       },
       {
         "nome": "Sopa do dia",
         "descricao": "Acompanha porção de torradas. Consultar sabor do dia.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/29df0058c61458f0099f6e1a86e109b3.jpg",
         "observacoes": ""
       },
       {
         "nome": "Tapioca rendada",
         "descricao": "Sabores: carne louca (carne desfiada com pimentões coloridos e cebola) ou coco e queijo coalho ou frango.",
-        "preco": 27.0,
+        "preco": 27,
         "preco_formatado": "R$ 27,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/eae6b6e066639689c405b579664497f5.jpg",
         "observacoes": "Sabores: carne louca; coco e queijo coalho; ou frango."
       }
     ]
@@ -264,39 +264,39 @@
       {
         "nome": "Omelete",
         "descricao": "Acompanha saladinha de folhas.",
-        "preco": 30.0,
+        "preco": 30,
         "preco_formatado": "R$ 30,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e39baede5bb074c4ff5a7d2e0ad84e4c.jpg",
         "observacoes": "Muçarela com tomate confit: R$ 30,00. Frango desfiado com requeijão e tomate confit: R$ 32,00. Preço principal exibido: R$ 30,00."
       },
       {
         "nome": "Ovos com bacon",
         "descricao": "Pão de fermentação natural, ovos com gema mole e fatias de bacon.",
-        "preco": 23.0,
+        "preco": 23,
         "preco_formatado": "R$ 23,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f31c47ee1119986302516a454323e9c7.jpg",
         "observacoes": ""
       },
       {
         "nome": "Ovos mexidos",
         "descricao": "Dois ovos mexidos com pão de fermentação natural.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3a965fae5a28936d36caf4c0364268d9.jpg",
         "observacoes": ""
       },
       {
         "nome": "Ovos no Purgatório",
         "descricao": "Ovos moles cozidos no molho de tomate com calabresa. Acompanha pão de fermentação natural.",
-        "preco": 26.0,
+        "preco": 26,
         "preco_formatado": "R$ 26,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/51fe6bc92ef91997b2c1fc88ba1d7a7e.jpg",
         "observacoes": ""
       },
       {
         "nome": "Pão na chapa",
         "descricao": "Pão de fermentação natural na chapa.",
-        "preco": 12.0,
+        "preco": 12,
         "preco_formatado": "R$ 12,00",
         "imagem_url": "",
         "observacoes": ""
@@ -304,33 +304,33 @@
       {
         "nome": "Toast de Brie e Jamon",
         "descricao": "Pão de fermentação natural, queijo brie, jamon, tomatinho confit e molho pesto.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e5a5444a6bedf4ceb8f5ba4a16d587cc.jpg",
         "observacoes": ""
       },
       {
         "nome": "Toast de frango cremoso",
         "descricao": "Pão de fermentação natural, frango cremoso, rúcula, geleia de maçã e nozes.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/21a98bab8d362a8eed7d203698d987ee.jpg",
         "observacoes": ""
       },
       {
         "nome": "Toast de guacamole",
         "descricao": "Pão de fermentação natural, guacamole, ovos moles e jamon serrano.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/cc18e94c9011ccd40428900850ba4e7f.jpg",
         "observacoes": ""
       },
       {
         "nome": "Toast Vegana",
         "descricao": "Pão de fermentação natural, homus, queijo de castanha, tomate confit e cogumelos.",
-        "preco": 30.0,
+        "preco": 30,
         "preco_formatado": "R$ 30,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b92146eab787eef819717529b1096a71.jpg",
         "observacoes": ""
       }
     ]
@@ -342,15 +342,15 @@
       {
         "nome": "Brie com Parma",
         "descricao": "Sanduíche de brie com parma e geleia de damasco.",
-        "preco": 34.0,
+        "preco": 34,
         "preco_formatado": "R$ 34,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/22b9858ed67ac257fec11887be3d8308.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
         "nome": "carne louca com queijo e maionese verde",
         "descricao": "Sanduíche de carne louca, queijo muçarela e maionese verde.",
-        "preco": 35.0,
+        "preco": 35,
         "preco_formatado": "R$ 35,00",
         "imagem_url": "",
         "observacoes": "Pão: ciabatta ou croissant."
@@ -358,23 +358,23 @@
       {
         "nome": "Costelinha de porco",
         "descricao": "Sanduíche de costelinha de porco com requeijão e cebola caramelizada. Acompanha barbecue de goiabada da casa.",
-        "preco": 35.0,
+        "preco": 35,
         "preco_formatado": "R$ 35,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5218feed09d728ab3c97998bfecacda6.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
         "nome": "Do Reino",
         "descricao": "Sanduíche de queijo do reino.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/028cc901bcc19185fae95d0144e127b9.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
         "nome": "Frango cremoso com bacon",
         "descricao": "Sanduíche de frango cremoso com bacon, rúcula e geleia de tomate.",
-        "preco": 32.0,
+        "preco": 32,
         "preco_formatado": "R$ 32,00",
         "imagem_url": "",
         "observacoes": "Pão: ciabatta ou croissant."
@@ -382,17 +382,17 @@
       {
         "nome": "Muçarela crocante",
         "descricao": "Sanduíche de queijo muçarela crocante com requeijão e geleia de tomate.",
-        "preco": 29.0,
+        "preco": 29,
         "preco_formatado": "R$ 29,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a334798c6e1ad92ea88f79e1b7c60dba.jpg",
         "observacoes": "Pão: ciabatta ou croissant."
       },
       {
         "nome": "Vegano no ciabatta",
         "descricao": "Pão ciabatta com homus, cogumelos, alface, rúcula, tomate confit e queijo de castanha.",
-        "preco": 31.0,
+        "preco": 31,
         "preco_formatado": "R$ 31,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/841cf9e05dc7a2349fe9826ebfcea51f.jpg",
         "observacoes": ""
       }
     ]
@@ -404,25 +404,25 @@
       {
         "nome": "Salada de camarão",
         "descricao": "Mix de folhas, camarão grelhado, manga, cenoura ralada, queijo coalho, tomate cereja e nozes.",
-        "preco": 49.0,
+        "preco": 49,
         "preco_formatado": "R$ 49,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/69d29c717b451b931ccca657e5e374b3.jpg",
         "observacoes": ""
       },
       {
         "nome": "Salada de frango",
         "descricao": "Mix de folhas com frango desfiado, amêndoas tostadas, tomate confit, frutas secas e molho de mostarda doce. Acompanha torradas.",
-        "preco": 42.0,
+        "preco": 42,
         "preco_formatado": "R$ 42,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/uZdmRuH1iy5Cl96XX10GJ2ZFX09cVuMS5vYPI-o.jpg",
         "observacoes": ""
       },
       {
         "nome": "Salada Toast",
         "descricao": "Mix de folhas com tomatinho confit, nozes e toast de homus com geleia de maçã.",
-        "preco": 40.0,
+        "preco": 40,
         "preco_formatado": "R$ 40,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/XqSZrYpeRqGLymFi4ELjIOCuXpdSJ9bTYU7IqV4.jpg",
         "observacoes": ""
       }
     ]
@@ -434,7 +434,7 @@
       {
         "nome": "Camarão ao molho de tomate",
         "descricao": "Camarão com penne ao molho de tomate, molho pesto e parmesão.",
-        "preco": 54.0,
+        "preco": 54,
         "preco_formatado": "R$ 54,00",
         "imagem_url": "",
         "observacoes": ""
@@ -442,57 +442,57 @@
       {
         "nome": "Frango tarê",
         "descricao": "Filé de peito de frango no molho tarê, com purê de batata doce e espaguete de legumes.",
-        "preco": 37.0,
+        "preco": 37,
         "preco_formatado": "R$ 37,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d3c5ef9545aa9ecc95a0dfaf4ccff3ce.jpg",
         "observacoes": ""
       },
       {
         "nome": "Parmê de frango",
         "descricao": "Parmegiana de frango com espaguete ao molho de tomate e queijo parmesão.",
-        "preco": 37.0,
+        "preco": 37,
         "preco_formatado": "R$ 37,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/g6t-nuOgNXJkRUtKp8dA7KP4IQNQlTHxyiohl58.jpg",
         "observacoes": ""
       },
       {
         "nome": "Picadinho",
         "descricao": "Picadinho de coxão mole, arroz alho e óleo, farofa panko temperada, banana grelhada e ovo frito.",
-        "preco": 42.0,
+        "preco": 42,
         "preco_formatado": "R$ 42,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/jd1Z03YDJL3KtFu0QBTO7ntuyEDHFoUOwxPBwes.jpg",
         "observacoes": ""
       },
       {
         "nome": "Risoto de alho poró",
         "descricao": "Risoto cremoso com mix de arroz arbóreo e 7 grãos com cogumelos, alho poró, queijo parmesão e amêndoas laminadas.",
-        "preco": 49.0,
+        "preco": 49,
         "preco_formatado": "R$ 49,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/yYk59_x_XCqaCgMliOZKYgndt4UiTEVdKmYRfaA.jpg",
         "observacoes": "Possibilidade de versão vegana com queijo de castanha."
       },
       {
         "nome": "Risoto de camarão",
         "descricao": "Risoto de camarão com arroz arbóreo, arroz sete grãos, tomatinhos confit, espaguete de legumes e chips de batata doce.",
-        "preco": 55.0,
+        "preco": 55,
         "preco_formatado": "R$ 55,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/fEz8jq4ntS6eUxzPmGoYnDUnmHMZrXYa0bEwwGM.jpg",
         "observacoes": ""
       },
       {
         "nome": "Risoto de costelinha de porco",
         "descricao": "Risoto de costelinha de porco com arroz arbóreo, tomatinho confit, molho roti e parmesão.",
-        "preco": 50.0,
+        "preco": 50,
         "preco_formatado": "R$ 50,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/OmODHh5tKsRpgDmR0CxVl1ibC0Hi_hK63XZRrrQ.jpg",
         "observacoes": ""
       },
       {
         "nome": "Tilápia grelhada",
         "descricao": "Filé de tilápia grelhada com cebola e alcaparras, espaguete de legumes e arroz de brócolis.",
-        "preco": 41.0,
+        "preco": 41,
         "preco_formatado": "R$ 41,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ZnCxceiQQqFjONyQdU2kuJXu3bopW4LKUe4baVM.jpg",
         "observacoes": ""
       }
     ]
@@ -504,17 +504,17 @@
       {
         "nome": "Cubinhos de frango com penne",
         "descricao": "Cubinhos de frango salteado com penne, molho de tomate e parmesão.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/82511e8fc8cef70038cb18b451707d62.jpg",
         "observacoes": ""
       },
       {
         "nome": "Picadinho",
         "descricao": "Picadinho de carne com arroz e purê de batata.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/jd1Z03YDJL3KtFu0QBTO7ntuyEDHFoUOwxPBwes.jpg",
         "observacoes": ""
       }
     ]
@@ -526,9 +526,9 @@
       {
         "nome": "Manhã na Grama",
         "descricao": "Mini bolo, sanduíche frio, torradas, geleia, quiche de muçarela com tomate confit, pão de queijo, salada de fruta e suco de fruta.",
-        "preco": 99.0,
+        "preco": 99,
         "preco_formatado": "R$ 99,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/a8c90dff128e33c3b09b06871e6c1a29.jpg",
         "observacoes": "Opção para 2 pessoas: R$ 99,00. Opção para 4 pessoas: R$ 179,00. O site exibe R$ 99,00 como preço principal."
       }
     ]
@@ -539,16 +539,16 @@
     "pratos": [
       {
         "nome": "Cookie Vegano",
-        "descricao": "Cookie vegano sem glúten.",
-        "preco": 15.0,
+        "descricao": "Cookie vegano sem glúten. Sabores tradicional e chocolate.",
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/4040c32cb3ac32118f8963206c105853.jpg",
         "observacoes": "Sabores: tradicional e chocolate."
       },
       {
         "nome": "Cuscuz com cogumelos",
         "descricao": "Cuscuz temperado com cogumelos shitake e shimeji refogados.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
         "imagem_url": "",
         "observacoes": ""
@@ -556,31 +556,31 @@
       {
         "nome": "Risoto de alho poró",
         "descricao": "Risoto com cogumelos, alho poró, queijo parmesão e amêndoas laminadas.",
-        "preco": 49.0,
+        "preco": 49,
         "preco_formatado": "R$ 49,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/yYk59_x_XCqaCgMliOZKYgndt4UiTEVdKmYRfaA.jpg",
         "observacoes": "Possibilidade de versão vegana com queijo de castanha; confirmar preparo."
       },
       {
         "nome": "Salada Toast",
         "descricao": "Mix de folhas com tomatinho confit, nozes e toast de homus com geleia de maçã.",
-        "preco": 40.0,
+        "preco": 40,
         "preco_formatado": "R$ 40,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/XqSZrYpeRqGLymFi4ELjIOCuXpdSJ9bTYU7IqV4.jpg",
         "observacoes": ""
       },
       {
         "nome": "Toast Vegana",
         "descricao": "Pão de fermentação natural, homus, queijo de castanha, tomate confit e cogumelos.",
-        "preco": 30.0,
+        "preco": 30,
         "preco_formatado": "R$ 30,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b92146eab787eef819717529b1096a71.jpg",
         "observacoes": ""
       },
       {
         "nome": "Torta Cookie",
         "descricao": "Torta cookie vegana e sem glúten.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "",
         "observacoes": ""
@@ -588,9 +588,9 @@
       {
         "nome": "Vegano no ciabatta",
         "descricao": "Pão ciabatta com homus, cogumelos, alface, rúcula, tomate confit e queijo de castanha.",
-        "preco": 31.0,
+        "preco": 31,
         "preco_formatado": "R$ 31,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/841cf9e05dc7a2349fe9826ebfcea51f.jpg",
         "observacoes": ""
       }
     ]
@@ -602,95 +602,95 @@
       {
         "nome": "Aconchego",
         "descricao": "Café espresso, creme de chocolate branco, canela, leite vaporizado cremoso e chantilly - 150ml.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d24d9282dd8f78d88f61fcc1402f3f7e.jpg",
         "observacoes": ""
       },
       {
         "nome": "Capuccino Brasileiro",
         "descricao": "Café espresso, creme de chocolate, canela e leite vaporizado cremoso - 150ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5e9138caaa64e12d449358a6d4073bbc.jpg",
         "observacoes": ""
       },
       {
         "nome": "Capuccino Italiano",
         "descricao": "Café espresso, cacau e leite vaporizado cremoso - 150ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/16d4ff59ba9ffa357785f67580214738.jpg",
         "observacoes": ""
       },
       {
         "nome": "Doppio",
         "descricao": "Café espresso duplo - 80ml.",
-        "preco": 15.0,
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/065ef07d993313390bfae670b70a3296.jpg",
         "observacoes": ""
       },
       {
         "nome": "Espresso",
         "descricao": "Café espresso - 50ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/795cad3bb8dcf3335f4a8fef6fa90760.jpg",
         "observacoes": ""
       },
       {
         "nome": "Espresso Carioca",
         "descricao": "Café espresso carioca - 80ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d2674fdf78cff2ea90a6f66903a478d6.jpg",
         "observacoes": ""
       },
       {
         "nome": "Flat White",
         "descricao": "Café espresso duplo com leite vaporizado cremoso - 180ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7610c808948277846f5b1c74afaff15e.jpg",
         "observacoes": ""
       },
       {
         "nome": "Furdunço",
         "descricao": "Café espresso, creme toffee e leite vaporizado cremoso - 180ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9e591b5c2907ae48b81ddae705b0d600.jpg",
         "observacoes": ""
       },
       {
         "nome": "Latte",
         "descricao": "Café espresso com leite vaporizado cremoso - 180ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/e0349b13eef1c7cbbf870b03e530234d.jpg",
         "observacoes": ""
       },
       {
         "nome": "Macchiato",
         "descricao": "Café espresso com pingado de leite vaporizado cremoso - 80ml.",
-        "preco": 15.0,
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ad45d051e6605b1aaedf884ad25fd5ff.jpg",
         "observacoes": ""
       },
       {
         "nome": "Mocha",
         "descricao": "Café espresso, chocolate cremoso e leite vaporizado cremoso - 180ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/423a87aef030197c5741cc60da8e04af.jpg",
         "observacoes": ""
       },
       {
         "nome": "Veg Latte",
         "descricao": "Café espresso e leite de aveia vaporizado cremoso - 180ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
         "imagem_url": "",
         "observacoes": ""
@@ -704,25 +704,25 @@
       {
         "nome": "Clever",
         "descricao": "Preparo na Clever - 180ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/b8a08a691202f8bb1cef7063535c72d5.jpg",
         "observacoes": "Opção de café descafeinado."
       },
       {
         "nome": "Koar",
         "descricao": "Filtro criado em Pernambuco - 180ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/9805b936bbd9aacde09c68591c661718.jpg",
         "observacoes": "Opção de café descafeinado."
       },
       {
         "nome": "V60",
         "descricao": "Método de filtragem que realça acidez e doçura natural - 180ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/65027bd689aaa6878f5ede80a481c968.jpg",
         "observacoes": "Opção de café descafeinado."
       }
     ]
@@ -734,55 +734,55 @@
       {
         "nome": "Afogatto",
         "descricao": "Sorvete de creme, café espresso e creme toffee - 230ml.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5c8f2e3abb1283a673692e1a9230a4a5.jpg",
         "observacoes": ""
       },
       {
         "nome": "Espresso Tônica",
         "descricao": "Café espresso, água tônica e gelo.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/078f645ebe75347b3853fd41c69adba1.jpg",
         "observacoes": ""
       },
       {
         "nome": "Espresso Tônica Laranja",
         "descricao": "Café espresso, água tônica, xarope de laranja da casa e gelo - 330ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0d380ec7cfb201322b94dce73d10c0e4.jpg",
         "observacoes": ""
       },
       {
         "nome": "Iced Latte",
         "descricao": "Café espresso, leite gelado cremoso e gelo - 330ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f6d34a92a26d43025db8e2a477beeb00.jpg",
         "observacoes": ""
       },
       {
         "nome": "Iced Latte Furdunço",
         "descricao": "Café espresso, toffee, leite gelado cremoso e gelo - 330ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/2c4fbed3a19bd857b56548cae5a2a595.jpg",
         "observacoes": ""
       },
       {
         "nome": "Iced Mocha",
         "descricao": "Café espresso, creme de chocolate, leite gelado cremoso e gelo - 330ml.",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/1757c2a82b15c882ceeda48a028e8e8a.jpg",
         "observacoes": ""
       },
       {
         "nome": "Veg Latte Iced",
         "descricao": "Café espresso, leite de aveia gelado cremoso e gelo - 330ml.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "",
         "observacoes": ""
@@ -796,25 +796,25 @@
       {
         "nome": "Citrus",
         "descricao": "Café extraído a frio, água com gás, xarope de laranja e espuma de limão - 330ml.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c412cb1cdaed3422892e5fefaff97287.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cold Brew",
         "descricao": "Café extraído a frio, servido com gelo e limão siciliano - 230ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/cc15813bd550010c7a7114f75e5f7371.jpg",
         "observacoes": ""
       },
       {
         "nome": "Tropical",
         "descricao": "Café extraído a frio, água com gás, xarope de abacaxi e espuma de limão - 330ml.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c5a936201c81e3642a18520057d7e5f2.jpg",
         "observacoes": ""
       }
     ]
@@ -826,9 +826,9 @@
       {
         "nome": "Frapê",
         "descricao": "Batido com sorvete e leite. Finalizado com chantilly.",
-        "preco": 22.0,
+        "preco": 22,
         "preco_formatado": "R$ 22,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/2df30eac6341c7e0025e065b397b1b3a.jpg",
         "observacoes": "Sabores: café, doce de leite ou morango."
       }
     ]
@@ -840,49 +840,49 @@
       {
         "nome": "Chocolate Quente",
         "descricao": "Chocolate quente - 150ml.",
-        "preco": 16.0,
+        "preco": 16,
         "preco_formatado": "R$ 16,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/89cd513837a45b00e54f2e25f680112a.jpg",
         "observacoes": ""
       },
       {
         "nome": "Hibisco Refrescante",
         "descricao": "Chá de hibisco, xarope de abacaxi da casa e gelo - 330ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/5cd4c9b178ed4b318e15447b5f2b6497.jpg",
         "observacoes": ""
       },
       {
         "nome": "Mate com Limão",
         "descricao": "Chá mate com limão, açúcar e gelo - 330ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3546cff520b8b57dfa055a6f8ae4b4a9.jpg",
         "observacoes": ""
       },
       {
         "nome": "O Chá da Casa",
         "descricao": "Opções de chá - 180ml.",
-        "preco": 16.0,
+        "preco": 16,
         "preco_formatado": "R$ 16,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/013a101a7ec92229c7d8fac578675761.jpg",
         "observacoes": "Equilíbrio, Calma, Vibração ou Leveza."
       },
       {
         "nome": "Soda Italiana",
         "descricao": "Xarope da casa com água com gás e gelo - 330ml.",
-        "preco": 17.0,
+        "preco": 17,
         "preco_formatado": "R$ 17,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/d2a27479d012201186e9b9cf3d244c98.jpg",
         "observacoes": "Sabores: frutas vermelhas, laranja ou maracujá."
       },
       {
         "nome": "Suco de fruta",
         "descricao": "Suco de fruta.",
-        "preco": 13.0,
+        "preco": 13,
         "preco_formatado": "R$ 13,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/8b3ba61a96977f32a62c0f7232593d71.jpg",
         "observacoes": "Copo 330ml: R$ 13,00. Jarra 750ml: R$ 24,00. Sabores: laranja, morango, limão, acerola, abacaxi ou maracujá."
       }
     ]
@@ -894,25 +894,25 @@
       {
         "nome": "Aperol Spritz",
         "descricao": "Aperol, água com gás, espumante, gelo e uma rodela de laranja.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/f1fe4d9d9de2c8180de5bde291285b93.jpg",
         "observacoes": ""
       },
       {
         "nome": "Gin Tonic",
         "descricao": "Gin, água tônica, gelo e xarope da casa.",
-        "preco": 28.0,
+        "preco": 28,
         "preco_formatado": "R$ 28,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/c13e211818ca43138d7a28c86d9a4ff4.jpg",
         "observacoes": "Xarope: laranja, maracujá ou frutas vermelhas."
       },
       {
         "nome": "Mimosa",
         "descricao": "Espumante, suco de laranja e morangos amassados.",
-        "preco": 25.0,
+        "preco": 25,
         "preco_formatado": "R$ 25,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/6f17e12c34adebf27e047114858f09f5.jpg",
         "observacoes": ""
       }
     ]
@@ -924,7 +924,7 @@
       {
         "nome": "Água com gás",
         "descricao": "Água com gás 330ml.",
-        "preco": 8.0,
+        "preco": 8,
         "preco_formatado": "R$ 8,00",
         "imagem_url": "",
         "observacoes": ""
@@ -932,7 +932,7 @@
       {
         "nome": "Água sem gás",
         "descricao": "Água sem gás 330ml.",
-        "preco": 7.0,
+        "preco": 7,
         "preco_formatado": "R$ 7,00",
         "imagem_url": "",
         "observacoes": ""
@@ -940,71 +940,71 @@
       {
         "nome": "Cerveja Heineken",
         "descricao": "Longneck.",
-        "preco": 15.0,
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/8c9e3872fbaf1e6863a61aa3b793d522.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cerveja Heineken Zero",
         "descricao": "Longneck.",
-        "preco": 15.0,
+        "preco": 15,
         "preco_formatado": "R$ 15,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/3afa085683a79b96538fa8575527962c.jpg",
         "observacoes": ""
       },
       {
         "nome": "Cerveja Stella Artois",
         "descricao": "600ml.",
-        "preco": 18.0,
+        "preco": 18,
         "preco_formatado": "R$ 18,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/47df67c293ebe6aebbb034c80d1349f8.jpg",
         "observacoes": ""
       },
       {
         "nome": "Coca cola lata 350ml",
         "descricao": "Coca cola lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/0vrSyrEz-TUleFHEhvIJy-ZUBFpAj_sad-3v-vI.jpg",
         "observacoes": ""
       },
       {
         "nome": "Coca cola zero lata 350ml",
         "descricao": "Coca cola zero lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/ouxsvyRDKyS4MfsCxVwC_i_c2BexUJr4Ginh8f0.jpg",
         "observacoes": ""
       },
       {
         "nome": "Fanta lata 350ml",
         "descricao": "Fanta lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/dZMxOxh5d5ed2N-EFp-G1ZUUrxrUEGrEBabnX7E.jpg",
         "observacoes": ""
       },
       {
         "nome": "Guaraná Antarctica lata 350ml",
         "descricao": "Guaraná Antarctica lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/dSazLTBoYO6-sg4-vD9DoLsra0QYretecudV8Sw.jpg",
         "observacoes": ""
       },
       {
         "nome": "Guaraná Antarctica zero lata 350ml",
         "descricao": "Guaraná Antarctica zero lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/pjhuMiqRK9TBlVe226gb8ZSLjqvqh2eUoBnYVu0.jpg",
         "observacoes": ""
       },
       {
         "nome": "Licor",
         "descricao": "Licor - consultar sabor disponível.",
-        "preco": 20.0,
+        "preco": 20,
         "preco_formatado": "R$ 20,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1012,9 +1012,9 @@
       {
         "nome": "Sprite lata 350ml",
         "descricao": "Sprite lata 350ml.",
-        "preco": 9.0,
+        "preco": 9,
         "preco_formatado": "R$ 9,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/Tdmk8wKhcM2eBQHx4ZazA-EtEopDGuEdXX2QdCk.jpg",
         "observacoes": ""
       }
     ]
@@ -1026,7 +1026,7 @@
       {
         "nome": "Alto Tierruca Reserva Carmenere",
         "descricao": "Colchagua - Chile.",
-        "preco": 99.0,
+        "preco": 99,
         "preco_formatado": "R$ 99,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1034,7 +1034,7 @@
       {
         "nome": "Alto Tierruca Reserva Sauvignon Blanc",
         "descricao": "Curicó - Chile.",
-        "preco": 99.0,
+        "preco": 99,
         "preco_formatado": "R$ 99,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1042,7 +1042,7 @@
       {
         "nome": "Amayan Belhara Reserva Chardonnay",
         "descricao": "Mendoza - Argentina.",
-        "preco": 99.0,
+        "preco": 99,
         "preco_formatado": "R$ 99,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1050,7 +1050,7 @@
       {
         "nome": "Amayan Belhara Reserva Malbec",
         "descricao": "Mendoza - Argentina.",
-        "preco": 99.0,
+        "preco": 99,
         "preco_formatado": "R$ 99,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1058,7 +1058,7 @@
       {
         "nome": "Casa de Cambres Doc Douro Reserva Branco",
         "descricao": "Douro - Portugal.",
-        "preco": 105.0,
+        "preco": 105,
         "preco_formatado": "R$ 105,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1066,7 +1066,7 @@
       {
         "nome": "Espumante Virtus Monte Paschoal Brut",
         "descricao": "Vale dos Vinhedos - Brasil.",
-        "preco": 95.0,
+        "preco": 95,
         "preco_formatado": "R$ 95,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1074,7 +1074,7 @@
       {
         "nome": "Perez Cruz Reserva Cabernet Sauvignon",
         "descricao": "Maipo - Chile.",
-        "preco": 109.0,
+        "preco": 109,
         "preco_formatado": "R$ 109,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1082,7 +1082,7 @@
       {
         "nome": "Taça vinho branco",
         "descricao": "",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1090,7 +1090,7 @@
       {
         "nome": "Taça vinho tinto",
         "descricao": "",
-        "preco": 19.0,
+        "preco": 19,
         "preco_formatado": "R$ 19,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1104,7 +1104,7 @@
       {
         "nome": "Acompanhamentos e porções",
         "descricao": "PROTEÍNAS - R$14,00(carne louca, frango desfiado, costelinha de porco desfiada)ACOMPANHAMENTOS - R$ 12,00(salada de folhas, arroz, purê de batata ou batata doce, espaguete de legumes, farofa)PORÇÕES - R$ 7,00(queijo parmesão, requeijão, geleia, granola, mel de abelha, molho pesto, mostarda doce)EXTRAS - R$ 10,00(ovos, bacon, queijo coalho)",
-        "preco": 14.0,
+        "preco": 14,
         "preco_formatado": "R$ 14,00",
         "imagem_url": "",
         "observacoes": ""
@@ -1118,9 +1118,9 @@
       {
         "nome": "Bolo do dia",
         "descricao": "Fatia de bolo. Consultar o sabor do dia.",
-        "preco": 14.0,
+        "preco": 14,
         "preco_formatado": "R$ 14,00",
-        "imagem_url": "",
+        "imagem_url": "https://wifireme.s3-sa-east-1.amazonaws.com/images/7a1ea81bb3799aa2371bbb7ecba75a06.jpg",
         "observacoes": "Válido às quintas e sextas-feiras, das 17h30 às 20h30."
       }
     ]

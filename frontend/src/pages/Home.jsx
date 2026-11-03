@@ -38,6 +38,14 @@ const categoriasIniciais = catalogoFurdunco.map((cat, idx) => ({
 
 const getEmoji = (nome) => {
     const n = nome.toLowerCase();
+    if (n.includes("vinho") || n.includes("carmenere") || n.includes("malbec") || n.includes("cabernet") || n.includes("sauvignon") || n.includes("chardonnay") || n.includes("douro")) return "🍷";
+    if (n.includes("espumante") || n.includes("brut")) return "🥂";
+    if (n.includes("água") || n.includes("agua")) return "💧";
+    if (n.includes("licor")) return "🥃";
+    if (n.includes("cuscuz")) return "🌽";
+    if (n.includes("pão") || n.includes("pao") || n.includes("toast")) return "🥖";
+    if (n.includes("latte") || n.includes("café") || n.includes("cafe") || n.includes("espresso")) return "☕";
+    if (n.includes("cookie") || n.includes("bolo") || n.includes("torta")) return "🍰";
     if (n.includes("pizza"))    return "🍕";
     if (n.includes("hamburguer") || n.includes("burger")) return "🍔";
     if (n.includes("macarrão") || n.includes("espaguete")) return "🍝";
@@ -51,11 +59,9 @@ const getEmoji = (nome) => {
     if (n.includes("queijo"))   return "🧀";
     if (n.includes("macaxeira") || n.includes("mandioca")) return "🌿";
     if (n.includes("sorvete"))  return "🍦";
-    if (n.includes("bolo") || n.includes("torta")) return "🎂";
-    if (n.includes("petisco"))  return "🍟";
+    if (n.includes("petisco") || n.includes("acompanhamento") || n.includes("porç")) return "🍟";
     if (n.includes("cerveja"))  return "🍺";
     if (n.includes("caipirinha") || n.includes("cachaça")) return "🍹";
-    if (n.includes("café") || n.includes("cafe")) return "☕";
     if (n.includes("combo") || n.includes("promoção")) return "🎉";
     return "🍴";
 };
