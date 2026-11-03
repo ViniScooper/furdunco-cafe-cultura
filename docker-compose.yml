@@ -13,7 +13,7 @@ services:
     environment:
       PORT: 3001
       DB_HOST: boteco_db
-      DB_USER: root
+      DB_USER: ${DB_USER:-furdunco_app}
       DB_PASSWORD: ${DB_PASSWORD:?Configure DB_PASSWORD no ambiente}
       DB_NAME: furdunco_db
       DB_PORT: 3306
